@@ -19,9 +19,8 @@ return new class extends Migration
             $table->date('courrier_date_arrive');
             $table->enum('courrier_status', ['enStok', 'enCours', 'destoke']);
             $table->foreignId('emeteur_id')->constrained('emeteurs');
-            $table->foreignId('destinataire_id')->constrained('destinataires');
+            $table->foreignId('user_id')->constrained('users');
             $table->foreignId('emplacement_id')->constrained('emplacements');
-            $table->foreignId('receptioniste_id')->constrained('receptionistes');
             $table->timestamps();
         });
     }

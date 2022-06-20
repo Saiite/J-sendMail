@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('receptionistes', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('receptioniste_noms');
-            $table->string('receptioniste_prenoms');
-            $table->string('receptioniste_email');
-            $table->string('receptioniste_password');
+            $table->string('role_destinataire');
+            $table->string('role_receptioniste');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('receptionistes');
+        Schema::dropIfExists('roles');
     }
 };

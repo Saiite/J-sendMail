@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('historique_date_debut');
             $table->date('historique_date_fin');
             $table->foreignId('poste_id')->constrained('postes');
-            $table->foreignId('destinataire_id')->constrained('destinataires');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
 
         });

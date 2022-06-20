@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('ZIP')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->foreignId('role_id')->constrained('roles');
             $table->rememberToken()->unique();
             $table->timestamps();
         });
