@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
     use HasFactory, Notifiable;
 
     /**
@@ -16,11 +17,11 @@ class User extends Authenticatable
      *
      * @var array
      */
- /*    protected $fillable = [
+    protected $fillable = [
         'name',
         'email',
         'password',
-    ]; */
+    ];
     protected $guarded=[];
 
     /**
@@ -41,4 +42,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function courriers()
+    {
+        return $this->hasMany(courrier::class,'user_id');
+    }
 }

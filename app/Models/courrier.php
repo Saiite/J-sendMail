@@ -7,5 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class courrier extends Model
 {
+
     use HasFactory;
+    protected $fillable = [
+        'courrier_libele',
+        'courrier_date_arrive',
+        'emeteur_id',
+        'user_id',
+        'emplacement_id',
+    ];
+    public function user()
+    {
+        return $this->belongsTo(user::class,'user_id');
+    }
+    public function emplacement()
+    {
+        return $this->belongsTo(emplacement::class,'emplacement_id');
+    }
+    public function emeteur()
+    {
+        return $this->belongsTo(emeteur::class, 'emeteur_id');
+    }
 }
