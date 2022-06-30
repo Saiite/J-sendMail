@@ -1,4 +1,9 @@
-<title>Volt Laravel Dashboard - User management</title>
+
+<div>
+    @if($updateMode)
+    
+    @endif
+    <title>Volt Laravel Dashboard - User management</title>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div class="d-block mb-4 mb-md-0">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -17,11 +22,10 @@
                 <li class="breadcrumb-item active" aria-current="page">Users List</li>
             </ol>
         </nav>
-        <h2 class="h4">Users List</h2>
-        <p class="mb-0">Your web analytics dashboard template.</p>
+        
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="#" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+        <a href="live-table" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
@@ -35,20 +39,7 @@
         </div>
     </div>
 </div>
-<div class="table-settings mb-4">
-    <div class="row justify-content-between align-items-center">
-        <div class="col-9 col-lg-8 d-md-flex">
-            <div class="input-group me-2 me-lg-3 fmxw-300">
-                <span class="input-group-text">
-                    <svg class="icon icon-xs" x-description="Heroicon name: solid/search"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Search users">
-            </div>
+
             <select class="form-select fmxw-200 d-none d-md-inline" aria-label="Message select example 2">
                 <option selected>All</option>
                 <option value="1">Active</option>
@@ -111,20 +102,7 @@
         </div>
     </div>
 </div>
-<div class="alert alert-danger" role="alert">
-    Add, Edit, Delete features are not functional. This is a PRO feature! Click <a
-        href="https://volt-pro-laravel-admin-dashboard.updivision.com/" target="_blank">here</a> to see the PRO product.
-</div>
-<div class="card card-body shadow border-0 table-wrapper table-responsive">
-    <div class="d-flex mb-3">
-        <select class="form-select fmxw-200" aria-label="Message select example">
-            <option selected>Bulk Action</option>
-            <option value="1">Send Email</option>
-            <option value="2">Change Group</option>
-            <option value="3">Delete User</option>
-        </select>
-        <button class="btn btn-sm px-3 btn-secondary ms-3">Apply</button>
-    </div>
+
     <table class="table user-table table-hover align-items-center">
         <thead>
             <tr>
@@ -135,35 +113,23 @@
                         </label>
                     </div>
                 </th>
-                <th class="border-bottom">Name</th>
-                <th class="border-bottom">Role</th>
-                <th class="border-bottom">Date Created</th>
-                <th class="border-bottom">Status</th>
-                <th class="border-bottom">Action</th>
+                <th>first_name </th>
+                <th >last_name</th>
+                <th>Email</th>
+                <th>Date Created</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
+            @foreach($users as $value)
             <tr>
-                <td>
-                    <div class="form-check dashboard-check">
-                        <input class="form-check-input" type="checkbox" value="" id="userCheck1">
-                        <label class="form-check-label" for="userCheck1">
-                        </label>
-                    </div>
-                </td>
-                <td>
-                    <a href="#" class="d-flex align-items-center">
-                        <img src="../assets/img/team/profile-picture-1.jpg" class="avatar rounded-circle me-3"
-                            alt="Avatar">
-                        <div class="d-block">
-                            <span class="fw-bold">Admin</span>
-                            <div class="small text-gray">admin@volt.com</div>
-                        </div>
-                    </a>
-                </td>
-                <td><span class="fw-normal">Admin</span></td>
-                <td><span class="fw-normal d-flex align-items-center">15 Jun 2021</span></td>
-                <td><span class="fw-normal text-success">Active</span></td>
+                <td>{{ $value->id }}</td>
+                <td>{{ $value->first_name}}</td>
+                <td>{{ $value->last_name}}</td>
+                <td>{{ $value->email }}<span class="fw-normal text-success"></span></td>
+                <td>{{ $value->Created}}</td>
+                <td>{{ $value->Action}}<span class="fw-normal text-success"></span></td>
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
@@ -177,18 +143,13 @@
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <span class="fas fa-user-shield me-2"></span>
-                                View Details
-                            </a>
-                            <a class="dropdown-item text-danger d-flex align-items-center" href="#">
-                                <span class="fas fa-user-times me-2"></span>
-                                Delete user
-                            </a>
-                        </div>
+                            <button wire:click="edit({{ $value->id }})" class="btn btn-primary btn-sm">Edit</button>
+                            <button wire:click="delete({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
                     </div>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

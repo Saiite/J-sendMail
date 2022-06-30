@@ -72,6 +72,10 @@
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-gray-800">Sign in</button>
                             </div>
+                            <br>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-gray-800">register</button>
+                            </div>
                         </form>
                         <div class="mt-3 mb-4 text-center">
                             <span class="fw-normal">or login with</span>

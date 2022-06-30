@@ -1,40 +1,32 @@
 <?php
 
-use App\Http\Livewire\BootstrapTables;
-use App\Http\Livewire\Components\Buttons;
-use App\Http\Livewire\Components\Forms;
-use App\Http\Livewire\Components\Modals;
-use App\Http\Livewire\Components\Notifications;
-use App\Http\Livewire\Components\Typography;
-use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Lock;
+use App\Http\Livewire\Index;
+use App\Http\Livewire\Users;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
+use App\Http\Livewire\Profile;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\LiveTable;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\LoginExample;
+use App\Http\Livewire\Transactions;
+use App\Http\Livewire\UpgradeToPro;
+use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\ResetPassword;
 use App\Http\Livewire\ForgotPassword;
-use App\Http\Livewire\Lock;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Auth\Register;
-use App\Http\Livewire\ForgotPasswordExample;
-use App\Http\Livewire\Index;
-use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\ProfileExample;
-use App\Http\Livewire\RegisterExample;
-use App\Http\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\BootstrapTables;
+use App\Http\Livewire\RegisterExample;
+use App\Http\Livewire\Components\Forms;
+use App\Http\Controllers\MailController;
+use App\Http\Livewire\Components\Modals;
+use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\ResetPasswordExample;
-use App\Http\Livewire\UpgradeToPro;
-use App\Http\Livewire\Users;
-use App\Http\Controllers\courrierController;
-use App\Http\Controllers\emeteurController;
-use App\Http\Controllers\emplacementController;
-use App\Http\Livewire\CourrierList;
-use App\Http\Livewire\CourrierIndex;
-use App\Http\Livewire\EmeteurList;
-use App\Http\Livewire\EmplacementList;
-use App\Http\Livewire\CourrierEdit;
-use App\Http\Livewire\CourrierShow;
-
+use App\Http\Livewire\Components\Typography;
+use App\Http\Livewire\ForgotPasswordExample;
+use App\Http\Livewire\Components\Notifications;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,15 +38,23 @@ use App\Http\Livewire\CourrierShow;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
+Route::redirect('/', '/index');
 Route::redirect('/', '/login');
+Route::get('/live-table', LiveTable::class)->name('live-table');
+
 Route::get('/register', Register::class)->name('register');
+
 Route::get('/login', Login::class)->name('login');
+
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
+
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
+
 Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
@@ -71,12 +71,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications', Notifications::class)->name('notifications');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
-    Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
-    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
-    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
-    Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
-    Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
-    Route::get('/emplacement-list',EmplacementList::class)->name('emplacement-list');
     Route::get('/typography', Typography::class)->name('typography');
-
 });

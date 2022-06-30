@@ -31,17 +31,16 @@ class Profile extends Component
 
     public function save()
     {
-        if(env('IS_DEMO')) {
-            $this->showDemoNotification = true;
-        }
-        else {
         $this->validate();
 
         $this->user->save();
 
         $this->showSavedAlert = true;
+
         }
-    }
+    
+    
+    
 
     public function render()
     {

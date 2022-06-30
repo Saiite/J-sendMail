@@ -9,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-
     use HasFactory, Notifiable;
 
     /**
@@ -17,11 +16,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+ /*    protected $fillable = [
         'name',
         'email',
         'password',
-    ];
+    ]; */
     protected $guarded=[];
 
     /**
@@ -42,8 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function courriers()
+    
+    
+    public static function search($query)
     {
-        return $this->hasMany(courrier::class,'user_id');
+        return empty($query) ? static::query()->where('user_type', 'user')
+            : static::where('user_type', 'user')
+                ->where(function($q) use ($query) {
+                    $q
+                        ->where(' first_name', 'LIKE', '%'. $query . '%')
+                        ->where(' last_name', 'LIKE', '%'. $query . '%')
+                        ->orWhere('email', 'LIKE', '%' . $query . '%')
+                        ->orWhere('address', 'LIKE ', '%' . $query . '%');
+                });
     }
 }
