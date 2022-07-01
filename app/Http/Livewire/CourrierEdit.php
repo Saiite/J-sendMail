@@ -10,14 +10,13 @@ use App\Models\emplacement;
 
 class CourrierEdit extends Component
 {
-     public $courrier;
+     public $Courrier;
      public $state = [];
     public $updateMode = false;
 
     public function edit($id)
     {
         $this->updateMode = true;
-
         $courriers = courrier::find($id);
 
         $this->state = [
@@ -27,6 +26,8 @@ class CourrierEdit extends Component
             'user_id' => $courriers->user_id,
             'emplacement_id' => $courriers->emplacement_id,
         ];
+        courrier::create($this->state);
+
     }
     public function update()
     {
@@ -38,37 +39,34 @@ class CourrierEdit extends Component
             'user_id' => 'required|max:100',
             'emplacement_id' => 'required|max:100'
         ])->validate();
-        dd('je suis la');
-
-        if ($this->state['id']) {
-            $courriers = courrier::find($this->state['id']);
-            $courriers->update([
-                'courrier_libele' => $this->state['courrier_libele'],
-                'courrier_date_arrive' => $this->state['courrier_date_arrive'],
-                'emeteur_id' => $this->state['emeteur_id'],
-                'user_id' => $this->state['user_id'],
-                'emplacement_id' => $this->state['emplacement_id'],
-            ]);
-            dd('je suis la');
+        courrier::where()->update($this->state);
             $this->updateMode = false;
             $this->reset('state');
             $this->Courrier = courrier::all();
-        }
+
     }
-    public function mount($courrier)
+
+    public function mount($id)
     {
-        //$this $id= new courrier;
+        $this->updateMode = true;
+        $courriers = courrier::find($id);
 
-        $this->courrrier =$id;
+        $this->state = [
+            'courrier_id' => $courriers->courrier_id,
+            'courrier_libele' => $courriers->courrier_libele,
+            'emeteur_id' => $courriers->emeteur_id,
+            'user_id' => $courriers->user_id,
+            'emplacement_id' => $courriers->emplacement_id,
+        ];
+        courrier::create($this->state);
     }
-
 
     public function render()
     {
-
+    $courrier = courrier::find(14);
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();
-        return view('livewire.courrier-edit', compact('emet','dest','empla',));
+        return view('livewire.courrier-edit', compact('emet','dest','empla','courrier'));
     }
 }

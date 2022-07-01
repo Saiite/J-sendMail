@@ -24,7 +24,6 @@ class CourrierList extends Component
 
     public function store()
     {
-
         $validator = Validator::make($this->state, [
             'courrier_libele' => 'required|max:100',
             'courrier_date_arrive' => 'required|max:100',
@@ -38,13 +37,11 @@ class CourrierList extends Component
         $this->Courrier = courrier::all();
     }
 
-
     public function cancel()
     {
         $this->updateMode = false;
         $this->reset('state');
     }
-
 
     public function delete($id)
     {
