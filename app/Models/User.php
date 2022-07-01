@@ -32,7 +32,18 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    protected $rules = [
+        'user.first_name' => 'max:15',
+        'user.last_name' => 'max:20',
+        'user.birthday' => 'date_format:Y-m-d',
+        'user.email' => 'email',
+        'user.phone' => 'numeric',
+        'user.gender' => '',
+        'user.address' => 'max:20',
+        'user.number' => 'numeric',
+        'user.city' => 'max:20',
+        'user.zip' => 'numeric',
+    ];
     /**
      * The attributes that should be cast to native types.
      *

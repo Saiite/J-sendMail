@@ -45,6 +45,7 @@ class ResetPassword extends Component
         else {
             $this->wrongEmail = true;
         }
+        redirect()->intended('/login');
     }
     
     public function render()

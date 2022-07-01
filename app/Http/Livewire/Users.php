@@ -8,18 +8,19 @@ use Livewire\Component;
 
 class Users extends Component
 {
-    public $users,  $first_name,$email, $user_id;
+    public $users,  $first_name,$last_name,$email, $user_id;
     public $updateMode = false;
 
     public function render()
     {
         $this->users = User::all();
-        
+        $data = User::paginate(5);
         return view('livewire.users');
     }
 
     private function resetInputFields(){
         $this->first_name = '';
+        $this->last_name = '';
         $this->email = '';
     }
 
@@ -27,6 +28,7 @@ class Users extends Component
     {
         $validatedDate = $this->validate([
             'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
         ]);
 
@@ -41,12 +43,14 @@ class Users extends Component
     public function edit($id)
     {
         $this->updateMode = true;
-        $user = Users::where('id',$id)->first();
+        $users = User::find($id);
         $this->user_id = $id;
-        $this->name = $user->name;
-        $this->email = $user->email;
+        $this->first_name= $users->first_name;
+        $this->last_name= $users->last_name;
+        $this->email = $users->email;
         
     }
+    
 
     public function cancel()
     {
@@ -59,14 +63,16 @@ class Users extends Component
     public function update()
     {
         $validatedDate = $this->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
         ]);
 
         if ($this->user_id) {
             $user = Users::find($this->user_id);
             $user->update([
-                'name' => $this->name,
+                'first_name' => $this->first_name,
+                'last_name' => $this->last_name,
                 'email' => $this->email,
             ]);
             $this->updateMode = false;
