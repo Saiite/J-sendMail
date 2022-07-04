@@ -31,7 +31,6 @@ class CourrierList extends Component
             'user_id' => 'required|max:100',
             'emplacement_id' => 'required|max:100',
         ])->validate();
-
         courrier::create($this->state);
         $this->reset('state');
         $this->Courrier = courrier::all();

@@ -30,12 +30,15 @@ use App\Http\Controllers\emeteurController;
 use App\Http\Controllers\emplacementController;
 use App\Http\Livewire\CourrierList;
 use App\Http\Livewire\CourrierIndex;
-use App\Http\Livewire\EmeteurList;
-use App\Http\Livewire\EmplacementList;
 use App\Http\Livewire\CourrierEdit;
 use App\Http\Livewire\CourrierShow;
-
-
+use App\Http\Livewire\EmeteurList;
+use App\Http\Livewire\EmplacementList;
+use App\Http\Livewire\EmplacementIndex;
+use App\Http\Livewire\EmplacementShow;
+use App\Http\Livewire\EmplacementEdit;
+use App\Http\Livewire\EmeteurEdit;
+use App\Http\Livewire\EmeteurIndex;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,7 +79,13 @@ Route::middleware('auth')->group(function () {
     Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
+    Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index');
+    Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit');
     Route::get('/emplacement-list',EmplacementList::class)->name('emplacement-list');
+    Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
+    Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
+    Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
+
     Route::get('/typography', Typography::class)->name('typography');
 
 });
