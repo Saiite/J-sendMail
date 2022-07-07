@@ -2,85 +2,134 @@
 
 namespace App\Http\Livewire;
 
-namespace App\Http\Livewire;
-
 use App\Models\User;
-
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
+
+use function Ramsey\Uuid\v1;
 
 class Profile extends Component
 {
-    public $users,  $first_name,$last_name,$email,$showSavedAlert,$showDemoNotification,$mailSentAlert, $user_id;
-    public $updateMode = false;
-
+    public $users;
+    public $state = [];
+    public $password;
+   public $updateMode = false;
+    protected $messages = [
+        'email.exists' => 'The Email Address must be in our database.',
+    ];
     public function render()
     {
-        $this->users = User::all();
-        $data = User::paginate(5);
+        $this->users = User::find(4);
+        
         return view('livewire.profile');
     }
 
+   
+
+  //*  public function store()
+  // {
+        //$this->validate([
+
+           // 'first_name' => 'required',
+           // 'last_name' => 'required',
+            //'email' => 'required',
+           // 'password' => 'required|min:6',
+     //   ]);
+
+      //  $user = User::create([
+          //  'first_name' =>$this->first_name,
+           // 'last_name' =>$this->last_name,
+            
+           // 'email' =>$this->email,
+          //  'password' => Hash::make($this->password),
+           // 'remember_token' => Str::random(10),
+            
+      //  ]);
+       // redirect()->intended('/users');
+    //}
+   // public function routeNotificationForMail() {
+      //  return $this->email;
+    //}
+
+   
+
+
+    public function edit($id)
+    {
+        dd($id);
+        $this->updateMode = true;
+
+        $users = User::find($id);
+        dd($id);
+
+        $this->state = [
+
+           'id' =>$users->id,
+            'first_name' => $users->first_name,
+            'last_name' => $users->last_name,
+            'email' => $users->email,
+            'password' =>  $users->password,
+        ];
+    
+    }
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
     }
-
-    public function store()
-    {
-        $validatedDate = $this->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-        ]);
-
-        Users::create($validatedDate);
-
-        session()->flash('message', 'Users Created Successfully.');
-
-        $this->resetInputFields();
-
-    }
-
-    public function edit($id)
+    public function mount($id)
     {
         $this->updateMode = true;
-        $users = User::where('id',$id);
-        $this->user_id = $id;
-        $this->first_name= $users->first_name;
-        $this->last_name= $users->last_name;
-        $this->email = $users->email;
-        
-    }
+        $users = User::find($id);     
+       $this->state = [
+            'id' =>$users->id,
+             'first_name' => $users->first_name,
+             'last_name' => $users->last_name,
+             'email' => $users->email,
+            'password' =>  $users->password,
+         ];
+
+      
+    } 
     
 
     public function cancel()
     {
         $this->updateMode = false;
         $this->resetInputFields();
-
+        redirect()->intended('/users');
 
     }
 
     public function update()
     {
-        $validatedDate = $this->validate([
+        $validator = Validator::make($this->state,[
+            
             'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required',
             'email' => 'required|email',
-        ]);
-
-        if ($this->user_id) {
-            $user = Users::find($this->user_id);
-            $user->update([
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name,
-                'email' => $this->email,
+            'password' =>'required',
+        ])->validate();
+            
+        if ($this->state['id']) {
+            $users = User::find($this->state['id']);
+            $users->update([
+                'id' => $this->state['id'],
+                'first_name' => $this->state['first_name'],
+                'first_name' => $this->state[ 'first_name'],
+                'email' => $this->state['email'],
+                'password' => $this->state['password' ],
             ]);
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
-            $this->resetInputFields();
-
+            $this->reset('state') ; 
+            $this->users=User::all();
+            redirect()->intended('/users');
         }
     }
 

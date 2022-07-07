@@ -124,6 +124,21 @@
             </div>
         </div>
     </div>
+    <form class="navbar-search form-inline" id="navbar-search-main">
+        <div class="input-group input-group-merge search-bar">
+          <span class="input-group-text" id="topbar-addon"><svg class="icon icon-xs"
+              x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+              fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"></path>
+            </svg></span></span>
+          <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search"
+            aria-describedby="topbar-addon">
+        </div>
+      </form>
+      <br>
+      <br>
     <div class="row">
         <div class="col-12 col-xl-8">
             <div class="card card-body border-0 shadow mb-4">
@@ -147,27 +162,15 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
-                            <label for="birthday">Birthday</label>
+                            <label for="birthday"></label>
                             <div class="input-group">
-                                <span class="input-group-text"><svg class="icon icon-xs" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd"></path>
-                                    </svg></span>
-                                <input data-datepicker=""
-                                    class="form-control datepicker-input" id="birthday" type="text"
-                                    placeholder="yyyy/mm/dd" disabled>
+                                
+                                
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="gender">Gender</label>
-                            <select class="form-select mb-0" id="gender"
-                                aria-label="Gender select example">
-                                <option selected>Gender</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
-                                <option value="Other">Other</option>
+                      <div class="col-md-6 mb-3">
+                           <label for="gender"></label>
+                           
                             </select>
                         </div>
                     </div>
@@ -176,46 +179,44 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input  class="form-control" id="email" type="email"
-                                    placeholder="name@company.com" disabled>
+                                    placeholder="name@company.com" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input class="form-control" id="phone" type="number"
-                                    placeholder="+12-345 678 910">
+                                <label for="phone"></label>
+                                
                             </div>
                         </div>
                     </div>
-                    <h2 class="h5 my-4">Location</h2>
+                    <!-- commentaire particulier<h2 class="h5 my-4">Location</h2> -->
+                    
                     <div class="row">
                         <div class="col-sm-9 mb-3">
                             <div class="form-group">
-                                <label for="address">Address</label>
-                                <input  class="form-control" id="address" type="text"
-                                    placeholder="Enter your home address">
+                                 <!-- commentaire particulier <label for="address">Address</label> -->
+                               
+                                
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <div class="form-group">
-                                <label for="number">Number</label>
-                                <input class="form-control" id="number" type="number"
-                                    placeholder="No.">
+                              
+                              
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 mb-3">
                             <div class="form-group">
-                                <label for="city">City</label>
-                                <input class="form-control" id="city" type="text"
-                                    placeholder="City">
+                               
+                                
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="zip">ZIP</label>
-                                <input class="form-control" id="zip" type="tel" placeholder="ZIP">
+                              
+                               
                             </div>
                         </div>
                     </div>
@@ -268,29 +269,25 @@
         </div>
         <div class="col-12 col-xl-4">
             <div class="row">
+                
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
-                        <div class="profile-cover rounded-top"
-                            data-background="../assets/img/profile-cover.jpg"></div>
+                        
                         <div class="card-body pb-5">
-                            <img src="../assets/img/team/profile-picture-1.jpg"
-                                class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
-                            <h4 class="h3">User Name</h4>
-                            <h5 class="fw-normal">Senior Software Engineer</h5>
-                            <p class="text-gray mb-4">New York, USA</p>
-                            <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
-                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
-                                    </path>
-                                </svg>
-                                Connect
-                            </a>
-                            <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
+                            <form wire:submit.prevent="save">
+                            <input type="file" wire:model="photo">
+                            @error('photo') <span class="error">{{ $message }}</span> @enderror
+ 
+                            <button type="submit">Save Photo</button>
+                            <form wire:submit.prevent="save">
+                            <h4 class="h3"></h4>
+                           
+                            
                         </div>
+                   
                     </div>
                 </div>
+                
                 <div class="col-12">
                     <div class="card card-body border-0 shadow mb-4">
                         <h2 class="h5 mb-4">Select profile photo</h2>

@@ -1,4 +1,10 @@
+
+<div class="row">
+    <div class="col-12 col-xl-12">
+        <div class="card card-body border-0 shadow mb-4">
+    <div class="btn-toolbar mb-2 mb-md-0">  
 <form>
+    
     <form wire:submit.prevent="register" action="#" method="POST">
         <div class="form-group mt-4 mb-4">
             <label for="first_name">first_name</label>
@@ -51,7 +57,12 @@
          </div>
      @endif
     <button wire:click.prevent="store()" class="btn btn-success">Save</button>
+    
+    <a href="http://127.0.0.1:8000/users" class="button" style="color: red">Cancel</a>
+     
     @error('email') <div class="valid-feedback"> {{ $message }} </div> @enderror 
 
     
 </form>
+</div>
+</div>

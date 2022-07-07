@@ -2,7 +2,26 @@
 <div>
     @if($updateMode)
     
-    @endif
+@else
+    
+@endif
+<form class="navbar-search form-inline" id="navbar-search-main">
+    <div class="input-group input-group-merge search-bar">
+      <span class="input-group-text" id="topbar-addon"><svg class="icon icon-xs"
+          x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+          fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            clip-rule="evenodd"></path>
+        </svg></span></span>
+      <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search"
+        aria-describedby="topbar-addon">
+    </div>
+  </form>
+  <br>
+<div class="row">
+    <div class="col-12 col-xl-12">
+        <div class="card card-body border-0 shadow mb-4">
     <div class="btn-toolbar mb-2 mb-md-0">
         <a href="live-table" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -27,8 +46,7 @@
                 <th>first_name </th>
                 <th >last_name</th>
                 <th>Email</th>
-                <th>Date Created</th>
-                <th>Status</th>
+                <th></th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -39,30 +57,30 @@
                 <td>{{ $value->first_name}}</td>
                 <td>{{ $value->last_name}}</td>
                 <td>{{ $value->email }}<span class="fw-normal text-success"></span></td>
-                <td>{{ $value->Created}}</td>
+              
                 <td>{{ $value->Action}}<span class="fw-normal text-success"></span></td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                                </path>
-                            </svg>
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon icon-sm">
+                                <span class="fas fa-ellipsis-h icon-dark"></span>
+                            </span>
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                           <a href="profile"><button wire:click="edit({{ $value->id }})" class="btn btn-primary btn-sm">Edit</button></a>
-                            <button wire:click="delete({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
+                        <div class="dropdown-menu py-0">
+                            <a class="dropdown-item rounded-top" href="{{ route('profile', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
+                            <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
+                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $value->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+                        </div>
                     </div>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
+</div>
+
 </div>
 <nav aria-label="Page navigation example">
     <ul class="pagination mb-0">
