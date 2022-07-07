@@ -24,9 +24,29 @@ use App\Http\Controllers\MailController;
 use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\ResetPasswordExample;
+<<<<<<< HEAD
 use App\Http\Livewire\Components\Typography;
 use App\Http\Livewire\ForgotPasswordExample;
 use App\Http\Livewire\Components\Notifications;
+=======
+use App\Http\Livewire\UpgradeToPro;
+use App\Http\Livewire\Users;
+use App\Http\Livewire\CourrierList;
+use App\Http\Livewire\CourrierIndex;
+use App\Http\Livewire\CourrierEdit;
+use App\Http\Livewire\CourrierShow;
+use App\Http\Livewire\EmeteurList;
+use App\Http\Livewire\EmplacementList;
+use App\Http\Livewire\EmplacementIndex;
+use App\Http\Livewire\EmplacementShow;
+use App\Http\Livewire\EmplacementEdit;
+use App\Http\Livewire\EmeteurEdit;
+use App\Http\Livewire\EmeteurIndex;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Livewire\EnvoiMail;
+
+>>>>>>> dubel
 
 /*
 |--------------------------------------------------------------------------
@@ -71,5 +91,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications', Notifications::class)->name('notifications');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
+<<<<<<< HEAD
     Route::get('/typography', Typography::class)->name('typography');
+=======
+    Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
+    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
+    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
+    Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
+    Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
+    Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index');
+    Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit');
+    Route::get('/emplacement-list',EmplacementList::class)->name('emplacement-list');
+    Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
+    Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
+    Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
+    Route::get('envoi-mail',EnvoiMail::class,'sendMessage')->name('envoi-mail');
+    Route::get('/typography', Typography::class)->name('typography');
+   // Route::get('notiffications/{{notification}}',courriernotification::class)->name('notifications');
+
+
+>>>>>>> dubel
 });

@@ -1,28 +1,28 @@
 <?php
 
+
 namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Route;
-use App\Models\courrier;
 use Livewire\Component;
-use App\Models\emeteur;
 use App\Models\emplacement;
-use App\Models\user;
 
-class CourrierShow extends Component
+
+
+class EmplacementShow extends Component
 {
-    public $courrier;
+    public $emplacement;
     public $state = [];
     public $updateMode = false;
 
-    public function mount(Courrier $courrier)
+    public function mount(emplacement $Emplacement)
     {
-        $this->courrrier = courrier::all();
-    }
+        $this->Emplacement = emplacement::all();
 
+    }
     public function render()
     {
-
-        return view('livewire.courrier-show');
+        return view('livewire.emplacement-show');
     }
+
 }

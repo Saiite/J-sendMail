@@ -18,11 +18,10 @@ class EmplacementList extends Component
             'emplacement_noms' => 'required|max:100',
             'emplacement_detail' => 'required|max:500',
         ])->validate();
-
         emplacement::create($this->state);
-
         $this->reset('state');
         $this->Emplacement = emplacement::all();
+        redirect()->intended('/courrier-list');
     }
     public function render()
     {
