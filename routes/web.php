@@ -25,9 +25,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
-use App\Http\Controllers\courrierController;
-use App\Http\Controllers\emeteurController;
-use App\Http\Controllers\emplacementController;
 use App\Http\Livewire\CourrierList;
 use App\Http\Livewire\CourrierIndex;
 use App\Http\Livewire\CourrierEdit;
@@ -39,6 +36,11 @@ use App\Http\Livewire\EmplacementShow;
 use App\Http\Livewire\EmplacementEdit;
 use App\Http\Livewire\EmeteurEdit;
 use App\Http\Livewire\EmeteurIndex;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Livewire\EnvoiMail;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,7 +87,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
     Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
     Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
-
+    Route::get('envoi-mail',EnvoiMail::class,'sendMessage')->name('envoi-mail');
     Route::get('/typography', Typography::class)->name('typography');
+   // Route::get('notiffications/{{notification}}',courriernotification::class)->name('notifications');
+
 
 });

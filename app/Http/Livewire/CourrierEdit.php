@@ -43,8 +43,8 @@ class CourrierEdit extends Component
             'emplacement_id' => 'required|max:100'
         ])->validate();
 
-        if ($this->state['courrier_id']) {
-            $courriers = courrier::find($this->state['courrier_id']);
+        if ($this->state['id']) {
+            $courriers = courrier::find($this->state['id']);
             $courriers->update([
                 'courrier_libele' => $this->state['courrier_libele'],
                 'courrier_date_arrive' => $this->state['courrier_date_arrive'],
@@ -63,19 +63,19 @@ class CourrierEdit extends Component
         $this->updateMode = true;
         $courriers = courrier::find($id);
         $this->state = [
-            'courrier_id' => $courriers->id,
+            'id' => $courriers->id,
             'courrier_libele' => $courriers->courrier_libele,
             'courrier_date_arrive'=>$courriers-> courrier_date_arrive,
             'emeteur_id' => $courriers->emeteur_id,
             'user_id' => $courriers->user_id,
             'emplacement_id' => $courriers->emplacement_id,
         ];
-        courrier::create($this->state);
+
     }
 
     public function render()
     {
-    $courrier = courrier::find(20);
+    $courrier = courrier::find(95);
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();

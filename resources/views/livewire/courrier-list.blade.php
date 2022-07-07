@@ -94,7 +94,10 @@
                 </div>
                 <div class="row mb-5 mb-lg-5">
                     <div class="col-lg-3 col-md-6">
-                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button></div>
+
+                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button><div class="alert alert-success" role="alert">
+                            A simple success alert—check it out!
+                          </div></div>
                         <!-- Checkboxes -->
                     </form>
                     <!-- End of Form -->

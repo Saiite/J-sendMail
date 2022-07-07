@@ -34,9 +34,11 @@
                                     <label for="emeteur_noms">noms de l'emeteur</label>
                                        <input type="text" class="form-control"  wire:model="state.emeteur_noms"id="emeteur_noms" aria-describedby="emeteur_noms">
                                          <small id="" class="form-text text-muted">donnez un noms explicite.</small>
-
                                              </div>
                                              <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+                                             {{-- <div class="alert alert-success" role="alert">
+                                                A simple success alert—check it out! --}}
+                                              </div>
                         </form>
                     </div>
                 </div>
