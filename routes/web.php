@@ -58,16 +58,18 @@ use App\Http\Livewire\EnvoiMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
+Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
+
 
 Route::get('/register', Register::class)->name('register');
 
 Route::get('/login', Login::class)->name('login');
 
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
+
 
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
@@ -76,7 +78,8 @@ Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('users/{id}/edit', Profile::class)->name('profile');
+   
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/users', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');

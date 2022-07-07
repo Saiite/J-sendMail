@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -16,11 +17,12 @@ class User extends Authenticatable
      *
      * @var array
      */
- /*    protected $fillable = [
-        'name',
+     protected $fillable = [
+        'first_name',
+        'last_name',
         'email',
-        'password',
-    ]; */
+      'password',
+    ]; 
     protected $guarded=[];
 
     /**
@@ -32,7 +34,18 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    protected $rules = [
+        'user.first_name' => 'max:15',
+        'user.last_name' => 'max:20',
+        'user.birthday' => 'date_format:Y-m-d',
+        'user.email' => 'email',
+        'user.phone' => 'numeric',
+        'user.gender' => '',
+        'user.address' => 'max:20',
+        'user.number' => 'numeric',
+        'user.city' => 'max:20',
+        'user.zip' => 'numeric',
+    ];
     /**
      * The attributes that should be cast to native types.
      *

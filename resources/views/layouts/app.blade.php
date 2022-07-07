@@ -4,10 +4,14 @@
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
     'buttons',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table']))
 =======
     'forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'notifications', 'typography', 'upgrade-to-pro']))
 >>>>>>> dubel
+=======
+    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','UsersEdit']))
+>>>>>>> 285d2e0c361d0ab7845773a80cbaacf473caf885
 
     {{-- Nav --}}
     @include('layouts.nav')
