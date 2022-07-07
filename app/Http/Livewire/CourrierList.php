@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Route;
+use App\Mail\MessageGoogle;
 use App\Models\courrier;
 use App\Models\emeteur;
 use App\Models\user;
 use App\Models\emplacement;
-
-
 use Livewire\Component;
+use Mail;
 class CourrierList extends Component
 {
 
@@ -18,13 +19,13 @@ class CourrierList extends Component
     public $updateMode = false;
 
 
+
     private function resetInputFields(){
         $this->reset('state');
     }
 
     public function store()
     {
-
         $validator = Validator::make($this->state, [
             'courrier_libele' => 'required|max:100',
             'courrier_date_arrive' => 'required|max:100',
@@ -32,19 +33,21 @@ class CourrierList extends Component
             'user_id' => 'required|max:100',
             'emplacement_id' => 'required|max:100',
         ])->validate();
-
-        courrier::create($this->state);
+        $var=courrier::create($this->state);
+        $var->user_id;
+        $var=user::find($var->user_id);
+        mail::to($var->email)->send(new MessageGoogle($this->state));
+        notify::to($var->user_id)->send(new courriernotification($this->state));
         $this->reset('state');
         $this->Courrier = courrier::all();
+        redirect()->intended('/courrier-index');
     }
-
 
     public function cancel()
     {
         $this->updateMode = false;
         $this->reset('state');
     }
-
 
     public function delete($id)
     {
@@ -53,7 +56,6 @@ class CourrierList extends Component
             $this->Courrier = courrier::all();
         }
     }
-
     public function render()
     {
         $emet = emeteur::all();

@@ -9,7 +9,6 @@ use App\Models\emeteur;
 use App\Models\emplacement;
 use App\Models\user;
 
-
 class CourrierShow extends Component
 {
     public $courrier;
@@ -23,7 +22,7 @@ class CourrierShow extends Component
 
     public function render()
     {
-        $courr = courrier::all();
-        return view('livewire.courrier-show',compact('courr'));
+
+        return view('livewire.courrier-show');
     }
 }

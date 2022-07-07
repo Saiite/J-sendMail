@@ -29,7 +29,7 @@
                     <div class="row mb-4">
                         <div class="col-lg-4 col-sm-6">
                             <!-- Form -->
-                            <form wire:submit.prevent="'edit'.courrier_id()" action="#" method="POST">
+               <form wire:submit.prevent="edit({{ $courrier->id }})" action="#" method="POST">
                             <div class="mb-4">
                                 <label for="courrier_libele">libele du courrier</label>
                                 <input type="text" class="form-control"  wire:model="state.courrier_libele" id="courrier_libele" aria-describedby="courrier_libele"  value="{{old('courrier_libele',$courrier)}}"placeholder="libele" required >
@@ -86,9 +86,9 @@
                     </div>
                     <div class="row mb-5 mb-lg-5">
                         <div class="col-lg-3 col-md-6">
-                            <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="'edit'. now() . courrier_id()">envoyer</button>
+                            <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent= "update">envoyer</button>
                             <!-- Checkboxes -->
-                        </form>
+              </form>
                         </div>
                     </div>
                 </div>
