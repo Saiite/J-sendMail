@@ -3,50 +3,72 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users,  $first_name,$email, $user_id;
+    public $users,  $search, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
-
+    use WithPagination;
+    protected $messages = [
+        'email.exists' => 'The Email Address must be in our database.',
+    ];
     public function render()
     {
         $this->users = User::all();
         
         return view('livewire.users');
+      
     }
 
     private function resetInputFields(){
         $this->first_name = '';
+        $this->last_name = '';
         $this->email = '';
     }
 
     public function store()
     {
-        $validatedDate = $this->validate([
+        $this->validate([
             'first_name' => 'required',
-            'email' => 'required|email',
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:6',
         ]);
 
-        Users::create($validatedDate);
-
-        session()->flash('message', 'Users Created Successfully.');
-
-        $this->resetInputFields();
-
+        $user = User::create([
+            'first_name' =>$this->first_name,
+            'last_name' =>$this->last_name,
+            
+            'email' =>$this->email,
+            'password' => Hash::make($this->password),
+            'remember_token' => Str::random(10),
+            
+        ]);
+        redirect()->intended('/users');
+    }
+    public function routeNotificationForMail() {
+        return $this->email;
     }
 
     public function edit($id)
     {
         $this->updateMode = true;
-        $user = Users::where('id',$id)->first();
+        $users = User::where('id',$id);
         $this->user_id = $id;
-        $this->name = $user->name;
-        $this->email = $user->email;
+        $this->first_name= $users->first_name;
+        $this->last_name= $users->last_name;
+        $this->email = $users->email;
+        $this->password = $users->password;
         
+        
+        dd(" $this->updateMode = true");
     }
+    
 
     public function cancel()
     {
@@ -59,15 +81,21 @@ class Users extends Component
     public function update()
     {
         $validatedDate = $this->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'first_name' => 'required',
             'email' => 'required|email',
+            'password' => Hash::make($this->password),
         ]);
 
         if ($this->user_id) {
             $user = Users::find($this->user_id);
             $user->update([
-                'name' => $this->name,
+                'first_name' => $this->first_name,
+                'first_name' => $this->first_name,
                 'email' => $this->email,
+                'password' => Hash::make($this->password),
+                'remember_token' => Str::random(10),
+            
             ]);
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
