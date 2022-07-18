@@ -1,5 +1,5 @@
-<title>Volt Laravel Dashboard - Profile</title>
 <div>
+    <form method="POST" wire:submit.prevent="update">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div>
             <button class="btn btn-secondary me-2 dropdown-toggle" data-bs-toggle="dropdown"
@@ -124,228 +124,174 @@
             </div>
         </div>
     </div>
-    <form class="navbar-search form-inline" id="navbar-search-main">
-        <div class="input-group input-group-merge search-bar">
-          <span class="input-group-text" id="topbar-addon"><svg class="icon icon-xs"
-              x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-              fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd"></path>
-            </svg></span></span>
-          <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search"
-            aria-describedby="topbar-addon">
-        </div>
-      </form>
-      <br>
-      <br>
     <div class="row">
         <div class="col-12 col-xl-8">
+            @if($showSavedAlert)
+            <div class="alert alert-success" role="alert">
+                Saved!
+            </div>
+            @endif
             <div class="card card-body border-0 shadow mb-4">
                 <h2 class="h5 mb-4">General information</h2>
-                <form action="#">
+                <form wire:submit.prevent="save" action="#" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
                                 <label for="first_name">First Name</label>
-                                <input class="form-control" id="first_name" type="text"
-                                    placeholder="Enter your first name" required>
+                                <input wire:model="user.first_name" class="form-control" id="first_name" type="text"
+                                    placeholder="Enter your first name" disabled>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
                                 <label for="last_name">Last Name</label>
-                                <input class="form-control" id="last_name" type="text"
-                                    placeholder="Also your last name" required>
+                                <input wire:model="user.last_name" class="form-control" id="last_name" type="text"
+                                    placeholder="Also your last name" disabled>
                             </div>
                         </div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
-                            <label for="birthday"></label>
-                            <div class="input-group">
-                                
-                                
-                            </div>
-                        </div>
-                      <div class="col-md-6 mb-3">
-                           <label for="gender"></label>
-                           
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input  class="form-control" id="email" type="email"
-                                    placeholder="name@company.com" required>
+                                <input wire:model="user.email" class="form-control" id="email" type="email"
+                                    placeholder="name@company.com" disabled>
                             </div>
+                            @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="phone"></label>
-                                
-                            </div>
+                            <label for="gender">Gender</label>
+                            <select wire:model="user.gender" class="form-select mb-0" id="gender"
+                                aria-label="Gender select example">
+                                <option selected>Choose...</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            @error('user.gender') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                     </div>
-                    <!-- commentaire particulier<h2 class="h5 my-4">Location</h2> -->
-                    
+                    <h2 class="h5 my-4">Location</h2>
                     <div class="row">
                         <div class="col-sm-9 mb-3">
                             <div class="form-group">
-                                 <!-- commentaire particulier <label for="address">Address</label> -->
-                               
-                                
+                                <label for="address">Address</label>
+                                <input wire:model="user.address" class="form-control" id="address" type="text"
+                                    placeholder="Enter your home address">
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <div class="form-group">
-                              
-                              
+                                <label for="number">Number</label>
+                                <input wire:model="user.number" class="form-control" id="number" type="number"
+                                    placeholder="No.">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 mb-3">
                             <div class="form-group">
-                               
-                                
+                                <label for="city">City</label>
+                                <input wire:model="user.city" class="form-control" id="city" type="text"
+                                    placeholder="City">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                              
-                               
+                                <label for="zip">ZIP</label>
+                                <input wire:model="user.ZIP" class="form-control" id="zip" type="tel" placeholder="ZIP">
                             </div>
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Save All</button>
+                         <a href="users" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+            <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                </path>
+            </svg>
+            New User
+        </a>
                     </div>
+
+                    <div class="mt-3">
+                        <button type="submit" wire:model="update" href="profile " class="btn btn-gray-800 mt-2 animate-up-2">Save All</button>
+                        
+                    </div>
+                    
                 </form>
-            </div>
-            <div class="card card-body border-0 shadow mb-4 mb-xl-0">
-                <h2 class="h5 mb-4">Alerts & Notifications</h2>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                        <div>
-                            <h3 class="h6 mb-1">Company News</h3>
-                            <p class="small pe-4">Get Rocket news, announcements, and product updates</p>
-                        </div>
-                        <div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="user-notification-1">
-                                <label class="form-check-label" for="user-notification-1"></label>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                        <div>
-                            <h3 class="h6 mb-1">Account Activity</h3>
-                            <p class="small pe-4">Get important notifications about you or activity you've missed</p>
-                        </div>
-                        <div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="user-notification-2" checked>
-                                <label class="form-check-label" for="user-notification-2"></label>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-                        <div>
-                            <h3 class="h6 mb-1">Meetups Near You</h3>
-                            <p class="small pe-4">Get an email when a Dribbble Meetup is posted close to my location</p>
-                        </div>
-                        <div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="user-notification-3" checked>
-                                <label class="form-check-label" for="user-notification-3"></label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                @if($showDemoNotification)
+                <div class="alert alert-info mt-2" role="alert">
+                    You cannot do that in the demo version.
+                </div>
+                @endif
             </div>
         </div>
         <div class="col-12 col-xl-4">
             <div class="row">
-                
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
-                        
+                        <div wire:ignore.self class="profile-cover rounded-top"
+                            data-background="../assets/img/profile-cover.jpg"></div>
                         <div class="card-body pb-5">
-                            <form wire:submit.prevent="save">
-                            <input type="file" wire:model="photo">
-                            @error('photo') <span class="error">{{ $message }}</span> @enderror
- 
-                            <button type="submit">Save Photo</button>
-                            <form wire:submit.prevent="save">
-                            <h4 class="h3"></h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <form wire:submit.prevent="save">   
+                                        @if (session()->has('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif 
+                                        @if ($images)
+                                            Photo Profile
+                                            <div class="row">
+                                                @foreach ($images as $images)
+                                                <div class="col-10 card me-5 mb-5">
+                                                    <img src="{{ $images->temporaryUrl() }}">
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                        <div class="mb-3">
+                                            <label class="form-label">Image Upload</label>
+                                            <input type="file" class="form-control" wire:model="images" multiple>
+                                            <div wire:loading wire:target="images">Uploading...</div>
+                                            @error('images.*') <span class="error">{{ $message }}</span> @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Save Image</button>
+                                        <div wire:loading wire:target="save">process...</div>
+                                    </form>
+                                </div>
+                            </div>
+                            <h4 class="h3">
+                                {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}
+                            </h4>
+                            <h5 class="fw-normal">Senior Software Engineer</h5>
+                            <p class="text-gray mb-4">New York, USA</p>
                            
-                            
-                        </div>
-                   
-                    </div>
-                </div>
-                
-                <div class="col-12">
-                    <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">Select profile photo</h2>
-                        <div class="d-flex align-items-center">
-                            <div class="me-3">
-                                <!-- Avatar -->
-                                <img class="rounded avatar-xl" src="../assets/img/team/profile-picture-1.jpg"
-                                    alt="change avatar">
-                            </div>
-                            <div class="file-field">
-                                <div class="d-flex justify-content-xl-center ms-xl-3">
-                                    <div class="d-flex">
-                                        <svg class="icon text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <input type="file">
-                                        <div class="d-md-block text-left">
-                                            <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                            <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card card-body border-0 shadow">
-                        <h2 class="h5 mb-4">Select cover photo</h2>
-                        <div class="d-flex align-items-center">
-                            <div class="me-3">
-                                <!-- Avatar -->
-                                <img class="rounded avatar-xl" src="../assets/img/profile-cover.jpg" alt="change cover">
-                            </div>
-                            <div class="file-field">
-                                <div class="d-flex justify-content-xl-center ms-xl-3">
-                                    <div class="d-flex">
-                                        <svg class="icon text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <input type="file">
-                                        <div class="d-md-block text-left">
-                                            <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                            <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
+                                <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
+                                    </path>
+                                </svg>
+                                Connect
+                            </a>
+                            <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</form>
 </div>
+
+
+
+
+
+
+s
