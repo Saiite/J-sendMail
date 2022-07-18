@@ -10,6 +10,8 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LiveTable;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\LoginExample;
+use App\Http\Livewire\CourrierList;
+//use App\Http\Livewire\CourrierIndex;
 use App\Http\Livewire\Transactions;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Auth\Register;
@@ -40,8 +42,6 @@ Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
-
-
 Route::get('/register', Register::class)->name('register');
 
 Route::get('/login', Login::class)->name('login');
@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
-    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
+    //Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
     Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
