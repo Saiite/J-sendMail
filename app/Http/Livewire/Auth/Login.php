@@ -21,7 +21,7 @@ class Login extends Component
     {
         $credentials = $this->validate();
         return auth()->attempt($credentials)
-                ? redirect()->intended('/profile')
+                ? redirect()->intended('/profile-example')
                 : $this->addError('email', trans('auth.failed'));
     }
 
