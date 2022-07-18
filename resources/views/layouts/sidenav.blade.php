@@ -55,7 +55,7 @@
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
             <span class="sidebar-icon"><i class="fab fa-laravel me-2" style="color: #fb503b;"></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">ADMIN</span>
+            <span class="sidebar-text" style="color: #fb503b;">Laravel Examples</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -67,8 +67,8 @@
         <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link" > 
-                <span class="sidebar-text"></span>
+              <a href="/profile" class="nav-link">
+                <span class="sidebar-text">Profile</span>
               </a>
             </li>
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
@@ -80,46 +80,20 @@
         </div>
       </li>
       <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'courrier-index' ? 'active' : '' }}">
-            <a href="/courrier-index" class="nav-link" href="{{ route('courrier-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Tiste des courriers</span>
-            </a>
-          </li>
-      </li>
-      <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'emplacement-index' ? 'active' : '' }}">
-            <a href="/emplacement-index" class="nav-link" href="{{ route('emplacement-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Tous les emplacements</span>
-            </a>
-          </li>
-      </li>
-      <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'emeteur-index' ? 'active' : '' }}">
-            <a href="/emeteur-index" class="nav-link" href="{{ route('emeteur-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Agent externe</span>
-            </a>
-          </li>
+        <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
+          <span>
+            <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                </path>
+              </svg></span>
+            <span class="sidebar-text">Kanban </span>
+          </span>
+          <span>
+            <span class="badge badge-sm bg-secondary ms-1">Pro</span>
+          </span>
+        </a>
       </li>
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
@@ -133,9 +107,40 @@
           <span class="sidebar-text">Transactions</span>
         </a>
       </li>
-      
-        
-        
+      <li class="nav-item">
+        <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
+          <span>
+            <span class="sidebar-icon">
+              <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </span>
+            <span class="sidebar-text">Calendar</span>
+          </span>
+          <span>
+            <span class="badge badge-sm bg-secondary ms-1">Pro</span>
+          </span>
+        </a>
+        </li>
+      <li class="nav-item">
+        <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
+          <span>
+            <span class="sidebar-icon">
+              <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </span>
+            <span class="sidebar-text">Map</span>
+          </span>
+          <span>
+            <span class="badge badge-sm bg-secondary ms-1">Pro</span>
+          </span>
+        </a>
+        </li>
       <li class="nav-item">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
@@ -156,7 +161,13 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-       
+        <div class="multi-level collapse {{ Request::segment(1) == 'bootstrap-tables' ? 'show' : '' }}" role="list"
+          id="submenu-app" aria-expanded="false">
+          <ul class="flex-column nav">
+            <li class="nav-item {{ Request::segment(1) == 'bootstrap-tables' ? 'active' : '' }}">
+              <a class="nav-link" href="/bootstrap-tables">
+                <span class="sidebar-text">Bootstrap Tables</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -172,7 +183,7 @@
                   clip-rule="evenodd"></path>
                 <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
               </svg></span>
-            <span class="sidebar-text">Page</span>
+            <span class="sidebar-text">Page examples</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -198,11 +209,7 @@
                 <span class="sidebar-text">Sign Up</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('forgot-password-example') }}">
-                <span class="sidebar-text">Forgot password</span>
-              </a>
-            </li>
+          
             <li class="nav-item">
               <a class="nav-link" href="/reset-password-example">
                 <span class="sidebar-text">Reset password</span>
@@ -292,7 +299,14 @@
               class="badge badge-sm bg-secondary ms-1">v1.0</span></span>
         </a>
       </li>
-     
+      <li class="nav-item">
+        <a href="https://themesberg.com" target="_blank" class="nav-link d-flex align-items-center">
+          <span class="sidebar-icon me-2">
+            <img class="me-2" src="/assets/img/themesberg.svg" height="20" width="20" alt="Themesberg Logo">
+          </span>
+          <span class="sidebar-text">Themesberg</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a href="https://updivision.com" target="_blank" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon me-2">
