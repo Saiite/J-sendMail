@@ -11,8 +11,9 @@ use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users,  $search, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public $users,  $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
+    public $search = '';
     use WithPagination;
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
@@ -67,6 +68,17 @@ class Users extends Component
         
         
         dd(" $this->updateMode = true");
+    }
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+
+        $this->sortField = $field;
     }
     
 

@@ -9,8 +9,10 @@ use App\Http\Livewire\Profile;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LiveTable;
 use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\EditProfile;
 use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\Transactions;
+use App\Http\Livewire\UdaptProfile;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\ResetPassword;
@@ -38,10 +40,13 @@ use App\Http\Livewire\Components\Notifications;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
+
+
 
 
 Route::get('/register', Register::class)->name('register');
@@ -59,6 +64,7 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
     Route::get('users/{id}/edit', Profile::class)->name('profile');
+  
    
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/users', Users::class)->name('users');
@@ -76,3 +82,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
 });
+
+Route::get('/udapt-profile',  UdaptProfile::class)->name('udapt-profile');
+
+Route::get('udapt-profile/{id}/edit', EditProfile::class)->name('edit-profile');
+
+
