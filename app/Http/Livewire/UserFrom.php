@@ -52,15 +52,5 @@ class UserForm extends Component
     
         $this->resetForm();
         $this->emitTo('live-table', 'triggerRefresh');
-
-    public function resetForm()
-    {
-        $this->user_id = null;
-        $this->first_name = null;
-        $this->last_name = null;
-        $this->email = null;
-        $this->age = null;
-        $this->address = null;
     }
-
 }

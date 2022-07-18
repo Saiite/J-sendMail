@@ -24,7 +24,7 @@ class Profile extends Component
     ];
     public function render()
     {
-        $this->users = User::find(4);
+        $this->users = User::find(2);
         
         return view('livewire.profile');
     }
@@ -33,7 +33,7 @@ class Profile extends Component
 
   //*  public function store()
   // {
-        //$this->validate([
+        //$this->validate(
 
            // 'first_name' => 'required',
            // 'last_name' => 'required',
@@ -121,7 +121,7 @@ class Profile extends Component
             $users->update([
                 'id' => $this->state['id'],
                 'first_name' => $this->state['first_name'],
-                'first_name' => $this->state[ 'first_name'],
+                'last_name' => $this->state[ 'last_name'],
                 'email' => $this->state['email'],
                 'password' => $this->state['password' ],
             ]);

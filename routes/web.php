@@ -95,6 +95,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
     Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
     Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
+    Route::get('/typography', Typography::class)->name('typography');
     Route::get('/notiffication',Notification::class)->name('notification');
 
 

@@ -4,6 +4,9 @@
     @if(in_array(request()->route()->getName(), ['dashboard','notification','profile-example', 'bootstrap-tables', 'transactions','buttons','forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','modals', 'notifications', 'typography', 'upgrade-to-pro']))
 
 
+    @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
+    'buttons',
+    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile']))
 
     {{-- Nav --}}
     @include('layouts.nav')

@@ -79,47 +79,8 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'courrier-index' ? 'active' : '' }}">
-            <a href="/courrier-index" class="nav-link" href="{{ route('courrier-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Tiste des courriers</span>
-            </a>
-          </li>
-      </li>
-      <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'emplacement-index' ? 'active' : '' }}">
-            <a href="/emplacement-index" class="nav-link" href="{{ route('emplacement-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Tous les emplacements</span>
-            </a>
-          </li>
-      </li>
-      <li class="nav-item">
-        <li class="nav-item {{ Request::segment(1) == 'emeteur-index' ? 'active' : '' }}">
-            <a href="/emeteur-index" class="nav-link" href="{{ route('emeteur-index') }}">
-              <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-                  <path fill-rule="evenodd"
-                    d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                    clip-rule="evenodd"></path>
-                </svg></span>
-              <span class="sidebar-text">Agent externe</span>
-            </a>
-          </li>
+
+        </a>
       </li>
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
@@ -198,6 +159,7 @@
                 <span class="sidebar-text">Sign Up</span>
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/reset-password-example">
                 <span class="sidebar-text">Reset password</span>
