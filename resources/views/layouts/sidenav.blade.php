@@ -161,6 +161,11 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="{{ route('forgot-password-example') }}">
+                <span class="sidebar-text">Forgot password</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/reset-password-example">
                 <span class="sidebar-text">Reset password</span>
               </a>
