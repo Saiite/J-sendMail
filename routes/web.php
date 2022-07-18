@@ -20,12 +20,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\RegisterExample;
 use App\Http\Livewire\Components\Forms;
-use App\Http\Controllers\MailController;
 use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\ResetPasswordExample;
-use App\Http\Livewire\Components\Typography;
-use App\Http\Livewire\ForgotPasswordExample;
+
 use App\Http\Livewire\Components\Notifications;
 
 /*
@@ -59,12 +57,10 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
     Route::get('users/{id}/edit', Profile::class)->name('profile');
-
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/users', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
-    Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/transactions', Transactions::class)->name('transactions');
@@ -89,10 +85,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications', Notifications::class)->name('notifications');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
-    Route::get('/typography', Typography::class)->name('typography');
-
 Route::get('/udapt-profile',  UdaptProfile::class)->name('udapt-profile');
-
 Route::get('udapt-profile/{id}/edit', EditProfile::class)->name('edit-profile');
 
 
