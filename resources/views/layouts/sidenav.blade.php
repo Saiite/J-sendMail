@@ -67,7 +67,7 @@
         <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link" > 
+              <a href="/profile" class="nav-link" >
                 <span class="sidebar-text"></span>
               </a>
             </li>
@@ -79,10 +79,6 @@
           </ul>
         </div>
       </li>
-<<<<<<< HEAD
-      
-        </a>
-=======
       <li class="nav-item">
         <li class="nav-item {{ Request::segment(1) == 'courrier-index' ? 'active' : '' }}">
             <a href="/courrier-index" class="nav-link" href="{{ route('courrier-index') }}">
@@ -124,7 +120,6 @@
               <span class="sidebar-text">Agent externe</span>
             </a>
           </li>
->>>>>>> dubel
       </li>
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
@@ -138,9 +133,9 @@
           <span class="sidebar-text">Transactions</span>
         </a>
       </li>
-      
-        
-        
+
+
+
       <li class="nav-item">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
@@ -161,7 +156,7 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-       
+
             </li>
           </ul>
         </div>
@@ -201,11 +196,6 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('register-example') }}">
                 <span class="sidebar-text">Sign Up</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('forgot-password-example') }}">
-                <span class="sidebar-text">Forgot password</span>
               </a>
             </li>
             <li class="nav-item">
@@ -297,7 +287,7 @@
               class="badge badge-sm bg-secondary ms-1">v1.0</span></span>
         </a>
       </li>
-     
+
       <li class="nav-item">
         <a href="https://updivision.com" target="_blank" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon me-2">
