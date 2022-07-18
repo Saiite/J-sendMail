@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Livewire\Lock;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\Users;
@@ -10,8 +9,6 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LiveTable;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\LoginExample;
-use App\Http\Livewire\CourrierList;
-//use App\Http\Livewire\CourrierIndex;
 use App\Http\Livewire\Transactions;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Auth\Register;
@@ -22,11 +19,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\RegisterExample;
 use App\Http\Livewire\Components\Forms;
+use App\Http\Controllers\MailController;
 use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\ResetPasswordExample;
+use App\Http\Livewire\CourrierList;
+use App\Http\Livewire\CourrierIndex;
+use App\Http\Livewire\CourrierEdit;
+use App\Http\Livewire\CourrierShow;
+use App\Http\Livewire\EmeteurList;
+use App\Http\Livewire\EmplacementList;
+use App\Http\Livewire\EmplacementIndex;
+use App\Http\Livewire\EmplacementShow;
+use App\Http\Livewire\EmplacementEdit;
+use App\Http\Livewire\EmeteurEdit;
+use App\Http\Livewire\EmeteurIndex;
+use App\Http\Livewire\Notification;
 
-use App\Http\Livewire\Components\Notifications;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +53,8 @@ Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
+
+
 Route::get('/register', Register::class)->name('register');
 
 Route::get('/login', Login::class)->name('login');
@@ -57,6 +70,7 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
     Route::get('users/{id}/edit', Profile::class)->name('profile');
+
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/users', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');
@@ -69,8 +83,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
+
     Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
-    //Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
+    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
     Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
@@ -80,13 +95,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
     Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
     Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
-    Route::get('/typography', Typography::class)->name('typography');
     Route::get('/notiffication',Notification::class)->name('notification');
-    Route::get('/notifications', Notifications::class)->name('notifications');
-    Route::get('/forms', Forms::class)->name('forms');
-    Route::get('/modals', Modals::class)->name('modals');
-Route::get('/udapt-profile',  UdaptProfile::class)->name('udapt-profile');
-Route::get('udapt-profile/{id}/edit', EditProfile::class)->name('edit-profile');
 
 
 });

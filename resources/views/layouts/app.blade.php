@@ -1,24 +1,9 @@
 <x-layouts.base>
 
 
-    @if(in_array(request()->route()->getName(), ['dashboard','notification','profile-example', 'bootstrap-tables', 'transactions','buttons','forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','modals', 'notifications', 'typography', 'upgrade-to-pro']))
+    @if(in_array(request()->route()->getName(), ['dashboard', 'profile','notification','profile-example', 'users', 'bootstrap-tables', 'transactions',
+    'buttons','forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'notifications', 'typography', 'upgrade-to-pro', 'index','live-table','users-edit','UsersEdit']))
 
-
-    @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
-    'buttons',
-<<<<<<< HEAD
-    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile']))
-=======
-
-    'forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'typography', 'upgrade-to-pro']))
-
-    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table']))
-
-    'forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'notifications', 'typography', 'upgrade-to-pro']))
-
-    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','UsersEdit']))
-
->>>>>>> dubel
 
     {{-- Nav --}}
     @include('layouts.nav')
@@ -33,7 +18,7 @@
     </main>
 
     @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 'login-example',
-    'forgot-password','reset-password','reset-password-example']))
+    'forgot-password', 'forgot-password-example', 'reset-password','reset-password-example']))
 
     {{ $slot }}
     {{-- Footer --}}

@@ -11,9 +11,8 @@ use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users,  $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public $users,  $search, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
-    public $search = '';
     use WithPagination;
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
@@ -21,9 +20,9 @@ class Users extends Component
     public function render()
     {
         $this->users = User::all();
-        
+
         return view('livewire.users');
-      
+
     }
 
     private function resetInputFields(){
@@ -44,11 +43,11 @@ class Users extends Component
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-            
+
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
-            
+
         ]);
         redirect()->intended('/users');
     }
@@ -65,22 +64,11 @@ class Users extends Component
         $this->last_name= $users->last_name;
         $this->email = $users->email;
         $this->password = $users->password;
-        
-        
+
+
         dd(" $this->updateMode = true");
     }
 
-    public function sortBy($field)
-    {
-        if ($this->sortField === $field) {
-            $this->sortAsc = !$this->sortAsc;
-        } else {
-            $this->sortAsc = true;
-        }
-
-        $this->sortField = $field;
-    }
-    
 
     public function cancel()
     {
@@ -107,7 +95,7 @@ class Users extends Component
                 'email' => $this->email,
                 'password' => Hash::make($this->password),
                 'remember_token' => Str::random(10),
-            
+
             ]);
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');

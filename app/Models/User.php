@@ -33,9 +33,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'email_verified_at',
-        'created_at',
-        'updated_at',
     ];
     protected $rules = [
         'user.first_name' => 'max:15',
@@ -72,4 +69,3 @@ class User extends Authenticatable
                 });
     }
 }
-
