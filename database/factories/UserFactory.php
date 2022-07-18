@@ -35,6 +35,10 @@ class UserFactory extends Factory
             'ZIP' => $this->faker->randomNumber(6),
             'number' => $this->faker->buildingNumber,
             'remember_token' => Str::random(10),
+               // add these
+        'user_type' => 'user',
+        'age' => $this->faker->numberBetween(18, 60),
+        'address' => $this->faker->address,
         ];
     }
 

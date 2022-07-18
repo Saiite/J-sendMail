@@ -36,7 +36,7 @@
             <img src="/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
           </span>
           <span class="mt-1 ms-1 sidebar-text">
-            JSENDMAIL
+            Volt Laravel
           </span>
         </a>
       </li>
@@ -55,7 +55,7 @@
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
             <span class="sidebar-icon"><i class="fab fa-laravel me-2" style="color: #fb503b;"></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">Gestion du profil</span>
+            <span class="sidebar-text" style="color: #fb503b;">ADMIN</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -67,14 +67,9 @@
         <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link">
-                <span class="sidebar-text">Profile</span>
+              <a href="/profile" class="nav-link" > 
+                <span class="sidebar-text"></span>
               </a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) == 'courrier-list' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('courrier-list') }}">
-                  <span class="sidebar-text"> Ajouter un courrier</span>
-                </a>
             </li>
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
               <a href="/users" class="nav-link">
@@ -84,6 +79,10 @@
           </ul>
         </div>
       </li>
+<<<<<<< HEAD
+      
+        </a>
+=======
       <li class="nav-item">
         <li class="nav-item {{ Request::segment(1) == 'courrier-index' ? 'active' : '' }}">
             <a href="/courrier-index" class="nav-link" href="{{ route('courrier-index') }}">
@@ -125,6 +124,7 @@
               <span class="sidebar-text">Agent externe</span>
             </a>
           </li>
+>>>>>>> dubel
       </li>
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
@@ -138,9 +138,9 @@
           <span class="sidebar-text">Transactions</span>
         </a>
       </li>
-
-      <li class="nav-item">
-        </li>
+      
+        
+        
       <li class="nav-item">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
@@ -161,13 +161,7 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse {{ Request::segment(1) == 'bootstrap-tables' ? 'show' : '' }}" role="list"
-          id="submenu-app" aria-expanded="false">
-          <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'bootstrap-tables' ? 'active' : '' }}">
-              <a class="nav-link" href="/bootstrap-tables">
-                <span class="sidebar-text">Bootstrap Tables</span>
-              </a>
+       
             </li>
           </ul>
         </div>
@@ -183,7 +177,7 @@
                   clip-rule="evenodd"></path>
                 <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
               </svg></span>
-            <span class="sidebar-text">Page examples</span>
+            <span class="sidebar-text">Page</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -258,7 +252,7 @@
             </svg></span>
         </span>
         <div
-          class="multi-level collapse {{ Request::segment(1) == 'buttons' || Request::segment(1) == 'notifications' || Request::segment(1) == 'forms' || Request::segment(1) == 'createC' || Request::segment(1) == 'modals' || Request::segment(1) == 'typography' ? 'show' : '' }}"
+          class="multi-level collapse {{ Request::segment(1) == 'buttons' || Request::segment(1) == 'notifications' || Request::segment(1) == 'forms' || Request::segment(1) == 'modals' || Request::segment(1) == 'typography' ? 'show' : '' }}"
           role="list" id="submenu-components" aria-expanded="false">
           <ul class="flex-column nav">
             <li class="nav-item {{ Request::segment(1) == 'buttons' ? 'active' : '' }}">
@@ -276,12 +270,6 @@
                 <span class="sidebar-text">Forms</span>
               </a>
             </li>
-
-            <li class="nav-item {{ Request::segment(1) == 'emeteur-list' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('emeteur-list') }}">
-                  <span class="sidebar-text"> creer un emeteur</span>
-                </a>
-            </li>
             <li class="nav-item {{ Request::segment(1) == 'modals' ? 'active' : '' }}">
               <a class="nav-link" href="/modals">
                 <span class="sidebar-text">Modals</span>
@@ -297,14 +285,39 @@
       </li>
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
       <li class="nav-item">
-
+        <a href="/documentation/getting-started/overview/index.html" target="_blank"
+          class="nav-link d-flex align-items-center">
+          <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"></path>
+            </svg></span>
+          <span class="sidebar-text">Documentation </span> <span><span
+              class="badge badge-sm bg-secondary ms-1">v1.0</span></span>
+        </a>
+      </li>
+     
+      <li class="nav-item">
+        <a href="https://updivision.com" target="_blank" class="nav-link d-flex align-items-center">
+          <span class="sidebar-icon me-2">
+            <img class="me-2" src="/assets/img/updivision.png" height="20" width="20" alt="Themesberg Logo">
+          </span>
+          <span class="sidebar-text">Updivision</span>
+        </a>
       </li>
       <li class="nav-item">
-
-      </li>
-
-      <li class="nav-item">
-
+        <a href="/upgrade-to-pro"
+          class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
+          <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
+            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </span>
+          <span>Upgrade to Pro</span>
+        </a>
       </li>
     </ul>
   </div>

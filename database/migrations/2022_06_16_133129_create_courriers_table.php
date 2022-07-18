@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('courrier_libele');
             $table->date('courrier_date_arrive');
-            $table->enum('courrier_status', ['enStok', 'enCours', 'destoke'])->enStok();
+            $table->enum('courrier_status', ['enStok', 'enCours', 'destoke']);
             $table->foreignId('emeteur_id')->constrained('emeteurs');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('emplacement_id')->constrained('emplacements');

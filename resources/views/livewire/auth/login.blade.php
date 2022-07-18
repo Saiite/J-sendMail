@@ -13,8 +13,8 @@
                             <h1 class="mb-3 h3">Welcome back</h1>
                             <p class="mb-0"> Create new account or
                                 <p class="mb-0">Sign in with these credentials:</p>
-                                <p class="mb-0"> Email: <strong>admin@volt.com</strong> Password:
-                                    <strong>secret</strong></p>
+                                <p class="mb-0"> Email: <strong></strong> Password:
+                                    <strong></strong></p>
 
                             </p>
                         </div>
@@ -63,18 +63,23 @@
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>
+                                        
                                     </div>
                                     <div><a href="{{ route('forgot-password') }}" class="small text-right">Lost
                                             password?</a></div>
                                 </div>
                             </div>
+                        
                             <div class="d-grid">
+                                
                                 <button type="submit" class="btn btn-gray-800">Sign in</button>
                             </div>
                         </form>
                         <div class="mt-3 mb-4 text-center">
                             <span class="fw-normal">or login with</span>
                         </div>
+                        
+                       
                         <div class="d-flex justify-content-center my-4">
                             <a href="#" class="btn btn-icon-only btn-pill btn-outline-gray-500 me-2"
                                 aria-label="facebook button" title="facebook button">
