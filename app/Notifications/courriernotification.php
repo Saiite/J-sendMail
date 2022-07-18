@@ -8,24 +8,28 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use App\Models\courrier;
 use App\Models\user;
+use App\Http\Livewire\CourrierList;
+
+
 
 class courriernotification extends Notification
 {
     use Queueable;
-    protected $courrier;
+    public $state = [];
 
-    protected $user_id;
+
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
 
-    public function __construct($courrier,$user_id)
+    public function __construct($state)
     {
         //
-        $this->courrier = $courrier;
-        $this->user_id=$user_id;
+        $this->state = $state;
+
     }
 
     /**
@@ -47,7 +51,7 @@ class courriernotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = URL::signedRoute('courrier-list', ['id' => $this->courrier]);
+        $url = URL::signedRoute('state-list', ['id' => $this->state]);
 
         return (new MailMessage)
                     ->line($this->enrollmentData['body'])
@@ -65,8 +69,8 @@ class courriernotification extends Notification
     {
         return [
             //
-            'libele'=>$this->courrier->courrier_libele,
-            'user_id'=> $this->user_id,
+            'state'=>$this->state
         ];
     }
+
 }
