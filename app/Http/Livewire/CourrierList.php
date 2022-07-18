@@ -11,12 +11,16 @@ use App\Models\user;
 use App\Models\emplacement;
 use Livewire\Component;
 use Mail;
+use Notification;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\courriernotification;
 class CourrierList extends Component
 {
 
     public $Courrier;
     public $state = [];
     public $updateMode = false;
+    public $users;
 
 
 
@@ -36,8 +40,11 @@ class CourrierList extends Component
         $var=courrier::create($this->state);
         $var->user_id;
         $var=user::find($var->user_id);
+        $users=user::all();
         mail::to($var->email)->send(new MessageGoogle($this->state));
-        notify::to($var->user_id)->send(new courriernotification($this->state));
+        foreach ($users as $user) {
+       $user->notify(new courriernotification($this->state));
+        }
         $this->reset('state');
         $this->Courrier = courrier::all();
         redirect()->intended('/courrier-index');

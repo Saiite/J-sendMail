@@ -36,9 +36,9 @@ use App\Http\Livewire\EmplacementShow;
 use App\Http\Livewire\EmplacementEdit;
 use App\Http\Livewire\EmeteurEdit;
 use App\Http\Livewire\EmeteurIndex;
-use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Mail;
-use App\Http\Livewire\EnvoiMail;
+use App\Http\Livewire\Notification;
+
+
 
 
 /*
@@ -87,9 +87,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
     Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
     Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
-    Route::get('envoi-mail',EnvoiMail::class,'sendMessage')->name('envoi-mail');
     Route::get('/typography', Typography::class)->name('typography');
-   // Route::get('notiffications/{{notification}}',courriernotification::class)->name('notifications');
+    Route::get('/notiffication',Notification::class)->name('notification');
 
 
 });
