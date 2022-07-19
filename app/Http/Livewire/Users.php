@@ -21,9 +21,9 @@ class Users extends Component
     public function render()
     {
         $this->users = User::all();
-        
+
         return view('livewire.users');
-      
+
     }
 
     private function resetInputFields(){
@@ -44,11 +44,11 @@ class Users extends Component
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-            
+
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
-            
+
         ]);
         redirect()->intended('/users');
     }
@@ -65,8 +65,8 @@ class Users extends Component
         $this->last_name= $users->last_name;
         $this->email = $users->email;
         $this->password = $users->password;
-        
-        
+
+
         dd(" $this->updateMode = true");
     }
 
@@ -80,7 +80,7 @@ class Users extends Component
 
         $this->sortField = $field;
     }
-    
+
 
     public function cancel()
     {
@@ -107,7 +107,7 @@ class Users extends Component
                 'email' => $this->email,
                 'password' => Hash::make($this->password),
                 'remember_token' => Str::random(10),
-            
+
             ]);
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
