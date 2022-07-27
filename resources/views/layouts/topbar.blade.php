@@ -113,6 +113,7 @@
               </svg>
               My Profile
             </a>
+
             <div role="separator" class="dropdown-divider my-1"></div>
             <a class="dropdown-item d-flex align-items-center">
               <livewire:logout /></a>
@@ -122,3 +123,8 @@
     </div>
   </div>
 </nav>
+@if (session()->has('message'))
+<div class="alert alert-success" role="alert">
+    {{session()->get('message')}}
+  </div>
+  @endif

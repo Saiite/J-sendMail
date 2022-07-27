@@ -47,7 +47,7 @@ class CourrierList extends Component
         }
         $this->reset('state');
         $this->Courrier = courrier::all();
-        redirect()->intended('/courrier-index');
+        redirect()->intended('/courrier-index')->with('message', 'le courrier a ete ajouter avec succès.');
     }
 
     public function cancel()

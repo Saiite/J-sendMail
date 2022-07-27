@@ -28,6 +28,7 @@ use App\Http\Livewire\CourrierList;
 use App\Http\Livewire\CourrierIndex;
 use App\Http\Livewire\CourrierEdit;
 use App\Http\Livewire\CourrierShow;
+use App\Http\Livewire\CourrierUser;
 use App\Http\Livewire\EmeteurList;
 use App\Http\Livewire\EmplacementList;
 use App\Http\Livewire\EmplacementIndex;
@@ -87,8 +88,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
     Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
-    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
+    Route::get('courrier/{courriers}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
+    Route::get('/courrier-user', CourrierUser::class)->name('courrier-user');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
     Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index');
     Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit');

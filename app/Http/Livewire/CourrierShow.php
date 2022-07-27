@@ -17,7 +17,7 @@ class CourrierShow extends Component
 
     public function mount(Courrier $courrier)
     {
-        $this->courrrier = courrier::all();
+        $this->courriers = courrier::all();
     }
 
     public function render()

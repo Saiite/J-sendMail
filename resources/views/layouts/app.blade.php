@@ -1,7 +1,6 @@
 <x-layouts.base>
 
-
-    @if(in_array(request()->route()->getName(), ['dashboard', 'profile','notification','profile-example', 'users', 'bootstrap-tables', 'transactions',
+    @if(in_array(request()->route()->getName(), ['dashboard', 'courrier-user','profile','notification','profile-example', 'users', 'bootstrap-tables', 'transactions',
     'buttons','forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'notifications', 'typography', 'upgrade-to-pro', 'index','live-table','users-edit','UsersEdit']))
 
 
@@ -15,6 +14,7 @@
         {{ $slot }}
         {{-- Footer --}}
         @include('layouts.footer')
+
     </main>
 
     @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 'login-example',
@@ -30,4 +30,8 @@
     {{ $slot }}
 
     @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> dubel
 </x-layouts.base>
