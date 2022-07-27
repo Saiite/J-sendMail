@@ -23,7 +23,7 @@ class EmeteurList extends Component
         session()->flash('message','courrier enregistré avec succès!');
         $this->reset('state');
         $this->Emeteur = emeteur::all();
-        redirect()->intended('/courrier-list');
+        redirect()->intended('/courrier-list')->with('message', 'emeteur crée avec succès.');
     }
 
       public function render()

@@ -90,16 +90,11 @@
 
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-sm">
-                                <span class="fas fa-ellipsis-h icon-dark"></span>
-                            </span>
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
+                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="changeStatut({{  $courrier->id }})">valider</button>
                         <div class="dropdown-menu py-0">
-                            <a class="dropdown-item rounded-top" href="{{ route('courrier-show', $courrier->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
-                            <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+
+                            {{-- <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>valider</a>
+                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Refuser</a> --}}
                         </div>
                     </div>
                 </td>

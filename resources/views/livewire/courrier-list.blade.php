@@ -64,14 +64,14 @@
 
                         </div>
                         <div class="mb-3">
-                            <a href="{{ route('emeteur-list') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+                            <a href="{{ route('live-table') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
                                 <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 Ajouter
                             </a> <label class="my-1 me-2" for="user_id">noms du destinataire</label>
                             <select class="form-select" wire:model="state.user_id" id="user_id" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                              @foreach ($dest as $value)
-                                <option value="{{$value->id}}">{{$value->email}}</option>
+                                <option value="{{$value->id}}">{{$value->first_name}}</option>
                               @endforeach
                             </select>
                             @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror
@@ -95,9 +95,8 @@
                 <div class="row mb-5 mb-lg-5">
                     <div class="col-lg-3 col-md-6">
 
-                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button><div class="alert alert-success" role="alert">
-                            A simple success alert—check it out!
-                          </div></div>
+                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+                        </div>
                         <!-- Checkboxes -->
                     </form>
                     <!-- End of Form -->

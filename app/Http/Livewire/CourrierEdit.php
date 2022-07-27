@@ -58,10 +58,12 @@ class CourrierEdit extends Component
         }
     }
     //cette fonction nous permet d'initialiser lers valeurs du courrier et recupere l'id du courrier a modiffier.
-    public function mount($id)
+    public function mount($courriers)
     {
+
         $this->updateMode = true;
-        $courriers = courrier::find($id);
+        $courriers = courrier::find($courriers);
+
         $this->state = [
             'id' => $courriers->id,
             'courrier_libele' => $courriers->courrier_libele,
@@ -75,7 +77,7 @@ class CourrierEdit extends Component
 
     public function render()
     {
-    $courrier = courrier::find(95);
+    $courrier = courrier::find(1);
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();
