@@ -29,10 +29,12 @@ class CreateUsersTable extends Migration
             $table->string('number')->nullable();
             $table->string('city')->nullable();
             $table->string('ZIP')->nullable();
-            $table->string('image')->default();
-            $table->boolean('isActive')->default();
+            $table->enum('status', ['actif', 'inactif']);
+   
+           
+        
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreignId('role_id')->default()->constrained('roles');
+        
             $table->rememberToken()->unique();
             $table->timestamps();
         });

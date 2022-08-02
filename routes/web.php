@@ -1,16 +1,20 @@
 <?php
 
 use App\Http\Livewire\Lock;
+use App\Http\Livewire\Post;
+use App\Models\historiques;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
 use App\Http\Livewire\Profile;
+use App\Http\Livewire\PostEdit;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LiveTable;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\EditProfile;
 use App\Http\Livewire\LoginExample;
+use App\Http\Livewire\PostEditEdit;
 use App\Http\Livewire\Transactions;
 use App\Http\Livewire\UdaptProfile;
 use App\Http\Livewire\UpgradeToPro;
@@ -45,7 +49,12 @@ Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
+Route::get('/post',  Post::class)->name('post');
 
+
+Route::get('/post-edit',  PostEdit::class)->name('post-edit');
+
+Route::get('postes/{id}/edit',  PostEditEdit::class)->name('post-edit-edit');
 
 
 

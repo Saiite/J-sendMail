@@ -45,18 +45,35 @@
             </div>  
             @error('password') <div class="invalid-feedback"> {{ $message }} </div> @enderror
         </div>
+
+  
+        <div class="mb-3">
+            <a href="" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+                <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                To add
+            </a> <label class="my-1 me-2" for="user_id">postes</label>
+            <select class="form-select" wire:model="poste_id" id="poste_id" aria-label="Default select example">
+                <option selected>Open this select postes</option>
+             @foreach ($dest as $value)
+                <option value="{{$value->id}}">{{$value->poste_libele}}</option>
+              @endforeach
+            </select>
+            @error('poste_id') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
          <!-- End of Form -->
          @if($mailSentAlert)
          <div class="alert alert-success" role="alert">
              An email containing the password reset link has been sent.
          </div>
+
+         
      @endif
      @if($showDemoNotification)
          <div class="alert alert-danger" role="alert">
              You cannot do that in the demo version.
          </div>
      @endif
-    <button wire:click.prevent="store()" class="btn btn-success">Save</button>
+    <button wire:click.prevent="store({{  $value->id }})" class="btn btn-success">Save</button>
     
     <a href="http://127.0.0.1:8000/users" class="button" style="color: red">Cancel</a>
      

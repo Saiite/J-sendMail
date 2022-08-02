@@ -1,8 +1,4 @@
-@if($updateMode)
-    
-@else
-    
-@endif
+
 
 
 <div class="row">
@@ -12,12 +8,7 @@
     
 <form wire:submit.prevent="edit({{ $users->id }})" action="#" method="POST">
    
-    @if($updateMode)
-    
-    @else
-        
-    @endif
-      
+   
            
        
     

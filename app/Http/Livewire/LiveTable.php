@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\postes;
 use Livewire\Component;
+use App\Models\historiques;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +13,7 @@ use Illuminate\Notifications\Notifiable;
 
 class LiveTable extends Component
 {
-    public $users,  $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public $users,  $poste_id,$historiques, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
@@ -19,34 +21,51 @@ class LiveTable extends Component
     public function render()
     {
         $this->users = User::all();
+        $dest = postes::all();
         
-        return view('livewire.live-table');
+        return view('livewire.live-table', compact('dest'));
     }
 
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
+
     }
 
-    public function store()
+    public function store($id)
     {
+        
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required',
+          
+            'poste_id' => 'required',
+           
             'password' => 'required|min:6',
         ]);
 
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-            
+            'poste_id' =>$id,
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
             
         ]);
+       
+       
+        $historiques=historiques::create([
+
+            'poste_id' => $user->id,
+            'user_id' => $id,
+
+        ]);
+        
+
+        
         redirect()->intended('/users');
     }
     public function routeNotificationForMail() {

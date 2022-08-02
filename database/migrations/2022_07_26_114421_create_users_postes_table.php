@@ -13,29 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('historiques', function (Blueprint $table) {
-          
-          
-            $table->increments('id')->unique();
-            $table->foreignId('poste_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
-
-        });
-    }
-
- 
- 
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-
-        Schema::table('historiques', function(Blueprint $table){
+        Schema::create('users_postes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('users_id');
@@ -51,8 +29,15 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
+    }
 
-
-        Schema::dropIfExists('historiques');
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('users_postes');
     }
 };

@@ -111,5 +111,6 @@ class UsersEdit extends Component
             User::where('id',$id)->delete();
             session()->flash('message', 'Users Deleted Successfully.');
         }
+        
     }
 }

@@ -55,7 +55,7 @@
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
             <span class="sidebar-icon"><i class="fab fa-laravel me-2" style="color: #fb503b;"></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">Laravel Examples</span>
+            <span class="sidebar-text" style="color: #fb503b;">the functionalists</span>
           </span>
           <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -66,14 +66,21 @@
         </span>
         <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link">
+            <li class="nav-item {{ Request::segment(1) == 'profile-example' ? 'active' : '' }}">
+              <a href="/profile-example" class="nav-link">
                 <span class="sidebar-text">Profile</span>
               </a>
             </li>
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
               <a href="/users" class="nav-link">
                 <span class="sidebar-text">User management</span>
+              </a>
+            </li>
+            <br>
+
+            <li class="nav-item {{ Request::segment(1) == 'post-edit' ? 'active' : '' }}">
+              <a href="/post-edit" class="nav-link">
+                <span class="sidebar-text">Post management</span>
               </a>
             </li>
           </ul>

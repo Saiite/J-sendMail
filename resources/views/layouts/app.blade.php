@@ -3,7 +3,7 @@
 
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
     'buttons',
-    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile']))
+    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile','post','post-edit','post-edit-edit','historiques']))
 
     {{-- Nav --}}
     @include('layouts.nav')
@@ -18,7 +18,7 @@
     </main>
 
     @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 'login-example',
-    'forgot-password', 'forgot-password-example', 'reset-password','reset-password-example']))
+    'forgot-password', 'forgot-password-example', 'reset-password','reset-password-example',]))
 
     {{ $slot }}
     {{-- Footer --}}

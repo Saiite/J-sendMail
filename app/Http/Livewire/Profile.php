@@ -24,7 +24,7 @@ class Profile extends Component
     ];
     public function render()
     {
-        $this->users = User::find(2);
+        $this->users = User::find(1);
         
         return view('livewire.profile');
     }
@@ -102,7 +102,7 @@ class Profile extends Component
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/users');
+        redirect()->intended('/profile-example');
 
     }
 
@@ -129,7 +129,7 @@ class Profile extends Component
             session()->flash('message', 'Users Updated Successfully.');
             $this->reset('state') ; 
             $this->users=User::all();
-            redirect()->intended('/users');
+            redirect()->intended('/profile-example');
         }
     }
 

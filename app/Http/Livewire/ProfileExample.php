@@ -3,12 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\Image;
-use Illuminate\Validation\Rule;
+use App\Models\postes;
+use Livewire\Component;
+use App\Models\historiques;
 use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileExample extends Component
@@ -17,7 +19,9 @@ class ProfileExample extends Component
  
     public $images = [];
     public $users;
+    public  $postes;
     public $title;
+    public $poste_libele;
     public $email;
     public $showSavedAlert = false;
     public $showDemoNotification = false;
@@ -28,18 +32,30 @@ class ProfileExample extends Component
         'user.first_name' => 'max:15',
         'user.last_name' => 'max:20',
         'user.email' => 'email',
+        'postes.poste_libele'=>'poste_libele',
         'user.gender' => ['required', Rule::in(['Male', 'Female', 'Other'])],
         'user.address' => 'max:40',
         'user.number' => 'numeric',
         'user.city' => 'max:20',
         'user.ZIP' => 'numeric',
+       
     ];
+    
     }
    
     public function mount()
+
     {
+        
+      
         $this->user = auth()->user();
+        $historiques = historiques::where('user_id',$this->user->id)->first();
+        $this->postes= postes::find($historiques->poste_id);
+ 
+       
+      
     }
+
 
     public function save()
     {
@@ -91,8 +107,11 @@ class ProfileExample extends Component
         return response()->json('Image uploaded successfully');
     }
 
+
+
     public function render()
     {
+        $this->users = User::all();
         return view('livewire.profile-example');
     }
 }

@@ -35,6 +35,7 @@ class User extends Authenticatable
         'remember_token',
         'email_verified_at',
         'created_at',
+        'poste_id',
         'updated_at',
     ];
     protected $rules = [
@@ -47,6 +48,7 @@ class User extends Authenticatable
         'user.address' => 'max:20',
         'user.number' => 'numeric',
         'user.city' => 'max:20',
+        'postes.poste_libele'=>'max:15',
         'user.zip' => 'numeric',
     ];
     /**
@@ -58,7 +60,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    
+   
+
+
+
+public function postes()
+{
+    return $this->belongsToMany(postes::class, 'historiques');
+}
+     
+
     public static function search($query)
     {
         return empty($query) ? static::query()->where('user_type', 'user')
@@ -73,3 +84,4 @@ class User extends Authenticatable
     }
 }
 
+    

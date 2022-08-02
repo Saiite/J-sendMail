@@ -149,13 +149,11 @@
                 <th class="border-bottom">first_name</th>
                 <th class="border-bottom">last_name</th>
                 <th class="border-bottom">email</th>
-                <th>
-                    <a wire:click.prevent="sortBy('created_at')" role="button" href="#">
-                    Created at
-                   
-                    </a>
-                </th>
+                
                 <th class="border-bottom">Status</th>
+                
+                <th class="border-bottom">poste</th>
+               
                 <th class="border-bottom">Action</th>
             </tr>
         </thead>
@@ -179,9 +177,16 @@
                 </td>
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
-                <td>{{ $value->created_at->format('m-d-Y') }}</td>
+               
+                <td><span class="fw-normal"></span>{{ $value->status}}</td>
+            
+              
+                <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
+            
+           
+               
                 
-                <td><span class="fw-normal text-success"></span>{{ $value->Action}}</td>
+               
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

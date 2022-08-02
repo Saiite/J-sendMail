@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\postes;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,8 +13,15 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+  
+
     public function run()
-    {
-        \App\Models\User::factory(100)->create();
-    }
+{
+    //User::factory()->count(10)->create();
+
+  
+
+   
+  
+}
 }
