@@ -25,22 +25,10 @@ class User extends Authenticatable
     ];
     protected $guarded=[];
 
-<<<<<<< HEAD
     public function courriers()
     {
         return $this->hasMany(courrier::class, 'users_id');
     }
-=======
-    // public function courriers()
-    // {
-    //     return $this->hasMany(courrier::class, 'user_id');
-    // }
-    // public function notifications()
-    // {
-    //     return $this->hasMany(notification::class, 'user_id');
-    // }
-
->>>>>>> dubel
     /**
      * The attributes that should be hidden for arrays.
      *
