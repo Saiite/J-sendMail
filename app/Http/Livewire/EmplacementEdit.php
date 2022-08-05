@@ -47,7 +47,7 @@ class EmplacementEdit extends Component
            $this->updateMode = false;
            $this->reset('state');
            $this->Emplacement = emplacement::all();
-           redirect()->intended('/courrier-list')->with('message', 'emplacement modifié avec succès.');
+           redirect()->intended('/courrier-index')->with('message', 'emplacement modifié avec succès.');
        }
    }
    public function mount($id)

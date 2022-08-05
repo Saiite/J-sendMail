@@ -173,3 +173,8 @@
     {{session()->get('message')}}
   </div>
   @endif
+  @if (session()->has('messag'))
+<div class="alert alert-danger" role="alert">
+    {{session()->get('messag')}}
+  </div>
+  @endif

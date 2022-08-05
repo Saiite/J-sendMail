@@ -13,17 +13,9 @@ class EmeteurIndex extends Component
     {
         $this->emeteurs = emeteur::all();
     }
-
-    public function delete($id)
-    {
-        if($id){
-            emeteur::where('id',$id)->delete();
-            $this->emeteurs = emeteur::all();
-        }
-    }
     public function render()
     {
-        $emet=emeteur::all();
+        $emet=emeteur::paginate(5);
         return view('livewire.emeteur-index',compact('emet'));
     }
 }

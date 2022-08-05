@@ -20,7 +20,6 @@ class EmeteurList extends Component
         ])->validate();
 
         emeteur::create($this->state);
-        session()->flash('message','courrier enregistré avec succès!');
         $this->reset('state');
         $this->Emeteur = emeteur::all();
         redirect()->intended('/courrier-list')->with('message', 'emeteur crée avec succès.');
