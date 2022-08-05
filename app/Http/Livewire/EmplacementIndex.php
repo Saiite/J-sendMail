@@ -13,17 +13,9 @@ class EmplacementIndex extends Component
     {
         $this->courriers = emplacement::all();
     }
-
-    public function delete($id)
-    {
-        if($id){
-            emplacement::where('id',$id)->delete();
-            $this->emplacements = emplacement::all();
-        }
-    }
     public function render()
     {
-        $empla=emplacement::all();
+        $empla=emplacement::paginate(5);
 
         return view('livewire.emplacement-index',compact('empla'));
     }

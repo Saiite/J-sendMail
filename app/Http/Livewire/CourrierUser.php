@@ -28,7 +28,25 @@ class CourrierUser extends Component
     public function changeStatut($id)
     {
         if($id){
+            $courriers = courrier::find($id);
+
+            $this->state = [
+                'id' => $courriers->id,
+                'courrier_libele' => $courriers->courrier_libele,
+                'courrier_date_arrive'=>$courriers-> courrier_date_arrive,
+                'courrier_status'=>$courriers-> courrier_status,
+                'emeteur_id' => $courriers->emeteur_id,
+                'user_id' => $courriers->user_id,
+                'emplacement_id' => $courriers->emplacement_id,
+            ];
+            if($courriers-> courrier_status=='enStok'){
          courrier::where('id',$id)->update(['courrier_status'=>'enCours']);
+         redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
+            }else{
+            redirect()->intended('/courrier-user')->with('messag', 'vous avez deja validé ou courrier destocké.');
+            }
+
+         //  mail::to('sendmail@jstockcash.com')->send(new DemoMail($this->state));
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
     }
 }

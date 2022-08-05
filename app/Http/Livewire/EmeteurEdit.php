@@ -44,6 +44,7 @@ class EmeteurEdit extends Component
            $this->updateMode = false;
            $this->reset('state');
            $this->Emeteur = emeteur::all();
+           redirect()->intended('/emeteur-index')->with('message', 'emeteur modifié avec succès.');
        }
    }
    public function mount($id)

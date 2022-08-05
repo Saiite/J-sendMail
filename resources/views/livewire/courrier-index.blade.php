@@ -83,7 +83,9 @@
                     <span class="fw-normal">{{$courrier->courrier_libele}}</span>
                 </td>
                 <td><span class="fw-normal">{{$courrier->courrier_date_arrive}}</span></td>
+
                 <td><span class="fw-bold text-warning">{{$courrier->courrier_status}}</span></td>
+
                 <td><span class="fw-bold">{{$courrier->emeteur->emeteur_noms}}</span></td>
                 <td><span class="fw-bold">{{$courrier->user->first_name}}</span></td>
                 <td><span class="fw-normal">{{$courrier->emplacement->emplacement_noms}}</span></td>
@@ -100,7 +102,8 @@
                             <a class="dropdown-item rounded-top" href="{{ route('courrier-show', $courrier->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
                             <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
-                        </div>
+                            <a class="dropdown-item text rounded-bottom" href="#"  wire:click.prevent="changeStatut({{  $courrier->id }})"></span class="fas fa-trash-alt me-2"></span>Destocker</a>
+                        </a>
                     </div>
                 </td>
             </tr>
@@ -110,30 +113,16 @@
         @endforeach
         </tbody>
     </table>
+
     <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
         <nav aria-label="Page navigation example">
             <ul class="pagination mb-0">
-                <li class="page-item">
+                {{-- <li class="page-item">
                     <a class="page-link" href="#">Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
+                </li> --}}
+
+                    {{$courr->onEachside(0)->links()}}
+
             </ul>
         </nav>
         <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>

@@ -55,6 +55,7 @@ class CourrierEdit extends Component
             $this->updateMode = false;
             $this->reset('state');
             $this->Courrier = courrier::all();
+            redirect()->intended('/courrier-index')->with('message', ' votre courrier a été modifié avec succès.');
         }
     }
     //cette fonction nous permet d'initialiser lers valeurs du courrier et recupere l'id du courrier a modiffier.
