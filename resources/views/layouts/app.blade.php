@@ -1,9 +1,9 @@
 <x-layouts.base>
 
 
-    @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
+    @if(in_array(request()->route()->getName(), [ 'profile', 'profile-example', 'users',  'transactions',
     'buttons',
-    'forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile','post','post-edit','post-edit-edit','historiques']))
+    'forms', 'modals', 'notifications', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile','post','post-edit','post-edit-edit','historiques']))
 
     {{-- Nav --}}
     @include('layouts.nav')

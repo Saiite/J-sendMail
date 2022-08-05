@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('number')->nullable();
             $table->string('city')->nullable();
             $table->string('ZIP')->nullable();
-            $table->enum('status', ['isActive']);
+            $table->enum('status', ['actif', 'inactif']);
    
            
         
