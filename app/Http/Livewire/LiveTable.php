@@ -10,14 +10,18 @@ use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
 
 class LiveTable extends Component
 {
-    public $users,  $poste_id,$historiques, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public $users,  $poste_id,$poste_libele,$historiques, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
+
+    public $postes='';
+    public $state = [];
     public function render()
     {
         $this->users = User::all();
@@ -33,7 +37,7 @@ class LiveTable extends Component
 
     }
 
-    public function store($id)
+    public function store()
     {
         
         $this->validate([
@@ -41,7 +45,7 @@ class LiveTable extends Component
             'last_name' => 'required',
             'email' => 'required',
           
-            'poste_id' => 'required',
+           
            
             'password' => 'required|min:6',
         ]);
@@ -49,7 +53,7 @@ class LiveTable extends Component
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-            'poste_id' =>$id,
+          
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
@@ -60,11 +64,18 @@ class LiveTable extends Component
         $historiques=historiques::create([
 
             'poste_id' => $user->id,
-            'user_id' => $id,
+            'user_id' => $user->id,
 
         ]);
         
+        $validator = Validator::make($this->state, [
+            'poste_libele' => 'required|max:100',
+        ])->validate();
 
+        postes::create($this->state);
+        session()->flash('message','postes avec succès!');
+        $this->reset('state');
+        $this->postes = postes::all();
         
         redirect()->intended('/users');
     }

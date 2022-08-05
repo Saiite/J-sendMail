@@ -9,7 +9,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 
@@ -91,6 +91,24 @@ class Users extends Component
             $this->resetInputFields();
 
         }
+    }
+
+
+    public Model $model;
+    
+    public $field;
+
+    public $isActive;
+
+    public function mount()
+    {
+        
+    }
+
+    public function updating($field, $value)
+    {
+        $this->model->setAttribute($this->field, $value)->save();
+
     }
 
     public function delete($id)

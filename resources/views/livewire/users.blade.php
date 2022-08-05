@@ -178,16 +178,17 @@
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
                
-                <td><span class="fw-normal"></span>{{ $value->status}}</td>
+                <td>{{ $value->status}}
+                    <div class="form-check form-switch">
+   
+                        <input class="form-check-input" type="checkbox" id="{{$value->id}}" {{ $value->status ? 'checked' : '' }}>
+                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                      </div>
+                </td>
             
               
                 <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
-            
-           
-               
-                
-               
-                <td>
+                 <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="icon icon-sm">
