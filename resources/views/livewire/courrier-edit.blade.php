@@ -29,10 +29,10 @@
                     <div class="row mb-4">
                         <div class="col-lg-4 col-sm-6">
                             <!-- Form -->
-               <form wire:submit.prevent="mount({{ $courrier->id }})" action="#" method="POST">
+               <form wire:submit.prevent="mount" action="#" method="POST">
                             <div class="mb-4">
                                 <label for="courrier_libele">libele du courrier</label>
-                                <input type="text" class="form-control"  wire:model="state.courrier_libele" id="courrier_libele" aria-describedby="courrier_libele"  value="{{old('courrier_libele',$courrier)}}"placeholder="libele" required >
+                                <input type="text" class="form-control"  wire:model="state.courrier_libele" id="courrier_libele" aria-describedby="courrier_libele"  value="{{old('courrier_libele')}}"placeholder="libele" required >
                                 <small id="courrier_libele" class="form-text text-muted">donnez un noms explicite.</small>
                               </div>
                             <!-- End of Form -->

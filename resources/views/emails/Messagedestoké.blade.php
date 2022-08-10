@@ -6,7 +6,9 @@
 </head>
 <body>
 <h1>HELLO!</h1>
-<H1>{{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}  a  validé son courrier avec succès</H1>
+<H1> vous avez bien retiré votre courrier</H1>
+<div class="mb-3">
+<div>
 
 </div>
 <p>nous vous remercions !</p>

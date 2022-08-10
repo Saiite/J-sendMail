@@ -22,8 +22,6 @@ class CourrierList extends Component
     public $updateMode = false;
     public $users;
 
-
-
     private function resetInputFields(){
         $this->reset('state');
     }

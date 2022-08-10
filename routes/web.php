@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
     Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
-    Route::get('courrier/{courriers}/edit', CourrierEdit::class)->name('courrier-edit');
+    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
     Route::get('/courrier-user', CourrierUser::class)->name('courrier-user');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');

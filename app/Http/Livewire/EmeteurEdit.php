@@ -60,7 +60,7 @@ class EmeteurEdit extends Component
 
     public function render()
     {
-        $emeteur=emeteur::find(1);
-        return view('livewire.emeteur-edit',compact('emeteur'));
+
+        return view('livewire.emeteur-edit');
     }
 }

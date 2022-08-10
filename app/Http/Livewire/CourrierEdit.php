@@ -59,11 +59,11 @@ class CourrierEdit extends Component
         }
     }
     //cette fonction nous permet d'initialiser lers valeurs du courrier et recupere l'id du courrier a modiffier.
-    public function mount($courriers)
+    public function mount($id)
     {
 
         $this->updateMode = true;
-        $courriers = courrier::find($courriers);
+        $courriers = courrier::find($id);
 
         $this->state = [
             'id' => $courriers->id,
@@ -78,10 +78,10 @@ class CourrierEdit extends Component
 
     public function render()
     {
-    $courrier = courrier::find(1);
+        // $courrier = courrier::find(3);
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();
-        return view('livewire.courrier-edit', compact('emet','dest','empla','courrier'));
+        return view('livewire.courrier-edit', compact('emet','dest','empla'));
     }
 }

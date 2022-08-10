@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Mail;
-use App\Http\Livewire\CourrierList;
-use App\Models\CourrierUser;
-use App\Models\user;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class DemoMail extends Mailable
+class Messagedestoké extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -23,6 +21,7 @@ class DemoMail extends Mailable
     {
         $this->state = $state;
     }
+
     /**
      * Build the message.
      *
@@ -32,7 +31,9 @@ class DemoMail extends Mailable
     {
 
         return $this->from("sendmail@jstockcash.com") // L'expéditeur
-                    ->subject('courrier validé')    //SUJET
-                    ->view('emails.demoMail');
+                    ->subject('courrier destocké')    //SUJET
+                    ->view('emails.Messagedestoké')
+; // La vue
+
     }
 }

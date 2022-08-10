@@ -34,7 +34,7 @@
                         <h1 class="h4">date d'arrivée ={{$courrier->courrier_date_arrive }}</h1>
                             <h1 class="h4">statut ={{$courrier->courrier_status}}</h1>
                                 <h1 class="h4">noms de l'emeteur ={{$courrier->emeteur->emeteur_noms}}</h1>
-                                    <h1 class="h4">noms du destinataire ={{$courrier->user->email}}</h1>
+                                    <h1 class="h4">noms du destinataire ={{$courrier->user->first_name}}</h1>
                                         <h1 class="h4">noms de l'emplacement ={{$courrier->emplacement->emplacement_noms}}</h1>
 
 

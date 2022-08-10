@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-lg-4 col-sm-6">
-                          <form wire:submit.prevent="edit({{ $emeteur->id }})" action="#" method="POST">
+                          <form wire:submit.prevent="mount" action="#" method="POST">
                                   <div class="mb-4">
                                         <label for="emeteur_noms">noms de l'emeteur</label>
                                            <input type="text" class="form-control"  wire:model="state.emeteur_noms"id="emeteur_noms" aria-describedby="emeteur_noms">

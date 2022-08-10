@@ -1,7 +1,7 @@
 <div>
     <div>
         {{-- Stop trying to control. --}}
-        <title>enregistrer un emplacement</title>
+        <title>modifier un emplacement</title>
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-lg-4 col-sm-6">
-                          <form wire:submit.prevent="edit({{ $emplacement->id }})" action="#" method="POST">
+                          <form wire:submit.prevent="mount" action="#" method="POST">
                                   <div class="mb-4">
                                         <label for="emplacement_noms">noms de l'emplacement</label>
                                            <input type="text" class="form-control"  wire:model="state.emplacement_noms"id="emplacement_noms" aria-describedby="emplacement_noms">
