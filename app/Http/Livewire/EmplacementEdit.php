@@ -62,7 +62,7 @@ class EmplacementEdit extends Component
     }
     public function render()
     {
-        $emplacement=emplacement::find(1);
-        return view('livewire.emplacement-edit',compact('emplacement'));
+
+        return view('livewire.emplacement-edit');
     }
 }

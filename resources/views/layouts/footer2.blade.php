@@ -49,7 +49,7 @@
                 <!-- List -->
                 <ul class="list-inline list-group-flush list-group-borderless">
                     <li class="list-inline-item px-0 px-sm-2">
-                        <a href="https://themesberg.com/about">About</a>
+                        {{-- <a href="https://themesberg.com/about">About</a>
                     </li>
                     <li class="list-inline-item px-0 px-sm-2">
                         <a href="https://themesberg.com/themes">Themes</a>
@@ -59,7 +59,7 @@
                     </li>
                     <li class="list-inline-item px-0 px-sm-2">
                         <a href="https://themesberg.com/contact">Contact</a>
-                    </li>
+                    </li> --}}
                 </ul>
                 <p class="mb-0 text-center">© 2019-<span class="current-year"></span> <a
                         class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg &

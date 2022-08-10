@@ -4,15 +4,19 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Mail\Mailable;
+use App\Mail\DemoMail;
 use App\Models\courrier;
 use Livewire\Component;
 use App\Models\emeteur;
+use Mail;
 use App\Models\emplacement;
 use App\Models\user;
 
 class CourrierUser extends Component
 {
     public $courriers;
+    public $name;
 
     public function mount()
     {
@@ -21,10 +25,15 @@ class CourrierUser extends Component
 
     public function render()
     {
-        $courr = courrier::where('user_id', auth()->user()->id)->get();
-        return view('livewire.courrier-user',compact('courr'));
+        // $courr = courrier::where('user_id', auth()->user()->id)->get();
+        $courr = courrier::when($this->name,function($query,$name){
+            return $query->where ('courrier_libele','LIKE',"%$name%");
+            })->where('user_id', auth()->user()->id)->orderByRaw('id DESC')->paginate(5);
+
+            return view('livewire.courrier-user',compact('courr'));
 
     }
+    //cette fonction permet de changer le statut du courrier l'ors de la validation de celui -ci.
     public function changeStatut($id)
     {
         if($id){
@@ -42,11 +51,11 @@ class CourrierUser extends Component
             if($courriers-> courrier_status=='enStok'){
          courrier::where('id',$id)->update(['courrier_status'=>'enCours']);
          redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
-            }else{
+         mail::to('dubelnguemle@gmail.com')->send(new DemoMail ($this->state));
+        }else{
             redirect()->intended('/courrier-user')->with('messag', 'vous avez deja validé ou courrier destocké.');
             }
 
-         //  mail::to('sendmail@jstockcash.com')->send(new DemoMail($this->state));
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
     }
 }
