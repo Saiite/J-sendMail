@@ -14,7 +14,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users, $name,$totoalPages, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public  $name,$totoalPages, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification;
     public $updateMode = false;
    
    
@@ -35,10 +35,12 @@ class Users extends Component
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
+
+
     public function render (postes $postes)
     {
-        $postes = postes::all();
-       
+        
+      
         $this->users= DB::table('historiques')
         ->when($this->name,function($query,$name){
 
@@ -48,10 +50,8 @@ class Users extends Component
         ->join('postes', 'postes.id', '=', 'historiques.poste_id')
         ->select('postes.*','users.*' )
         ->get();
-        
+    
         return view('livewire.users' );
-
-        
   
     }
 

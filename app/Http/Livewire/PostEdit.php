@@ -12,9 +12,9 @@ use Illuminate\Notifications\Notifiable;
 class PostEdit extends Component
 {
 
-    public $postes,$name,  $mailSentAlert,$showDemoNotification, $post_id;
+    public $name,  $mailSentAlert,$showDemoNotification, $post_id;
     public $updateMode = false;
-   
+    public $search = '';
    
 
     protected $messages = [
@@ -23,13 +23,13 @@ class PostEdit extends Component
 
     public function render()
     {
+        
+       
         $postes=postes::when($this->name,function($query,$name){
 
             return $query->where('poste_libele','LIKE',"%$name%");
-        });
-
-        $this->postes = postes::all();
-       
+        })->paginate(2);
+        
        
         return view('livewire.post-edit', compact('postes'));
     }
