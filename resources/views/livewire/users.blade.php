@@ -49,25 +49,15 @@
 <div class="table-settings mb-4">
     <div class="row justify-content-between align-items-center">
         <div class="col-9 col-lg-8 d-md-flex">
-            <div class="input-group me-2 me-lg-3 fmxw-300">
+            <div class="input-group me-2 me-lg-3 fmxw-400">
                 <span class="input-group-text">
-                    <svg class="icon icon-xs" x-description="Heroicon name: solid/search"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"></path>
+                    <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                     </svg>
                 </span>
-                <input wire:model="search" class="form-control" type="text" placeholder="Search Users...">
+                <input type="text" class="form-control" placeholder="Search orders" wire:model="name">
             </div>
-            <select class="form-select fmxw-200 d-none d-md-inline" aria-label="Message select example 2">
-                <option selected>All</option>
-                <option value="1">Active</option>
-                <option value="2">Inactive</option>
-                <option value="3">Pending</option>
-                <option value="3">Cancelled</option>
-            </select>
-        </div>
+         
         <div class="col-3 col-lg-4 d-flex justify-content-end">
             <div class="btn-group">
                 <div class="dropdown me-1">
@@ -178,15 +168,14 @@
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
                
-                <td>{{ $value->status}}
+                <td>
                     <div class="form-check form-switch">
    
-                        <input class="form-check-input" type="checkbox" id="{{$value->id}}" {{ $value->status ? 'checked' : '' }}>
+                        <input class="form-check-input" type="checkbox" id="{{$value->id}}" {{ $value->status ? 'checked' : '' }} checked="{{$status}}">
                         <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                       </div>
                 </td>
             
-              
                 <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
                  <td>
                     <div class="btn-group">
@@ -208,5 +197,20 @@
             @endforeach
         </tbody>
     </table>
+    <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination mb-0">
+                {{-- <li class="page-item">
+                    <a class="page-link" href="#">Previous</a>
+                </li> --}}
+
+               
+  
+
+            </ul>
+        </nav>
+        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
+    
+</div>
 </div>
 </div>

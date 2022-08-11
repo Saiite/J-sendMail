@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-lg-4 col-sm-6">
-                            <form wire:submit.prevent="edit({{  $postes->id }})" action="#" method="POST">
+                            <form wire:submit.prevent="mount" action="#" method="POST">
                                   <div class="mb-4">
                                         <label for="poste_libele">postes</label>
                                            <input type="text" class="form-control"  wire:model="state.poste_libele" id="poste_libele" aria-describedby="poste_libele">

@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->id();
             $table->string('first_name');
             $table->string('last_name');
 
@@ -29,12 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('number')->nullable();
             $table->string('city')->nullable();
             $table->string('ZIP')->nullable();
-            $table->enum('status', ['actif', 'inactif']);
-   
-           
-        
             $table->timestamp('email_verified_at')->nullable();
-        
+            $table->foreignId('role_id')->default()->constrained('roles');
+            $table->string('status' )->default()->comment('status', ['actif', 'inactif']);
             $table->rememberToken()->unique();
             $table->timestamps();
         });

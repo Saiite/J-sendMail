@@ -53,19 +53,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function edituser($data)
-    {
-        $user= user::where('id',$data['id'])->update([
-            'id' =>$data->id,
-            'first_name' => $data->first_name,
-            'last_name' => $data->last_name,
-            'email' => $data->email,
-            'password' =>  $data->password,
-        ]);
-
-       return $user;
     
-    }   
     public static function search($query)
     {
         return empty($query) ? static::query()->where('user_type', 'user')

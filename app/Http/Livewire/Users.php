@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\postes;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
@@ -15,47 +14,45 @@ use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users,  $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public $users, $name,$totoalPages, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
-    public $search = '';
-    use WithPagination;
+   
+   
+    public  $search='';
+
+    
+    public $field;
+
+    public $status;
+
+    public $uniqueId;
+    
+    protected $queryString=[
+
+        'search' =>['except'=>'']
+           ];
+
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
     public function render (postes $postes)
     {
-        $this->users = User::all();
         $postes = postes::all();
-        $users = DB::table('users')->simplePaginate(3);
+       
         $this->users= DB::table('historiques')
+        ->when($this->name,function($query,$name){
+
+            return $query->where('first_name','LIKE',"%$name%"); })
+       
         ->join('users', 'users.id', '=', 'historiques.user_id')
         ->join('postes', 'postes.id', '=', 'historiques.poste_id')
         ->select('postes.*','users.*' )
         ->get();
+        
+        return view('livewire.users' );
 
-        return view('livewire.users', compact('postes'));
-
-    }
-
-
-
-    private function resetInputFields(){
-        $this->first_name = '';
-        $this->last_name = '';
-        $this->email = '';
-    }
-
-    
-
-    public function sortBy($field)
-    {
-        if ($this->sortField === $field) {
-            $this->sortAsc = !$this->sortAsc;
-        } else {
-            $this->sortAsc = true;
-        }
-
-        $this->sortField = $field;
+        
+  
     }
 
 
@@ -67,49 +64,7 @@ class Users extends Component
 
     }
 
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'first_name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required|email',
-            'password' => Hash::make($this->password),
-        ]);
-
-        if ($this->user_id) {
-            $user = Users::find($this->user_id);
-            $user->update([
-                'first_name' => $this->first_name,
-                'first_name' => $this->first_name,
-                'email' => $this->email,
-                'password' => Hash::make($this->password),
-                'remember_token' => Str::random(10),
-
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
-            $this->resetInputFields();
-
-        }
-    }
-
-
-    public Model $model;
-    
-    public $field;
-
-    public $isActive;
-
-    public function mount()
-    {
-        
-    }
-
-    public function updating($field, $value)
-    {
-        $this->model->setAttribute($this->field, $value)->save();
-
-    }
+  
 
     public function delete($id)
     {

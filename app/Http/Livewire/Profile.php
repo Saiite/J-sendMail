@@ -24,7 +24,7 @@ class Profile extends Component
     ];
     public function render()
     {
-        $this->users = User::find(1);
+       
         
         return view('livewire.profile');
     }

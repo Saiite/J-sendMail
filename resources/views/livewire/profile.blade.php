@@ -7,7 +7,7 @@
     <div class="card card-body border-0 shadow mb-4">
         <div class="col-lg- col-sm-5">
     
-<form wire:submit.prevent="edit({{ $users->id }})" action="#" method="POST"> 
+<form wire:submit.prevent=" mount" action="#" method="POST"> 
     
     <div class="form-group mt-4 mb-4">
        

@@ -14,18 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('historiques', function (Blueprint $table) {
-          
-          
-            $table->increments('id')->unique();
-            $table->foreignId('poste_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->id();
+           
+            $table->foreignId('poste_id')->constrained('postes');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
 
         });
     }
-
- 
- 
 
     /**
      * Reverse the migrations.
@@ -34,25 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-
-        Schema::table('historiques', function(Blueprint $table){
-            $table->id();
-            $table->timestamps();
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->unsignedBigInteger('postes_id');
-            $table->foreign('postes_id')
-                ->references('id')
-                ->on('postes')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-        });
-
-
         Schema::dropIfExists('historiques');
     }
 };

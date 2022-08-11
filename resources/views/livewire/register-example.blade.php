@@ -1,4 +1,3 @@
-
 <main>
     <title>Volt Laravel Dashboard - Sign up page</title>
     <!-- Section -->

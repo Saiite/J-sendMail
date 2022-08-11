@@ -111,31 +111,24 @@
                         <div class="card-body pb-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <form wire:submit.prevent="save">   
-                                        @if (session()->has('success'))
-                                            <div class="alert alert-success">
-                                                {{ session('success') }}
+                                    <form action="" wire:submit.prevent='create'>
+                                        <div class="card-body">
+                                            
+                                            <div class="custom-file mt-3">
+                                                <input type="file" wire:model='image' class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                
                                             </div>
-                                        @endif 
-                                        @if ($images)
-                                            Photo Profile
-                                            <div class="row">
-                                                @foreach ($images as $images)
-                                                <div class="col-10 card me-5 mb-5">
-                                                    <img src="{{ $images->temporaryUrl() }}">
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        @endif
-                                        <div class="mb-3">
-                                            <label class="form-label">Image Upload</label>
-                                            <input type="file" class="form-control" wire:model="images" multiple>
-                                            <div wire:loading wire:target="images">Uploading...</div>
-                                            @error('images.*') <span class="error">{{ $message }}</span> @enderror
+                                            @if ($image)
+                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="">
+                                            @endif
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Save Image</button>
-                                        <div wire:loading wire:target="save">process...</div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
                                     </form>
+
+                                   
                                 </div>
                             </div>
                             <h4 class="h3">
@@ -167,5 +160,10 @@
 
 
 <div>
+
+
+
+
+
 
  

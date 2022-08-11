@@ -21,6 +21,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'images',
       'password',
     ]; 
     protected $guarded=[];
@@ -70,18 +71,8 @@ public function postes()
 }
      
 
-    public static function search($query)
-    {
-        return empty($query) ? static::query()->where('user_type', 'user')
-            : static::where('user_type', 'user')
-                ->where(function($q) use ($query) {
-                    $q
-                        ->where(' first_name', 'LIKE', '%'. $query . '%')
-                        ->where(' last_name', 'LIKE', '%'. $query . '%')
-                        ->orWhere('email', 'LIKE', '%' . $query . '%')
-                        ->orWhere('address', 'LIKE ', '%' . $query . '%');
-                });
-    }
+   
+   
 }
 
     

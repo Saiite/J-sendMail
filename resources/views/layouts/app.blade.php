@@ -1,9 +1,9 @@
 <x-layouts.base>
 
 
-    @if(in_array(request()->route()->getName(), [ 'profile', 'profile-example', 'users',  'transactions',
-    'buttons',
-    'forms', 'modals', 'notifications', 'upgrade-to-pro','index','live-table','users-edit','udapt-profile','edit-profile','post','post-edit','post-edit-edit','historiques']))
+    @if(in_array(request()->route()->getName(), ['dashboard', 'profile','notification','profile-example', 'users', 'bootstrap-tables', 'transactions',
+    'buttons','forms', 'courrier-list', 'courrier-index','courrier-edit','courrier-show','emeteur-list','emeteur-edit','emeteur-index','emplacement-list','emplacement-index','emplacement-show','emplacement-edit','envoi-mail','modals', 'notifications', 'typography', 'upgrade-to-pro', 'index','live-table','users-edit','UsersEdit','post','post-edit','post-edit-edit','historiques']))
+
 
     {{-- Nav --}}
     @include('layouts.nav')
@@ -17,8 +17,8 @@
         @include('layouts.footer')
     </main>
 
-    @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 
-    'forgot-password', 'forgot-password-example', 'reset-password','reset-password-example',]))
+    @elseif(in_array(request()->route()->getName(), ['register', 'register-example', 'login', 'login-example',
+    'forgot-password', 'forgot-password-example', 'reset-password','reset-password-example']))
 
     {{ $slot }}
     {{-- Footer --}}
