@@ -89,7 +89,7 @@ class PostEditEdit extends Component
                 'poste_libele' => $this->state['poste_libele'],
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
+            session()->flash('message', 'vous avez  modifié un poste avec succès.');
             $this->reset('state') ; 
             $this->postes=postes::all();
             redirect()->intended('/post-edit');

@@ -77,7 +77,7 @@ class LiveTable extends Component
         $this->reset('state');
         $this->postes = postes::all();
         
-        redirect()->intended('/users');
+        redirect()->intended('/users')->with('message', ' vous avez enregistré un utilisateur avec  succès.');
     }
     public function routeNotificationForMail() {
         return $this->email;

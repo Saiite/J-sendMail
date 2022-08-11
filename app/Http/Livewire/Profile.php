@@ -126,7 +126,7 @@ class Profile extends Component
                 'password' => $this->state['password' ],
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
+            session()->flash('message', 'utilisateur modifié avec succès');
             $this->reset('state') ; 
             $this->users=User::all();
             redirect()->intended('/profile-example');

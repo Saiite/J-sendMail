@@ -23,12 +23,12 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Volt</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users List</li>
+                <li class="breadcrumb-item"><a href="#">J-SENDMAIL</a></li>
+                <li class="breadcrumb-item active" aria-current="page">liste</li>
             </ol>
         </nav>
-        <h2 class="h4">Users List</h2>
-        <p class="mb-0">Your web analytics dashboard template.</p>
+        <h2 class="h4">liste des utilisateurs J_sendmail</h2>
+       
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
         <a href="live-table" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
@@ -40,11 +40,7 @@
             New User
         </a>
         
-        <div class="btn-group ms-2 ms-lg-3">
-            <button type="button" class="btn btn-sm btn-outline-gray-600">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-gray-600">Export</button>
-        </div>
-    </div>
+           </div>
 </div>
 <div class="table-settings mb-4">
     <div class="row justify-content-between align-items-center">
@@ -57,20 +53,11 @@
                 </span>
                 <input type="text" class="form-control" placeholder="Search orders" wire:model="name">
             </div>
-         
+        
         <div class="col-3 col-lg-4 d-flex justify-content-end">
             <div class="btn-group">
                 <div class="dropdown me-1">
-                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
-                            </path>
-                        </svg>
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
+   
                     <div class="dropdown-menu dropdown-menu-end pb-0">
                         <span class="small ps-3 fw-bold text-dark">Show</span>
                         <a class="dropdown-item d-flex align-items-center fw-bold" href="#">10 <svg
@@ -84,38 +71,14 @@
                         <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-xs dropdown-menu-end pb-0">
-                        <span class="small ps-3 fw-bold text-dark">Show</span>
-                        <a class="dropdown-item d-flex align-items-center fw-bold" href="#">10 <svg
-                                class="icon icon-xxs ms-auto" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg></a>
-                        <a class="dropdown-item fw-bold" href="#">20</a>
-                        <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
-                    </div>
+        
+                  
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="alert alert-danger" role="alert">
-    Add, Edit, Delete features are not functional. This is a PRO feature! Click <a
-        href="https://volt-pro-laravel-admin-dashboard.updivision.com/" target="_blank">here</a> to see the PRO product.
-</div>
+
 <div class="card card-body shadow border-0 table-wrapper table-responsive">
     <div class="d-flex mb-3">
         <select class="form-select fmxw-200" aria-label="Message select example">
@@ -199,17 +162,8 @@
     </table>
     <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
         <nav aria-label="Page navigation example">
-            <ul class="pagination mb-0">
-                {{-- <li class="page-item">
-                    <a class="page-link" href="#">Previous</a>
-                </li> --}}
-
-  
-
-            </ul>
+         
         </nav>
-        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
-    
 </div>
 </div>
 </div>
