@@ -14,4 +14,8 @@ class Image extends Model
     protected $fillable = [
         'title', 'image'
     ];
+
+    public function user(){
+        return $this->hasMany(User::class,'image_id');
+       }
 }

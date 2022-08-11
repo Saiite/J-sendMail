@@ -21,7 +21,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
-        'images',
+       
       'password',
     ]; 
     protected $guarded=[];
@@ -71,7 +71,9 @@ public function postes()
 }
      
 
-   
+   public function Image(){
+    return $this->belongsTo(Image::class,'image_id');
+   }
    
 }
 
