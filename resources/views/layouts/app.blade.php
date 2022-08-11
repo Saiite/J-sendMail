@@ -30,8 +30,4 @@
     {{ $slot }}
 
     @endif
-<<<<<<< HEAD
-=======
-
->>>>>>> dubel
 </x-layouts.base>
