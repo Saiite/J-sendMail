@@ -36,8 +36,10 @@
               <a href="#" class="list-group-item list-group-item-action border-bottom">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <!-- Avatar -->
+                    <!-- Avatar -->{{ auth()->user()->Image->images}}
                     <img alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" class="avatar-md rounded">
+                    <img alt="Image placeholder" src="/storage/{{auth()->user()->Image->images}}" class="avatar-md rounded">
+
                   </div>
 
                   <div class="col ps-0 ms-2">
@@ -94,7 +96,8 @@
               <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                 <span
-                  class="mb-0 font-small fw-bold text-gray-900">{{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
+                  class="mb-0 font-small fw-bold text-gray-900">
+                  {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
               </div>
             </div>
           </a>

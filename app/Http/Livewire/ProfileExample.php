@@ -25,6 +25,7 @@ class ProfileExample extends Component
     public $title;
     public $poste_libele;
     public $email;
+    
     public $showSavedAlert = false;
     public $showDemoNotification = false;
     public $showData = true;
@@ -81,11 +82,16 @@ class ProfileExample extends Component
 
     public function create()
     {
+     
+        
         $images = new Image();
         $this->validate([
             
             'image' => 'image|max:4024',
         ]);
+
+       
+
 
         $filename = "";
         if ($this->image) {
@@ -96,7 +102,11 @@ class ProfileExample extends Component
 
  
         $images->images = $filename;
+
+        // dd($filename);
+
         $result = $images->save();
+        $users=User::where('email',$this->user->email)->update(['image_id'=>$images->id]);
         if ($result) {
             session()->flash('success', 'Add Successfully');
             $this->resetField();

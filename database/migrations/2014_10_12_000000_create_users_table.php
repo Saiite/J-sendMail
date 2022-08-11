@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
 
             $table->string('gender')->nullable();
             $table->string('email')->unique();
-            $table->foreignId('image_id')->default()->constrained('images');
+            $table->foreignId('image_id')->nullable()->constrained('images');
             $table->string('password');
             $table->enum('user_type', ['admin', 'user'])->default('user'); 
             $table->tinyInteger('age')->default();
