@@ -99,7 +99,7 @@ class ProfileExample extends Component
         } else {
             $filename = Null;
         }
-
+        session()->flash('message', 'vous avez  modifié un poste avec succès.');
  
         $images->images = $filename;
 
@@ -107,6 +107,7 @@ class ProfileExample extends Component
 
         $result = $images->save();
         $users=User::where('email',$this->user->email)->update(['image_id'=>$images->id]);
+        session()->flash('message', 'vous avez  modifié un poste avec succès.');
         if ($result) {
             session()->flash('success', 'Add Successfully');
             $this->resetField();
