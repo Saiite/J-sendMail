@@ -55,13 +55,16 @@ class CourrierEdit extends Component
             $this->updateMode = false;
             $this->reset('state');
             $this->Courrier = courrier::all();
+            redirect()->intended('/courrier-index')->with('message', ' votre courrier a été modifié avec succès.');
         }
     }
     //cette fonction nous permet d'initialiser lers valeurs du courrier et recupere l'id du courrier a modiffier.
     public function mount($id)
     {
+
         $this->updateMode = true;
         $courriers = courrier::find($id);
+
         $this->state = [
             'id' => $courriers->id,
             'courrier_libele' => $courriers->courrier_libele,
@@ -75,10 +78,10 @@ class CourrierEdit extends Component
 
     public function render()
     {
-    $courrier = courrier::find(1);
+        // $courrier = courrier::find(3);
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();
-        return view('livewire.courrier-edit', compact('emet','dest','empla','courrier'));
+        return view('livewire.courrier-edit', compact('emet','dest','empla'));
     }
 }

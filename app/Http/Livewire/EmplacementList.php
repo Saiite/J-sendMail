@@ -21,7 +21,7 @@ class EmplacementList extends Component
         emplacement::create($this->state);
         $this->reset('state');
         $this->Emplacement = emplacement::all();
-        redirect()->intended('/courrier-list');
+        redirect()->intended('/courrier-list')->with('message', 'emplacement crée avec succès.');
     }
     public function render()
     {

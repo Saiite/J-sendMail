@@ -10,12 +10,4 @@ class Image extends Model
     use HasFactory;
     
     protected $guarded = [];
-
-    protected $fillable = [
-        'title', 'image'
-    ];
-
-    public function user(){
-        return $this->hasMany(User::class,'image_id');
-       }
 }

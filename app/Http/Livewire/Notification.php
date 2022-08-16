@@ -7,9 +7,14 @@ use Livewire\Component;
 
 class Notification extends Component
 {
+
+    public function mount(Notification $notification)
+    {
+        $this->notifications = notification::all();
+    }
     public function render()
     {
-        $notif=notification::all();
-        return view('livewire.notification',compact('notif'));
+
+        return view('livewire.notification');
     }
 }

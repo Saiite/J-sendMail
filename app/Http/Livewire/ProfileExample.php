@@ -107,11 +107,13 @@ class ProfileExample extends Component
 
         $result = $images->save();
         $users=User::where('email',$this->user->email)->update(['image_id'=>$images->id]);
-        session()->flash('message', 'vous avez  modifié un poste avec succès.');
+        session()->flash('message', 'vous avez  modifié votre photo profile avec succès.');
+        redirect()->intended('/profile-example');
         if ($result) {
             session()->flash('success', 'Add Successfully');
             $this->resetField();
             $this->showData = true;
+
             $this->createData = false;
         } else {
             session()->flash('error', 'Not Add Successfully');
@@ -119,7 +121,21 @@ class ProfileExample extends Component
     }
 
 
-   
+    public function delete($id)
+    {
+    $images=Image::findOrFail($id);
+    $destination=public_path('storage\\'.$images->images);
+    if (File::exists($destination)) {
+        File::delete($destination);
+    }
+
+    $result=$images->delete();
+    if ($result) {
+        session()->flash('success', 'Delete Successfully');
+    } else {
+        session()->flash('error', 'Not Delete Successfully');
+    }
+}
     public function render()
     {
         $this->users = User::all();

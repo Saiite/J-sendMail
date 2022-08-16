@@ -22,10 +22,10 @@
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
             Nouveau courrier
         </a>
-        <div class="btn-group ms-2 ms-lg-3">
-            {{-- <button type="button" class="btn btn-sm btn-outline-gray-600">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-gray-600">Export</button> --}}
-        </div>
+        {{-- <div class="btn-group ms-2 ms-lg-3">
+            <button type="button" class="btn btn-sm btn-outline-gray-600">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-gray-600">Export</button>
+        </div> --}}
     </div>
 </div>
 <div class="table-settings mb-4">
@@ -83,7 +83,6 @@
                     <span class="fw-normal">{{$courrier->courrier_libele}}</span>
                 </td>
                 <td><span class="fw-normal">{{$courrier->courrier_date_arrive}}</span></td>
-
                 @if ($courrier->courrier_status=='enStok')
                 <td><span class="fw-bold text-danger">{{$courrier->courrier_status}}</span></td>
                 @elseif($courrier->courrier_status=='enCours')
@@ -97,18 +96,12 @@
 
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-sm">
-                                <span class="fas fa-ellipsis-h icon-dark"></span>
-                            </span>
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
+                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="changeStatut({{  $courrier->id }})">valider</button>
                         <div class="dropdown-menu py-0">
-                            <a class="dropdown-item rounded-top" href="{{ route('courrier-show', $courrier->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
-                            <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
-                            <a class="dropdown-item text rounded-bottom" href="#"  wire:click.prevent="changeStatut({{  $courrier->id }})"></span class="fas fa-trash-alt me-2"></span>Destocker</a>
-                        </a>
+
+                            {{-- <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>valider</a>
+                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Refuser</a> --}}
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -118,21 +111,13 @@
         @endforeach
         </tbody>
     </table>
-
     <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
         <nav aria-label="Page navigation example">
             <ul class="pagination mb-0">
-                {{-- <li class="page-item">
-                    <a class="page-link" href="#">Previous</a>
-                </li> --}}
-
-                  <div> {{$courr->onEachside(1)->links()}}</div>
-
+                 {{$courr->onEachside(1)->links()}}
             </ul>
         </nav>
         <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
     </div>
-</div>
-</div>
 </div>
 </div>

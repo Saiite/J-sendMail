@@ -123,9 +123,7 @@
                 </td>
                 <td>
                     {{ $value->first_name}}
-                    <a href="#" class="d-flex align-items-center">
-                        <img src="../assets/img/team/profile-picture-1.jpg" class="avatar rounded-circle me-3"
-                            alt="Avatar">
+          
                        
                 </td>
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>

@@ -16,6 +16,7 @@ use App\Http\Livewire\EmeteurList;
 use App\Http\Livewire\CourrierEdit;
 use App\Http\Livewire\CourrierList;
 use App\Http\Livewire\CourrierShow;
+use App\Http\Livewire\CourrierUser;
 use App\Http\Livewire\EmeteurIndex;
 use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\Notification;
@@ -58,13 +59,6 @@ Route::redirect('/', '/index');
 Route::redirect('/', '/login');
 Route::get('/live-table', LiveTable::class)->name('live-table');
 
-Route::get('/post',  Post::class)->name('post');
-
-
-Route::get('/post-edit',  PostEdit::class)->name('post-edit');
-
-Route::get('postes/{id}/edit',  PostEditEdit::class)->name('post-edit-edit');
-
 
 Route::get('/register', Register::class)->name('register');
 
@@ -72,6 +66,13 @@ Route::get('/login', Login::class)->name('login');
 
 Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 
+
+Route::get('/post',  Post::class)->name('post');
+
+
+Route::get('/post-edit',  PostEdit::class)->name('post-edit');
+
+Route::get('postes/{id}/edit',  PostEditEdit::class)->name('post-edit-edit');
 
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
@@ -99,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
     Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
     Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
+    Route::get('/courrier-user', CourrierUser::class)->name('courrier-user');
     Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
     Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index');
     Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit');

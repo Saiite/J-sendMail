@@ -27,7 +27,7 @@ class PostEditEdit extends Component
     public function render()
     {
 
-    
+        $this->postes = postes::find(1);
 
         return view('livewire.post-edit-edit');
     }
@@ -89,7 +89,7 @@ class PostEditEdit extends Component
                 'poste_libele' => $this->state['poste_libele'],
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'vous avez  modifié un poste avec succès.');
+            session()->flash('message', 'Users Updated Successfully.');
             $this->reset('state') ; 
             $this->postes=postes::all();
             redirect()->intended('/post-edit');

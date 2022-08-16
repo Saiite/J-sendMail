@@ -78,23 +78,32 @@
                                         <div class="card-body">
                                             
                                             <div class="custom-file mt-3">
-                                                <input type="file" wire:model='image' class="custom-file-input" id="customFile">
+                                                <input type="file" wire:model='image' class="custom-file-input" id="customFile"  >
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                 
                                             </div>
                                             @if ($image)
-                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="">
+                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="" class="avatar rounded-circle">
                                             @endif
                                         </div>
                                         <div class="card-footer">
+                                            
+                                    
                                             <button type="submit" class="btn btn-primary">Save</button>
+                                           
                                         </div>
-                                    </form>    
+
+                                    </form>  
+                                    
+                                  
+                                   
                                 </div>
                             </div>
+
+                            
                             <h4 class="h3">
                                 {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}
-                           
+                           </h4>
                         </div>
                     </div>
                 </div>
@@ -102,10 +111,7 @@
         </div>
     </div>
 </form>
-
 </div>
-
-
 <div>
 
 

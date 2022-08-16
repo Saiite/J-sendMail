@@ -15,4 +15,8 @@ class notification extends Model
         'data',
 
     ];
+    public function user()
+    {
+        return $this->belongsTo(user::class,'user_id');
+    }
 }

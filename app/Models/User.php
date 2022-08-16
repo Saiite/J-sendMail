@@ -62,7 +62,10 @@ class User extends Authenticatable
     ];
     
    
-
+    public function courriers()
+    {
+        return $this->hasMany(courrier::class, 'users_id');
+    }
 
 
 public function postes()

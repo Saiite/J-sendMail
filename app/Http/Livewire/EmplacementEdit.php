@@ -47,6 +47,7 @@ class EmplacementEdit extends Component
            $this->updateMode = false;
            $this->reset('state');
            $this->Emplacement = emplacement::all();
+           redirect()->intended('/courrier-index')->with('message', 'emplacement modifié avec succès.');
        }
    }
    public function mount($id)
@@ -61,7 +62,7 @@ class EmplacementEdit extends Component
     }
     public function render()
     {
-        $emplacement=emplacement::find(1);
-        return view('livewire.emplacement-edit',compact('emplacement'));
+
+        return view('livewire.emplacement-edit');
     }
 }
