@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class role extends Model
+class permission extends Model
 {
-    use HasFactory;
     protected $fillable = [
-        'role_libele',
+        'permission_libele',
 
     ];
+    use HasFactory;
 
     public function user()
     {
-        return $this->BelonsToMany(user::class,'userrole','user_id','role_id');
+        return $this->BelonsToMany(user::class,'user_permissions','user_id','permission_id');
     }
 }

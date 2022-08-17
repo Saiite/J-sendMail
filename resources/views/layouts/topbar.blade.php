@@ -47,6 +47,9 @@
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                 <span
                   class="mb-0 font-small fw-bold text-gray-900">{{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
+                  @foreach (auth()->user()->roles as $role )
+                  <p>{{$role->role_libele}}</p>
+                  @endforeach
               </div>
             </div>
           </>

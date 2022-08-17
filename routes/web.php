@@ -36,6 +36,7 @@ use App\Http\Livewire\EmplacementEdit;
 use App\Http\Livewire\EmeteurEdit;
 use App\Http\Livewire\EmeteurIndex;
 use App\Http\Livewire\Notification;
+use App\Http\Livewire\Authorisation;
 
 
 
@@ -84,19 +85,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
-
-    Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
-    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
-    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');
-    Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show');
-    Route::get('/courrier-user', CourrierUser::class)->name('courrier-user');
-    Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list');
-    Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index');
-    Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit');
-    Route::get('/emplacement-list',EmplacementList::class)->name('emplacement-list');
-    Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index');
-    Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit');
-    Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show');
+// route::group({"midelware"=["auth","auth.admin"]
+//     "as",=>"admin"
+// })
+    Route::get('/courrier-list', CourrierList::class)->name('courrier-list')->middleware('auth.ajouter les courriers');
+    Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index')->middleware('auth.consulter la liste des courriers');
+    Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit') ->middleware('auth.modifier les courriers');
+    Route::get('courrier/{courrier}', CourrierShow::class)->name('courrier-show') ->middleware('auth.voir les courriers');
+    Route::get('/courrier-user', CourrierUser::class)->name('courrier-user')->middleware('auth.valider la réception des courriers');
+    Route::get('/emeteur-list',EmeteurList::class)->name('emeteur-list') ->middleware('auth.ajouter les émetteurs');
+    Route::get('/emeteur-index',EmeteurIndex::class)->name('emeteur-index') ->middleware('auth.admin');
+    Route::get('emeteur/{id}/edit',EmeteurEdit::class)->name('emeteur-edit') ->middleware('auth.modifier les émetteurs');
+    Route::get('/emplacement-list',EmplacementList::class)->name('emplacement-list') ->middleware('auth.ajouter les emplacements');
+    Route::get('/emplacement-index',EmplacementIndex::class)->name('emplacement-index') ->middleware('auth.admin');
+    Route::get('emplacement/{id}/edit', EmplacementEdit::class)->name('emplacement-edit') ->middleware('auth.modifier les emplacements');
+    Route::get('emplacement/{emplacement}',EmplacementShow::class)->name('emplacement-show') ->middleware('auth.admin');
+    Route::get('permission/{permission}', Authorisation ::class)->name('permission') ->middleware('auth.admin');
     Route::get('notiffication',Notification::class)->name('notification');
 
 

@@ -71,5 +71,4 @@ class CourrierIndex extends Component
     }
 }
 
-
 }

@@ -3,19 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\permission;
 use Livewire\WithFileUploads;
+
 
 class ProfileExample extends Component
 {
-    
-    
+
+
     use WithFileUploads;
 
     public $photos = [];
 
     public function render()
     {
-        return view('livewire.profile-example');
+        $per=permission::all();
+
+        return view('livewire.profile-example',compact('per'));
     }
 
     public function save()

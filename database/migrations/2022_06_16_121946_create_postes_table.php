@@ -15,10 +15,7 @@ return new class extends Migration
     {
         Schema::create('postes', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('mobile');            
+            $table->string('poste_libele');
             $table->timestamps();
         });
     }

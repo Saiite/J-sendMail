@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\permission;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -21,8 +22,8 @@ class Users extends Component
     public function render()
     {
         $this->users = User::all();
-
-        return view('livewire.users');
+            $per=permission::all();
+        return view('livewire.users',compact('per'));
 
     }
 

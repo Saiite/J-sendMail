@@ -64,6 +64,39 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function courriers()
+    {
+        return $this->hasMany(courrier::class, 'user_id');
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(permission::class,'user_permissions', 'user_id', 'permission_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(role::class,'userrole', 'user_id', 'role_id');
+    }
+
+    public function hasroles($role)
+
+    {
+        return $this->roles()->where('role_libele',$role)->first() !== null;
+    }
+    public function hasanyroles($roles)
+    {
+        return $this->roles()->whereIn('role_libele',$roles)->first() !== null;
+    }
+    public function haspermission($permission)
+
+    {
+        return $this->permissions()->where('permission_libele',$permission)->first() !== null;
+    }
+    public function hasanypermission($permissions)
+    {
+        return $this->permissions()->whereIn('permission_libele',$permissions)->first() !== null;
+    }
 
     public static function search($query)
     {

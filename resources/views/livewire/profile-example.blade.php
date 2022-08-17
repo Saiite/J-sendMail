@@ -164,13 +164,13 @@
                         <div class="col-md-6 mb-3">
                             <label for="birthday"></label>
                             <div class="input-group">
-                                
-                                
+
+
                             </div>
                         </div>
                       <div class="col-md-6 mb-3">
                            <label for="gender"></label>
-                           
+
                             </select>
                         </div>
                     </div>
@@ -185,38 +185,38 @@
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="phone"></label>
-                                
+
                             </div>
                         </div>
                     </div>
                     <!-- commentaire particulier<h2 class="h5 my-4">Location</h2> -->
-                    
+
                     <div class="row">
                         <div class="col-sm-9 mb-3">
                             <div class="form-group">
                                  <!-- commentaire particulier <label for="address">Address</label> -->
-                               
-                                
+
+
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
                             <div class="form-group">
-                              
-                              
+
+
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 mb-3">
                             <div class="form-group">
-                               
-                                
+
+
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                              
-                               
+
+
                             </div>
                         </div>
                     </div>
@@ -269,25 +269,25 @@
         </div>
         <div class="col-12 col-xl-4">
             <div class="row">
-                
+
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
-                        
+
                         <div class="card-body pb-5">
                             <form wire:submit.prevent="save">
                             <input type="file" wire:model="photo">
                             @error('photo') <span class="error">{{ $message }}</span> @enderror
- 
+
                             <button type="submit">Save Photo</button>
                             <form wire:submit.prevent="save">
                             <h4 class="h3"></h4>
-                           
-                            
+
+
                         </div>
-                   
+
                     </div>
                 </div>
-                
+
                 <div class="col-12">
                     <div class="card card-body border-0 shadow mb-4">
                         <h2 class="h5 mb-4">Select profile photo</h2>
@@ -319,25 +319,25 @@
                 </div>
                 <div class="col-12">
                     <div class="card card-body border-0 shadow">
-                        <h2 class="h5 mb-4">Select cover photo</h2>
+                        <h2 class="h5 mb-4">Authorisation</h2>
                         <div class="d-flex align-items-center">
                             <div class="me-3">
                                 <!-- Avatar -->
-                                <img class="rounded avatar-xl" src="../assets/img/profile-cover.jpg" alt="change cover">
                             </div>
                             <div class="file-field">
                                 <div class="d-flex justify-content-xl-center ms-xl-3">
                                     <div class="d-flex">
-                                        <svg class="icon text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <input type="file">
                                         <div class="d-md-block text-left">
-                                            <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                            <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
+                                            @foreach ( $per as $permission)
+                                            <div class="form-check">
+                                             {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
+                                             <input class="form-check-input" type="checkbox" name="" value="{{$permission->id}}"{{$permission->id ==  auth()->user()->id ? ' checked="checked="':''}} />
+                                             <label class="form-check-label" for="flexCheckChecked">
+                                                 {{$permission->permission_libele }}
+                                             </label>
+                                           </div>
+
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

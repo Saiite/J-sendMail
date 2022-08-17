@@ -35,6 +35,9 @@
           <span class="sidebar-icon me-3">
             <img src="/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
           </span>
+
+
+
           <span class="mt-1 ms-1 sidebar-text">
             J-SENDMAIL
           </span>
@@ -57,6 +60,7 @@
           </ul>
         </div>
       </li>
+
       <li class="nav-item">
         <li class="nav-item {{ Request::segment(1) == 'courrier-index' ? 'active' : '' }}">
             <a href="/courrier-index" class="nav-link" href="{{ route('courrier-index') }}">
@@ -67,10 +71,11 @@
                     d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
                     clip-rule="evenodd"></path>
                 </svg></span>
-              <span class="sidebar-text">Liste des courriers</span>
+          <span class="sidebar-text">Liste des courriers</span>
             </a>
           </li>
       </li>
+
       <li class="nav-item">
         <li class="nav-item {{ Request::segment(1) == 'emplacement-index' ? 'active' : '' }}">
             <a href="/emplacement-index" class="nav-link" href="{{ route('emplacement-index') }}">
@@ -98,6 +103,7 @@
               <span class="sidebar-text">Agent externe</span>
             </a>
           </li>
+
           <li class="nav-item">
             <li class="nav-item {{ Request::segment(1) == 'courrier-user' ? 'active' : '' }}">
                 <a href="/courrier-user" class="nav-link" href="{{ route('courrier-user') }}">
@@ -111,19 +117,9 @@
                   <span class="sidebar-text">mes courriers</span>
                 </a>
               </li>
+
       </li>
-      <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
-        <a href="/transactions" class="nav-link">
-          <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
-              <path fill-rule="evenodd"
-                d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
-                clip-rule="evenodd"></path>
-            </svg></span>
-          <span class="sidebar-text">Transactions</span>
-        </a>
-      </li>
+
 
 
 
@@ -131,3 +127,4 @@
     </ul>
   </div>
 </nav>
+

@@ -1,9 +1,9 @@
 
 <div>
     @if($updateMode)
-    
+
 @else
-    
+
 @endif
 <form class="navbar-search form-inline" id="navbar-search-main">
     <div class="input-group input-group-merge search-bar">
@@ -31,7 +31,7 @@
             </svg>
             New User
         </a>
-        
+
 
     <table class="table user-table table-hover align-items-center">
         <thead>
@@ -57,7 +57,7 @@
                 <td>{{ $value->first_name}}</td>
                 <td>{{ $value->last_name}}</td>
                 <td>{{ $value->email }}<span class="fw-normal text-success"></span></td>
-              
+
                 <td>{{ $value->Action}}<span class="fw-normal text-success"></span></td>
                 <td>
                     <div class="btn-group">
@@ -71,6 +71,8 @@
                             <a class="dropdown-item rounded-top" href="{{ route('profile', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
                             <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $value->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+                            <a class="dropdown-item rounded-top" href="{{ route('profile-example') }}"><span class="fas fa-eye me-2"></span>voir profile</a>
+
                         </div>
                     </div>
                 </td>
