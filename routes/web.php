@@ -13,6 +13,7 @@ use App\Http\Livewire\LiveTable;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\EmeteurEdit;
 use App\Http\Livewire\EmeteurList;
+use App\Http\Livewire\ViewDetails;
 use App\Http\Livewire\CourrierEdit;
 use App\Http\Livewire\CourrierList;
 use App\Http\Livewire\CourrierShow;
@@ -84,6 +85,9 @@ Route::middleware('auth')->group(function () {
     Route::get('users/{id}/edit', Profile::class)->name('profile');
 
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
+
+    Route::get('users/{id}view-details',  ViewDetails::class)->name('view-details');
+
     Route::get('/users', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');

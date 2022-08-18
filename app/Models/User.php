@@ -77,6 +77,11 @@ public function postes()
    public function Image(){
     return $this->belongsTo(Image::class,'image_id');
    }
+
+   public function scopeActive( $query) 
+   {
+       return $query->where('status', 1);
+   }
    
 }
 

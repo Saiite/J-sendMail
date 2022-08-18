@@ -17,6 +17,9 @@
                 <br>
                 <a class="dropdown-item" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Edit Profil</a>
                 <br>
+                
+                    
+                 
                 <form wire:submit.prevent="save" action="#" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -70,7 +73,16 @@
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
                         <div wire:ignore.self class="profile-cover rounded-top"
-                            data-background="../assets/img/profile-cover.jpg"></div>
+                            data-background="../assets/img/profile-cover.jpg">   
+                            @if(empty(auth()->user()->Image->images ))
+                                
+                            
+                            <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" style="width: 200px; height:250px;">
+                            
+                            @else 
+                            <img alt="Image placeholder" src="/storage/{{auth()->user()->Image->images}}" style="width: 200px; height:250px;" class="avatar rounded-circle">
+              
+                            @endif</div>
                         <div class="card-body pb-5">
                             <div class="card">
                                 <div class="card-body">

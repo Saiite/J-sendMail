@@ -147,7 +147,7 @@
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu py-0">
-                            <a class="dropdown-item rounded-top" href="{{ route('profile', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
+                            <a class="dropdown-item rounded-top" href="{{ route('view-details', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
                             <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $value->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
                         </div>
