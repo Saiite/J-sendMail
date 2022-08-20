@@ -32,10 +32,7 @@ class Users extends Component
         'search' =>['except'=>'']
            ];
 
-    protected $messages = [
-        'email.exists' => 'The Email Address must be in our database.',
-    ];
-
+ 
 
     public function render (postes $postes)
     {

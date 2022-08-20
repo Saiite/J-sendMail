@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\postes;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -23,6 +24,7 @@ class ViewDetails extends Component
     ];
     public function render()
     {
+        
         return view('livewire.view-details');
     }
     public function edit($id)
@@ -50,6 +52,8 @@ class ViewDetails extends Component
     }
     public function mount($id)
     {
+        $this->postes= postes ::find($id);
+
         $this->updateMode = true;
         $users = User::find($id);     
        $this->state = [

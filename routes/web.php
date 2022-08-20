@@ -22,7 +22,6 @@ use App\Http\Livewire\EmeteurIndex;
 use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\Notification;
 use App\Http\Livewire\PostEditEdit;
-use App\Http\Livewire\Transactions;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\CourrierIndex;
@@ -93,13 +92,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/transactions', Transactions::class)->name('transactions');
+ 
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
     Route::get('/buttons', Buttons::class)->name('buttons');
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
-
     Route::get('/courrier-list', CourrierList::class)->name('courrier-list');
     Route::get('/courrier-index', CourrierIndex::class)->name('courrier-index');
     Route::get('courrier/{id}/edit', CourrierEdit::class)->name('courrier-edit');

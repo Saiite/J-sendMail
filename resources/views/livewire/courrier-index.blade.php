@@ -89,6 +89,7 @@
                 @elseif($courrier->courrier_status=='enCours')
                 <td><span class="fw-bold text-warning">{{$courrier->courrier_status}}</span></td>
                 @else
+                
                 <td><span class="fw-bold text-success">{{$courrier->courrier_status}}</span></td>
                 @endif
                 <td><span class="fw-bold">{{$courrier->emeteur->emeteur_noms}}</span></td>

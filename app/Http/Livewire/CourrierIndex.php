@@ -48,6 +48,7 @@ class CourrierIndex extends Component
 
             $this->state = [
                 'id' => $courriers->id,
+                
                 'courrier_libele' => $courriers->courrier_libele,
                 'courrier_date_arrive'=>$courriers-> courrier_date_arrive,
                 'courrier_status'=>$courriers-> courrier_status,

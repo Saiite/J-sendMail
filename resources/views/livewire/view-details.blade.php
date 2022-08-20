@@ -49,7 +49,15 @@
                             @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                      
-                        
+                        <form wire:submit.prevent="mount" action="#" method="POST">
+                            <div class="mb-4">
+                                  <label for="poste_libele">postes</label>
+                                     <input type="text" class="form-control"  wire:model="poste_libele" id="poste_libele" aria-describedby="poste_libele">
+                                       <small id="poste_libele" class="form-text text-muted"></small>
+
+                                           </div>
+                          
+                      </form>
                    
                     
                         <div>   

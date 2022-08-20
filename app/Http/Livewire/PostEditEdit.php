@@ -27,7 +27,6 @@ class PostEditEdit extends Component
     public function render()
     {
 
-        $this->postes = postes::find(1);
 
         return view('livewire.post-edit-edit');
     }
