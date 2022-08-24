@@ -65,12 +65,9 @@
             </label>
         </div>
     </div>
-    <div class="d-grid">
-        <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
-    </div>
-    
-
-    
+   
+    <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+    <button wire:click.prevent="cancel()" class="btn btn-danger">Cancel</button> 
 </form>
 </div>
 </div>

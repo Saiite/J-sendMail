@@ -36,14 +36,14 @@ class LiveTable extends Component
         $this->email = '';
 
     }
-
+//l'enregistrement utilisateur avec une table étrange postes et historiques comme jointure
     public function store()
     {
         
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users',
           
            
            
@@ -83,53 +83,17 @@ class LiveTable extends Component
         return $this->email;
     }
 
-    public function edit($id)
-    {
-        $this->updateMode = true;
-        $users = User::where('id',$id);
-        $this->user_id = $id;
-        $this->first_name= $users->first_name;
-        $this->last_name= $users->last_name;
-        $this->email = $users->email;
-        dd(" $this->updateMode = true");
-    }
-    
+//la fonction de retour sur l'interface utilisateur management
+
 
     public function cancel()
     {
         $this->updateMode = false;
         $this->resetInputFields();
-
+        redirect()->intended('/users');
 
     }
 
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-        ]);
-
-        if ($this->user_id) {
-            $user = Users::find($this->user_id);
-            $user->update([
-                'first_name' => $this->first_name,
-                'email' => $this->email,
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
-            $this->resetInputFields();
-
-        }
-    }
-
-    public function delete($id)
-    {
-        if($id){
-            User::where('id',$id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
-        }
-    }
 }
 
   

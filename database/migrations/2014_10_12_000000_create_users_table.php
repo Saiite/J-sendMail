@@ -31,7 +31,8 @@ class CreateUsersTable extends Migration
             $table->string('ZIP')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('role_id')->default()->constrained('roles');
-            $table->string('status' )->default()->comment('status', ['actif', 'inactif']);
+
+            $table->enum('status', ['actif', 'inactif']);
             $table->rememberToken()->unique();
             $table->timestamps();
         });

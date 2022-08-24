@@ -10,7 +10,7 @@ class historiques extends Model
     use HasFactory;
 
        /**
-     * The attributes that are mass assignable.
+     * Les attributs qui sont assignables en masse.
      *
      * @var array
      */
@@ -21,14 +21,13 @@ class historiques extends Model
     ]; 
 
      /**
-     * The attributes that should be hidden for arrays.
+     * Les attributs qui doivent être masqués pour les tableaux..
      *
      * @var array
      */
     protected $hidden = [
         'poste_id',
-     
- 
+    
       
     ];
 }

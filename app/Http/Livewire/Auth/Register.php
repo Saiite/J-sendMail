@@ -32,12 +32,14 @@ class Register extends Component
         $this->validate(['email'=>'required|email:rfc,dns|unique:users']);
     }
     
+    //l'enregistrement utilisateur avec une table étrange postes et historiques comme jointure
+
     public function register()
     {
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users',
            
             'password' => 'required|same:passwordConfirmation|min:6',
         ]);
@@ -74,6 +76,7 @@ class Register extends Component
 
         return redirect('/profile-example');
     }
+
 
     public function render()
     {

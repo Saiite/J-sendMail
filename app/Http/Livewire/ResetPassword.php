@@ -32,6 +32,8 @@ class ResetPassword extends Component
         $this->urlId = intval($existingUser->id);
     }
 
+    //cette fonction perme d'envoi des emails change son mot de passe oublie
+    
     public function resetPassword() {
         $this->validate();
         $existingUser = User::where('email', $this->email)->first();

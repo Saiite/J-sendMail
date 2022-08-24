@@ -42,6 +42,8 @@ class ProfileExample extends Component
     use WithFileUploads;
  
     public $photo;
+    
+// la fonction rules permet de récupérer les informations utilisateur de la base de données pour affiche ou niveau de son profil
 
     public function rules()
     {
@@ -60,6 +62,7 @@ class ProfileExample extends Component
     
     }
    
+    //la fonction mount permet de récupérer les informations utilisateur  dans la table historiqque de la base de données pour affiche ou niveau de son profil
     public function mount()
 
     {
@@ -80,6 +83,9 @@ class ProfileExample extends Component
 
         use WithFileUploads;
 
+
+//la fonction create permet d'enregistrer l'image sur le profile
+
     public function create()
     {
      
@@ -89,8 +95,6 @@ class ProfileExample extends Component
             
             'image' => 'image|max:4024',
         ]);
-
-       
 
 
         $filename = "";
@@ -120,22 +124,6 @@ class ProfileExample extends Component
         }
     }
 
-
-    public function delete($id)
-    {
-    $images=Image::findOrFail($id);
-    $destination=public_path('storage\\'.$images->images);
-    if (File::exists($destination)) {
-        File::delete($destination);
-    }
-
-    $result=$images->delete();
-    if ($result) {
-        session()->flash('success', 'Delete Successfully');
-    } else {
-        session()->flash('error', 'Not Delete Successfully');
-    }
-}
     public function render()
     {
         $this->users = User::all();

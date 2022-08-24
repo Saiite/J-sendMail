@@ -32,7 +32,7 @@ class PostEditEdit extends Component
     }
 
 
-    
+    //la fonction édit permet de récupérer l'id de l'utilisateur
     public function edit($id)
     {
         dd($id);
@@ -53,6 +53,7 @@ class PostEditEdit extends Component
         $this->poste_libele = '';
         
     }
+    //la fonction mount permet de récupérer l'id post de l'utilisateur
     public function mount($id)
     {
         $this->updateMode = true;
@@ -65,6 +66,7 @@ class PostEditEdit extends Component
 
       
     } 
+    //la fonction cancel pour le retour a l'interface des postes du management
     public function cancel()
     {
         $this->updateMode = false;
@@ -73,6 +75,7 @@ class PostEditEdit extends Component
 
     }
 
+//la fonction update permet de modifier les postes des utilisateurs
     public function update()
     {
         $validator = Validator::make($this->state,[

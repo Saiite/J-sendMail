@@ -33,6 +33,7 @@ class Users extends Component
            ];
 
  
+// cette fonction permet de faire la jointure entre la table users , post et historiques
 
     public function render (postes $postes)
     {
@@ -52,17 +53,33 @@ class Users extends Component
         return view('livewire.users' );
   
     }
-
-
-    public function cancel()
+    public function changeStatut($id)
     {
-        $this->updateMode = false;
-        $this->resetInputFields();
+        if($id){
+            $users = User::find($id);
 
+           
+            $this->state = [
+                'id' => $users->id,   
+                'status'=> $users->status,
+              
+               
+            ];
 
-    }
-
+            if( $users->status=='actif'){
+                User::where('id',$id)->update(['status'=>'inactif']);
+                redirect()->intended('/users')->with('message', 'utilisateur est inatif maintenat.');
   
+               }else{
+                User::where('id',$id)->update(['status'=>'actif']);
+                   redirect()->intended('/users');
+                   session()->flash('messag', 'utilisateur est maintenant actif.');
+                   }
+       // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
+    }
+}
+
+  // la fonction permet de supprimer les utilisateur
 
     public function delete($id)
     {

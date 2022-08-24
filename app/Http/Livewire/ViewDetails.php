@@ -27,29 +27,15 @@ class ViewDetails extends Component
         
         return view('livewire.view-details');
     }
-    public function edit($id)
-    {
-        dd($id);
-        $this->updateMode = true;
 
-        $users = User::find($id);
-        dd($id);
 
-        $this->state = [
-
-           'id' =>$users->id,
-            'first_name' => $users->first_name,
-            'last_name' => $users->last_name,
-            'email' => $users->email,
-            'password' =>  $users->password,
-        ];
-    
-    }
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
     }
+
+    // la function mount permet  de récupérer id et affiche les informations
     public function mount($id)
     {
         $this->postes= postes ::find($id);
@@ -67,7 +53,7 @@ class ViewDetails extends Component
       
     } 
     
-
+// la function cancel de rentre dans l'interface users management
     public function cancel()
     {
         $this->updateMode = false;
@@ -76,39 +62,6 @@ class ViewDetails extends Component
 
     }
 
-    public function update()
-    {
-        $validator = Validator::make($this->state,[
-            
-            'first_name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required|email',
-            'password' =>'required',
-        ])->validate();
-            
-        if ($this->state['id']) {
-            $users = User::find($this->state['id']);
-            $users->update([
-                'id' => $this->state['id'],
-                'first_name' => $this->state['first_name'],
-                'last_name' => $this->state[ 'last_name'],
-                'email' => $this->state['email'],
-                'password' => $this->state['password' ],
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'utilisateur modifié avec succès');
-            $this->reset('state') ; 
-            $this->users=User::all();
-            redirect()->intended('/profile-example');
-        }
-    }
 
-    public function delete($id)
-    {
-        if($id){
-            User::where('id',$id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
-        }
-    }
-
+  
 }

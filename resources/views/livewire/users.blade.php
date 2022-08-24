@@ -129,13 +129,21 @@
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
                
-                <td>
-                    <div class="form-check form-switch">
-   
-                        <input class="form-check-input" type="checkbox" id="{{$value->id}}" {{ $value->status ? 'checked' : '' }} checked="{{$status}}">
-                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                      </div>
+               
+              
+                @if ($value->status=='actif')
+               
+                <td><span class="fw-bold text-success">{{$value->status}}</span>
+                   
                 </td>
+                @elseif($value->status=='inactif')
+                <td><span class="fw-bold text-danger">{{$value->status}}</span>
+                    
+                </td>
+                @endif
+                        
+                 
+
             
                 <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
                  <td>
@@ -150,6 +158,7 @@
                             <a class="dropdown-item rounded-top" href="{{ route('view-details', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
                             <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $value->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+                            <a class="dropdown-item text rounded-bottom" href="#"    wire:click.prevent="changeStatut({{ $value->id }})"></span  class="fw-bold text-success"></span>status</a>
                         </div>
                     </div>
                     </div>

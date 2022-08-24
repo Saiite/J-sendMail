@@ -21,6 +21,8 @@ class PostEdit extends Component
         'email.exists' => 'The Email Address must be in our database.',
     ];
 
+
+    //cette fonction permet d'affiche les différents postes d'utilisateurs sur le profil post management
     public function render()
     {
         
