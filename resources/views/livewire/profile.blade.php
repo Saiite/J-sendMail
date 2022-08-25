@@ -25,6 +25,7 @@
     
          <div class="mb-4">
             <label for="emeteur_noms">last_name</label>
+            
             <input wire:model="state.last_name" id="last_name" type="last_name" class="form-control" placeholder="abdou" autofocus required>
                  <small id="" class="form-text text-muted"></small>
                      </div>

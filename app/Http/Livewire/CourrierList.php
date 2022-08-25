@@ -35,6 +35,7 @@ class CourrierList extends Component
             'user_id' => 'required|max:100',
             'emplacement_id' => 'required|max:100',
         ])->validate();
+        
         $var=courrier::create($this->state);
         $var->user_id;
         $var=user::find($var->user_id);

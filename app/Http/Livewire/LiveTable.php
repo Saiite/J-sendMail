@@ -11,11 +11,22 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Mail\Mailable;
+use App\Mail\envoiMail;
+
+
+
+use Mail;
+
+
 
 class LiveTable extends Component
 {
     public $users,  $poste_id,$poste_libele,$historiques, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
+   
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
@@ -53,13 +64,15 @@ class LiveTable extends Component
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-          
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
             
         ]);
+         $data=['email' =>$user->email,"nom" =>$user->first_name,"password" =>$this->password];
+        
        
+        mail::to( $user->email)->send(new envoiMail($data));
        
         $historiques=historiques::create([
 
@@ -78,6 +91,8 @@ class LiveTable extends Component
         $this->postes = postes::all();
         
         redirect()->intended('/users')->with('message', ' vous avez enregistré un utilisateur avec  succès.');
+
+ 
     }
     public function routeNotificationForMail() {
         return $this->email;

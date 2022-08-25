@@ -13,6 +13,7 @@ class DemoMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    
     protected $state;
     /**
      * Create a new message instance.
@@ -30,6 +31,7 @@ class DemoMail extends Mailable
      */
     public function build()
     {
+        
 
         return $this->from("sendmail@jstockcash.com") // L'expéditeur
                     ->subject('courrier validé')    //SUJET
