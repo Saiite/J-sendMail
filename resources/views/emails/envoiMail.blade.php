@@ -5,13 +5,23 @@
 	<title>le login</title>
 </head>
 <body>
-<h1>HELLO!</h1>
-<H1>{{$data['email']}}</H1>
-<h1>{{$data['nom']}}</h1>
-<h1>{{$data['password']}}</h1>
+	<li class="nav-item">
+        <a href="" class="nav-link d-flex align-items-center">
+          <span class="sidebar-icon me-3">
+          </span>
+          <span class="mt-1 ms-1 sidebar-text">
+           J-SENDMAIL
+          </span>
+        </a>
+      </li>
+<h1 style="color:red">hello  bienvenue sur J_SENDMAIL vous aviez un nouveau  compte sur J_SENDMAIL BANGE BANQUE !</h1>
 
-<div class="mb-3"><a href="https://jsendmail.jainli.com/login">cliquez pour te loge sur ton compte</a>
-</div>
+<h2>vous coordonnez de connexion pour le login sont les suivants:</h2>
+<h4>Login Email : {{$data['email']}}</h4>
+<h4>Login Password : {{$data['password']}}</h4>
+
+<h4><a href="https://jsendmail.jainli.com/login" style="color: blue">Le lien Connexion: login</a></h4>
+
 <p>nous vous remercions !</p>
 </body>
 </html>
