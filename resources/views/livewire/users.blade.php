@@ -5,7 +5,7 @@
 @endif
 <div>
 
-<title>Volt Laravel Dashboard - User management</title>
+<title>j_sendmail</title>
 
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -37,7 +37,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
                 </path>
             </svg>
-            New User
+            Nouveau  Utilisateur
         </a>
         
            </div>
@@ -80,15 +80,7 @@
 </div>
 
 <div class="card card-body shadow border-0 table-wrapper table-responsive">
-    <div class="d-flex mb-3">
-        <select class="form-select fmxw-200" aria-label="Message select example">
-            <option selected>Bulk Action</option>
-            <option value="1">Send Email</option>
-            <option value="2">Change Group</option>
-            <option value="3">Delete User</option>
-        </select>
-        <button class="btn btn-sm px-3 btn-secondary ms-3">Apply</button>
-    </div>
+  
     <table class="table user-table table-hover align-items-center">
         <thead>
             <tr>
@@ -99,9 +91,9 @@
                         </label>
                     </div>
                 </th>
-                <th class="border-bottom">first_name</th>
-                <th class="border-bottom">last_name</th>
-                <th class="border-bottom">email</th>
+                <th class="border-bottom">Nom</th>
+                <th class="border-bottom">prénom</th>
+                <th class="border-bottom">E-mail</th>
                 
                 <th class="border-bottom">Status</th>
                 
@@ -163,13 +155,15 @@
                     </div>
                     </div>
                 </td>
+                
+              
             </tr>
             @endforeach
         </tbody>
     </table>
     <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
         <nav aria-label="Page navigation example">
-         
+            
         </nav>
 </div>
 </div>

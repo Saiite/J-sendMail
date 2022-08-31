@@ -8,13 +8,12 @@ use App\Models\postes;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public  $name,$totoalPages, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification;
+    public  $name,$totoalPages, $mailSentAlert,$showDemoNotification;
     public $updateMode = false;
    
    
@@ -24,13 +23,8 @@ class Users extends Component
     public $field;
 
     public $status;
-
-    public $uniqueId;
     
-    protected $queryString=[
-
-        'search' =>['except'=>'']
-           ];
+   
 
  
 // cette fonction permet de faire la jointure entre la table users , post et historiques
@@ -38,7 +32,7 @@ class Users extends Component
     public function render (postes $postes)
     {
         
-         
+        $users = User::find(1)->paginate(5);
         $this->users= DB::table('historiques')
         ->when($this->name,function($query,$name){
 
@@ -47,12 +41,17 @@ class Users extends Component
         ->join('users', 'users.id', '=', 'historiques.user_id')
         ->join('postes', 'postes.id', '=', 'historiques.poste_id')
         ->select('postes.*','users.*' )
+        
         ->orderByRaw('user_id DESC')
+        
         ->get();
-    
+  
         return view('livewire.users' );
   
     }
+  
+//cette fonction permet de faire le changement de status utilisateur
+
     public function changeStatut($id)
     {
         if($id){

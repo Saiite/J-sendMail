@@ -1,5 +1,5 @@
 <main>
-    <title>Volt Laravel Dashboard - Sign In page</title>
+    <title>j_sendmail</title>
     <!-- Section -->
     <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
         <div class="container">
@@ -10,10 +10,10 @@
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
-                            <h1 class="mb-3 h3">Welcome back</h1>
-                            <p class="mb-0"> Create new account or
-                                <p class="mb-0">Sign in with these credentials:</p>
-                                <p class="mb-0"> Email: <strong></strong> Password:
+                            <h1 class="mb-3 h3">Content de te revoir</h1>
+                            <p class="mb-0"> 
+                                <p class="mb-0">Connectez-vous avec ces identifiants :</p>
+                                <p class="mb-0"> E-mail: <strong></strong> Mot de passe:
                                     <strong></strong></p>
 
                             </p>
@@ -21,7 +21,7 @@
                         <form wire:submit.prevent="login" action="#" class="mt-4" method="POST">
                             <!-- Form -->
                             <div class="form-group mb-4">
-                                <label for="email">Your Email</label>
+                                <label for="email">E-mail</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1"><svg
                                             class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Your Password</label>
+                                    <label for="password">Mot de passe</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon2"><svg
                                                 class="icon icon-xs text-gray-600" fill="currentColor"
@@ -65,8 +65,8 @@
                                         </label>
                                         
                                     </div>
-                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">Lost
-                                            password?</a></div>
+                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">Mot de passe perdu?</a>
+                                    </div>
                                 </div>
                             </div>
                         
@@ -114,8 +114,8 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="fw-normal">
-                                Not registered?
-                                <a href="{{ route('register') }}" class="fw-bold">Create account</a>
+                                Non enregistré?
+                                <a href="{{ route('register') }}" class="fw-bold">Créer un compte</a>
                             </span>
                         </div>
                     </div>

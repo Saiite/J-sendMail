@@ -30,7 +30,7 @@ class PostEdit extends Component
         $postes=postes::when($this->name,function($query,$name){
 
             return $query->where('poste_libele','LIKE',"%$name%");
-        })->orderByRaw('id DESC')->paginate(2);
+        })->orderByRaw('id DESC')->paginate(5);
         
        
         return view('livewire.post-edit', compact('postes'));

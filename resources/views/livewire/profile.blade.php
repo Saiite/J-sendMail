@@ -2,6 +2,7 @@
 
 
 <div class="row">
+    <title>j-SENDMAIL</title>
     <div class="col-12 col-xl-12">
         
         <div class="card card-body border-0 shadow mb-4">
@@ -13,7 +14,7 @@
            
                  <!-- Form -->
                  <div class="mb-4">
-                    <label for="poste_libele">first_name</label>
+                    <label for="poste_libele">Nom</label>
                     <input wire:model="state.first_name" id="first_name" type="first_name" class="form-control" placeholder="njutapmvoui" autofocus required value="">
                          <small id="poste_libele" class="form-text text-muted"></small>
     
@@ -24,7 +25,7 @@
          <!-- Form -->
     
          <div class="mb-4">
-            <label for="emeteur_noms">last_name</label>
+            <label for="emeteur_noms">prénom</label>
             
             <input wire:model="state.last_name" id="last_name" type="last_name" class="form-control" placeholder="abdou" autofocus required>
                  <small id="" class="form-text text-muted"></small>
@@ -37,7 +38,7 @@
          <!-- Form -->
          <div class="col-lg- col-sm-5">
          <div class="mb-4">
-            <label for="emeteur_noms">YOU EMAIL</label>
+            <label for="emeteur_noms">E-mail</label>
             <input wire:model="state.email" id="email" type="email" class="form-control" placeholder="example@company.com" autofocus required>
                  <small id="" class="form-text text-muted"></small>
                      </div>
@@ -61,8 +62,8 @@
             </div>
         </div>
        <div>   
-         <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent= "update">envoyer</button>
-        <button wire:click.prevent="cancel()" class="btn btn-danger">Cancel</button>
+         <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent= "update">enregistre</button>
+        <button wire:click.prevent="cancel()" class="btn btn-danger">Retour</button>
     </div>
     </form>
     </div>

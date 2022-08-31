@@ -99,8 +99,10 @@
               @endif
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                 <span
-                  class="mb-0 font-small fw-bold text-gray-900">
-                  {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}</span>
+                  class="mb-0 font-small fw-bold text-gray-2000">
+                  <br>
+                  <br style="float: left">
+                  {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->lasname : 'User Name'}}</span>
               </div>
             </div>
           </a>
@@ -116,7 +118,7 @@
             </a>
             <div role="separator" class="dropdown-divider my-1"></div>
             <a href="profile-example" class="dropdown-item d-flex align-items-center">
-              My Profile </a>
+              Mon profil </a>
 
             </a>
             <div role="separator" class="dropdown-divider my-1"></div>

@@ -4,7 +4,7 @@
     <div>
         <div>
             {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-            <title>j-SENDMAIL - TOUS LES COURRIERS</title>
+            <title>j-SENDMAIL</title>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
             <div class="d-block mb-4 mb-md-0">
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -19,7 +19,7 @@
                     </ol>
                 </nav>
                 <h2 class="h4">POSTS DES EMPLOYÉES</h2>
-                <p class="mb-0">BANGE BANQUE CENTRALE DE LA GUINEE EQUATORIALE</p>
+
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
                
@@ -109,7 +109,7 @@
         
                     </ul>
                 </nav>
-                <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
+                <div class="fw-normal small mt-4 mt-lg-0">Showing <b>1</b> out of <b>3</b> entries</div>
         
         </div>
 

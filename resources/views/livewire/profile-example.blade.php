@@ -1,4 +1,5 @@
 <div>
+    <title>j_sendmail</title>
     <form method="POST" wire:submit.prevent="update">
         <div class="mt-3">
         
@@ -15,7 +16,7 @@
             <div class="card card-body border-0 shadow mb-4">
                 <h2 class="h5 mb-4">General information</h2>
                 <br>
-                <a class="dropdown-item" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Edit Profil</a>
+                <a class="dropdown-item" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Modifier le profil</a>
                 <br>
                 
                     
@@ -24,14 +25,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="first_name">First Name</label>
+                                <label for="first_name"> Nom</label>
                                 <input wire:model="user.first_name" class="form-control" id="first_name" type="text"
                                     placeholder="Enter your first name" disabled>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="last_name">Last Name</label>
+                                <label for="last_name">Prénom</label>
                                 <input wire:model="user.last_name" class="form-control" id="last_name" type="text"
                                     placeholder="Also your last name" disabled>
                             </div>
@@ -40,7 +41,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">E-mail</label>
                                 <input wire:model="user.email" class="form-control" id="email" type="email"
                                     placeholder="name@company.com" disabled>
                             </div>
@@ -91,9 +92,11 @@
                                             
                                             <div class="custom-file mt-3">
                                                 <input type="file" wire:model='image' class="custom-file-input" id="customFile"  >
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+             
                 
+                                                
                                             </div>
+                                            
                                             @if ($image)
                                             <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="" class="avatar rounded-circle">
                                             @endif
@@ -101,7 +104,7 @@
                                         <div class="card-footer">
                                             
                                     
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="submit" class="btn btn-primary">Enregistre</button>
                                            
                                         </div>
 
