@@ -1,4 +1,4 @@
- <main>
+<main>
     <title>Volt Laravel Dashboard - Sign Up page</title>
         <!-- Section -->
         <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
@@ -60,6 +60,16 @@
                                             <input wire:model.lazy="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" required>
                                         </div>  
                                     </div>
+
+                                    <div class="form-group mt-4 mb-4">
+                                        <label for="last_name">post</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"><svg class="" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg></span>
+                                            <input wire:model="state.poste_libele" id="poste_libele" type="last_name" class="form-control" placeholder="example pdg ou client" autofocus required>
+                                        </div>
+
+                                  
+
                                     <!-- End of Form -->
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" value="" id="terms" required>

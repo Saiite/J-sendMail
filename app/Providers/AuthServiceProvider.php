@@ -26,8 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Gate::define('admin', function (User $user) {
-            return $user->haspermission('admin');
+        Gate::define('ajouter les émetteurs', function (User $user) {
+            return $user->haspermission('ajouter les émetteurs');
         });
         Gate::define('ajouter les courriers', function (User $user) {
             return $user->haspermission('ajouter les courriers');
@@ -48,8 +48,46 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('voir les courriers', function (User $user) {
             return $user->haspermission('voir les courriers');
         });
-Gate::after(function (User $user,) {
-    return $user->hasroles("admin");
-});
+        Gate::define('consulter la liste des courriers', function (User $user) {
+            return $user->haspermission('consulter la liste des courriers');
+        });
+
+        Gate::define('consulter la liste des emplacements', function (User $user) {
+            return $user->haspermission('consulter la liste des emplacements');
+        });
+        Gate::define('ajouter les emplacements', function (User $user) {
+            return $user->haspermission('ajouter les emplacements');
+        }); Gate::define('modifier les emplacements', function (User $user) {
+            return $user->haspermission('modifier les emplacements');
+        });
+        Gate::define('modifier les émetteurs', function (User $user) {
+            return $user->haspermission('modifier les émetteurs');
+        });
+        Gate::define('valider la réception des courriers', function (User $user) {
+            return $user->haspermission('valider la réception des courriers');
+        });
+        Gate::define('consulter la liste des émetteurs', function (User $user) {
+            return $user->haspermission('consulter la liste des émetteurs');
+        });
+        Gate::define('ajouter les utilisateurs', function (User $user) {
+            return $user->haspermission('ajouter les utilisateurs');
+        });
+        Gate::define('afficher les utilisateurs', function (User $user) {
+            return $user->haspermission('afficher les utilisateurs');
+        });
+        Gate::define('consulter la liste des utilisateurs', function (User $user) {
+            return $user->haspermission('consulter la liste des utilisateurs');
+        });
+        Gate::define('modifier le profil des utilisateurs', function (User $user) {
+            return $user->haspermission('modifier le profil des utilisateurs');
+        });
+        Gate::define('voir les emplacements', function (User $user) {
+            return $user->haspermission('voir les emplacements');
+        });
+
+
+// Gate::after(function (User $user,) {
+//     return $user->hasroles("admin");
+// });
 }
 }

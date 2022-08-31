@@ -24,7 +24,7 @@ class Profile extends Component
     ];
     public function render()
     {
-        $this->users = User::find(4);
+       
         
         return view('livewire.profile');
     }
@@ -33,7 +33,7 @@ class Profile extends Component
 
   //*  public function store()
   // {
-        //$this->validate([
+        //$this->validate(
 
            // 'first_name' => 'required',
            // 'last_name' => 'required',
@@ -102,7 +102,7 @@ class Profile extends Component
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/users');
+        redirect()->intended('/profile-example');
 
     }
 
@@ -121,15 +121,15 @@ class Profile extends Component
             $users->update([
                 'id' => $this->state['id'],
                 'first_name' => $this->state['first_name'],
-                'first_name' => $this->state[ 'first_name'],
+                'last_name' => $this->state[ 'last_name'],
                 'email' => $this->state['email'],
                 'password' => $this->state['password' ],
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
+            session()->flash('message', 'utilisateur modifié avec succès');
             $this->reset('state') ; 
             $this->users=User::all();
-            redirect()->intended('/users');
+            redirect()->intended('/profile-example');
         }
     }
 

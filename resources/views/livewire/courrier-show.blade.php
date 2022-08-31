@@ -40,7 +40,10 @@
 
                         </div>
 
+                        <div>
 
+                            <button wire:click.prevent="cancel()" class="btn btn-danger">Cancel</button>
+                        </div>
 
                         </div>
                     </div>
