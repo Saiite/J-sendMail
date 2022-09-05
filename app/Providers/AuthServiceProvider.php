@@ -84,7 +84,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('voir les emplacements', function (User $user) {
             return $user->haspermission('voir les emplacements');
         });
-
+        Gate::define('consulter la liste des postes', function (User $user) {
+            return $user->haspermission('consulter la liste des postes');
+        });
+        Gate::define('modifier un poste', function (User $user) {
+            return $user->haspermission('modifier un poste');
+        });
 
 // Gate::after(function (User $user,) {
 //     return $user->hasroles("admin");

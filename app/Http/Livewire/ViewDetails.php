@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\permission;
 use App\Models\userPermission;
 use Illuminate\Support\Facades\DB;
+
 class ViewDetails extends Component
 {
     public $permiss= [];
+
     public $users;
     public $authorise= [];
     public  $showSavedAlert;
@@ -36,7 +38,8 @@ foreach($this->permiss as $per){
         'permission_id' => $per,
     ];
 
-    userPermission::create($this->authorise);
+userPermission::create($this->authorise);
+
 }
 //redirect()->intended('/view-details')->with('message', 'permission ajouter avec succès.');
 }
@@ -50,14 +53,12 @@ foreach($this->permiss as $per){
         'user_id' =>$user,
         'permission_id' => $per,
     ];
-    userPermission::where($this->authorise)->delete();
+ userPermission::where($this->authorise)->delete();
 }
-//redirect()->intended('/view-details')->with('messag', 'permission supprimé avec succès.');
 }
-//$user->permissions()->attach($permission);
 
 
-    public function edit($id)
+ public function edit($id)
     {
         dd($id);
         $this->updateMode = true;
@@ -82,11 +83,9 @@ foreach($this->permiss as $per){
     }
     public function mount($id)
     {
-
         $this->updateMode = true;
         $users = User::find($id);
-        $per = permission::find($id);
-
+        //  $this->permiss
        $this->state = [
             'id' =>$users->id,
              'first_name' => $users->first_name,
@@ -94,6 +93,14 @@ foreach($this->permiss as $per){
              'email' => $users->email,
             'password' =>  $users->password,
          ];
+         $var=userPermission::where('user_id',$id)->select('permission_id')->get();
+         foreach ($var as $user) {
+            array_push ($this->permiss, $user->permission_id);
+
+        }
+
+
+
     }
 
     public function cancel()
@@ -106,11 +113,6 @@ foreach($this->permiss as $per){
 
 
 
-        // if (("per").checked === true) {
-        //    //bla bla bla//
-        // }
-
-
 
     public function render()
     {
@@ -119,9 +121,10 @@ foreach($this->permiss as $per){
         // ->join('permissions', 'permissions.id', '=', 'user_permissions.permission_id')
         // ->select('permissions.*','users.*' )
         // ->get();
-         $per=permission::all();
+        $per=permission::all();
+         $user= $this->state['id'];
 
-        return view('livewire.view-details',compact('per'));
+        return view('livewire.view-details',compact('per'))->with('permissions',$per)->with('user',$user);;
     }
 
 

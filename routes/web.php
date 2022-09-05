@@ -58,7 +58,7 @@ use App\Http\Livewire\ResetPasswordExample;
 Route::view('users', 'livewire.home');
 Route::redirect('/', '/index');
 Route::redirect('/', '/login');
-Route::get('/live-table', LiveTable::class)->name('live-table');
+Route::get('/live-table', LiveTable::class)->name('live-table')->middleware('signed');
 
 
 Route::get('/register', Register::class)->name('register');
@@ -71,9 +71,9 @@ Route::get('/forgot-password', ForgotPassword::class)->name('forgot-password');
 Route::get('/post',  Post::class)->name('post');
 
 
-Route::get('/post-edit',  PostEdit::class)->name('post-edit');
+Route::get('/post-edit',  PostEdit::class)->name('post-edit')->middleware('auth.consulter la liste des postes');
 
-Route::get('postes/{id}/edit',  PostEditEdit::class)->name('post-edit-edit');
+Route::get('postes/{id}/edit',  PostEditEdit::class)->name('post-edit-edit')->middleware('auth.modifier un poste');;
 
 Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 

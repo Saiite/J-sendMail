@@ -13,7 +13,7 @@ class MessageGoogle extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $state;
+    public $state;
     /**
      * Create a new message instance.
      *

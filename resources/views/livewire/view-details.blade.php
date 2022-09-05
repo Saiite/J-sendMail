@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row align-items-center">
+
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -47,19 +47,11 @@
                             @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
 
-
-
-
                         <div>
 
                            <button wire:click.prevent="cancel()" class="btn btn-danger">Cancel</button>
                        </div>
 
-
-
-
-
-                </div>
             </div>
 </form>
              <div class="col-12 col-xl-4">
@@ -70,42 +62,53 @@
                        </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-12" style="float: center">
 
-                        <div class="card card-body border-0 shadow"style="float: right;margin-left: 600px;">
+                    <div class="col-12" >
+
+                        <div class="card card-body border-10 shadow">
                             <h2 class="h5 mb-4" >Authorisation</h2>
                             <div class="d-flex align-items-right">
                                 <div class="me-3">
                                     <!-- Avatar -->
                                 </div>
-<form>
+
+
                                 <div class="file-field">
                                     <div class="d-flex justify-content-xl-center ms-xl-3">
                                         <div class="d-flex">
                                             <div class="d-md-block text-left">
-
+                                                <form>
                                                 @foreach ( $per as $permission)
                                                 <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"   wire:model="permiss" id="good" value="{{$permission->id }}" name="good">
 
-                                                 <input class="form-check-input" type="checkbox" wire:model="permiss" value="{{$permission->id }}"{{$permission->id? 'checked':''}}  checked>
+                                                    <label class="form-check-label" for="flexCheckChecked">
+                                                        {{$permission->permission_libele }}
+                                                    </label>
+                                                  </div>
+                                                  @endforeach
+
+
+
+                                                {{-- @foreach ( $per as $permission)
+                                                <div class="form-check">
+
+                                                 <input class="form-check-input" type="checkbox" wire:model="permiss" for="{{$permission->id }}" value="{{$permission->id }}" id="defaultCheck10" @if($permission->id==1) checked="checked" @endif>
 
                                                     {{$permission->permission_libele }}
-                                                </label>
+                                                </label> --}}
 
 
                                                  {{-- <input class="form-check-input" type="checkbox" name="authorisation[]" value="true"
                                                  < class="form-check-label" for="flexCheckChecked">
                                                      {{$permission->permission_libele }} --}}
 
-                                               </div>
 
-                                                @endforeach
-                                            </form>
                                              <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="inserpermission">envoyer</button>
 
                                            <div class="mb-3"style="float: right"> <button wire:click.prevent="deletepermission" class="btn btn-danger">supprimer</button></div>
+                                        </form>
                                                 permission: {{var_export($permiss)}}
 
                                             </div>

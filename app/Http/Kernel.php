@@ -72,7 +72,10 @@ class Kernel extends HttpKernel
         'auth.ajouter les emplacements' => \App\Http\Middleware\emplacementlistmiddleware::class,
         'auth.consulter la liste des utilisateurs' => \App\Http\Middleware\userindexmiddleware::class,
         'auth.modifier le profil des utilisateurs' => \App\Http\Middleware\usereditmiddleware::class,
+        'auth.afficher les utilisateurs' => \App\Http\Middleware\usershowmiddleware::class,
         'auth.voir les emplacements' => \App\Http\Middleware\emplacementshowmiddleware::class,
+        'auth.modifier un poste' => \App\Http\Middleware\posteeditmiddleware::class,
+        'auth.consulter la liste des postes' => \App\Http\Middleware\posteindexmiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
@@ -81,5 +84,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
     ];
 }

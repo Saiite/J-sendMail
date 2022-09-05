@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('historiques', function (Blueprint $table) {
             $table->id();
-           
             $table->foreignId('poste_id')->constrained('postes');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

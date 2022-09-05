@@ -107,7 +107,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination mb-0">
                     <li class="page-item">
-                        <a class="page-link" href="#">Previous</a>
+
                     </li>
                     <li class="page-item">
                         {{$empla->onEachside(1)->links()}}

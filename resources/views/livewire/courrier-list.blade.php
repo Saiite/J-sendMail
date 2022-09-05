@@ -1,5 +1,5 @@
 <div>
-    <title>Volt Laravel Dashboard - creation d'un courrier</title>
+    <title>j-sendMail: creation d'un courrier</title>
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -8,17 +8,17 @@
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Volt</a></li>
+                <li class="breadcrumb-item"><a href="#">j-sendMail</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Forms</li>
             </ol>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
                 <h1 class="h4">courrier</h1>
-                <p class="mb-0">Dozens of reusable components built to provide buttons, alerts, popovers, and more.</p>
+
             </div>
             <div>
-                <a href="/documentation/components/forms/index.html" class="btn btn-outline-gray" target="_blank"><i class="far fa-question-circle me-1"></i> Forms Docs</a>
+
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
                                     <span class="input-group-text">
                                         <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                                     </span>
-                                 <input data-datepicker="" class="form-control" wire:model="state.courrier_date_arrive" id="courrier_date_arrive" type="date" placeholder="date arrivee" required>
+                                 <input class="form-control" wire:model="state.courrier_date_arrive" id="courrier_date_arrive" type="date" placeholder="date arrivee" required>
                                  @error('courrier_date_arrive') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -92,13 +92,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-5 mb-lg-5">
+                    <div class="row mb-5 mb-lg-5"style="float:rigth">
                         <div class="col-lg-3 col-md-6">
 
                             </div>
                             <!-- Checkboxes -->
                         </form>
-                        <div class="mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+                                           <div class="mb-3"style="float:rigth"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
                         <!-- End of Form -->
                         </div>
                     </div>

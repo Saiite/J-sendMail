@@ -18,12 +18,12 @@
                         <li class="breadcrumb-item active" aria-current="page">posts</li>
                     </ol>
                 </nav>
-                <h2 class="h4">POSTS DES EMPLOYÉES</h2>
-                <p class="mb-0">BANGE BANQUE CENTRALE DE LA GUINEE EQUATORIALE</p>
+                <h2 class="h4">POSTE DES EMPLOYÉS</h2>
+                <p class="mb-0"></p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
-               
-              
+
+
             </div>
         </div>
         <div class="table-settings mb-4">
@@ -87,7 +87,7 @@
                                 </button>
                                 <div class="dropdown-menu py-0">
                                     <a class="dropdown-item" href="{{ route('post-edit-edit', $poste->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                                    
+
                                 </div>
                             </div>
                         </td>
@@ -103,14 +103,14 @@
                         {{-- <li class="page-item">
                             <a class="page-link" href="#">Previous</a>
                         </li> --}}
-        
+
                        {{$postes->links()}}
-          
-        
+
+
                     </ul>
                 </nav>
                 <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
-        
+
         </div>
 
     </div>

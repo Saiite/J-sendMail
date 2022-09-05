@@ -22,13 +22,13 @@ class CourrierIndex extends Component
         $this->courriers = courrier::all();
     }
 //supprimer un courrier
+
     public function delete($id)
     {
         if($id){
             courrier::where('id',$id)->delete();
             $this->Courriers = courrier::all();
-            redirect()->intended('/courrier-index')->with('message', 'le courrier a été dupprimé avec succès.');
-
+            redirect()->intended('/courrier-index')->with('message', 'le courrier a été supprimé avec succès.');
         }
     }
 
