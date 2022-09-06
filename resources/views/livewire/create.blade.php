@@ -34,9 +34,10 @@
                 <input wire:model="email" id="email" type="email" class="form-control" placeholder="example@company.com" autofocus required>
             </div>
  
-         <!-- Form -->
+     
             @error('email') <div class="invalid-feedback"> {{ $message }} </div> @enderror 
         </div>
+            <!-- Form -->
         <div class="form-group mb-4">
             <label for="password">Your Password</label>
             <div class="input-group">
@@ -45,22 +46,29 @@
             </div>  
             @error('password') <div class="invalid-feedback"> {{ $message }} </div> @enderror
         </div>
-         <!-- End of Form -->
-         @if($mailSentAlert)
-         <div class="alert alert-success" role="alert">
-             An email containing the password reset link has been sent.
-         </div>
-     @endif
-     @if($showDemoNotification)
-         <div class="alert alert-danger" role="alert">
-             You cannot do that in the demo version.
-         </div>
-     @endif
-    <button wire:click.prevent="store()" class="btn btn-success">Save</button>
+
+      
+        <div class="form-group mt-4 mb-4">
+            <label for="last_name">post</label>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon3"><svg class="" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg></span>
+                <input wire:model="state.poste_libele" id="poste_libele" type="last_name" class="form-control" placeholder="example pdg ou client" autofocus required>
+            </div>
+
+      
+
+        <!-- End of Form -->
+        <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" value="" id="terms" required>
+            <label class="form-check-label fw-normal mb-0" for="terms">
+                I agree to the <a href="#">terms and conditions</a>
+            </label>
+        </div>
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+    </div>
     
-    <a href="http://127.0.0.1:8000/users" class="button" style="color: red">Cancel</a>
-     
-    @error('email') <div class="valid-feedback"> {{ $message }} </div> @enderror 
 
     
 </form>

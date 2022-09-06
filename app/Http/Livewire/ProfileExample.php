@@ -3,24 +3,47 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\Image;
-use Illuminate\Validation\Rule;
+use App\Models\postes;
+use Livewire\Component;
+use App\Models\historiques;
 use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\File;
 
+
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileExample extends Component
 {
     use WithFileUploads;
- 
+
     public $images = [];
     public $users;
+    public  $postes;
     public $title;
+    public $poste_libele;
     public $email;
+
     public $showSavedAlert = false;
     public $showDemoNotification = false;
+    public $showData = true;
+    public $createData = false;
+    public $updateData = false;
+
+
+    public $image;
+
+    public $edit_id;
+    public $edit_title;
+    public $old_image;
+    public $new_image;
+    use WithFileUploads;
+
+    public $photo;
+
+// la fonction rules permet de récupérer les informations utilisateur de la base de données pour affiche ou niveau de son profil
 
     public function rules()
     {
@@ -28,71 +51,82 @@ class ProfileExample extends Component
         'user.first_name' => 'max:15',
         'user.last_name' => 'max:20',
         'user.email' => 'email',
+        'postes.poste_libele'=>'poste_libele',
         'user.gender' => ['required', Rule::in(['Male', 'Female', 'Other'])],
         'user.address' => 'max:40',
         'user.number' => 'numeric',
         'user.city' => 'max:20',
         'user.ZIP' => 'numeric',
+
     ];
+
     }
-   
+
+    //la fonction mount permet de récupérer les informations utilisateur  dans la table historiqque de la base de données pour affiche ou niveau de son profil
     public function mount()
+
     {
         $this->user = auth()->user();
+        $historiques = historiques::where('user_id',$this->user->id)->first();
+        $this->postes= postes::find($historiques->poste_id);
     }
 
-    public function save()
+
+    public function resetField()
     {
+        $this->title = "";
+        $this->image = "";
+        $this->new_image = "";
+        $this->old_image = "";
+
+    }
+
+        use WithFileUploads;
+
+
+//la fonction create permet d'enregistrer l'image sur le profile
+
+    public function create()
+    {
+
+
+        $images = new Image();
         $this->validate([
-            'images.*' => 'image|max:1024', // 1MB Max
+
+            'image' => 'image|max:4024',
         ]);
- 
-        foreach ($this->images as $key => $image) {
-            $this->images[$key] = $image->store('images');
+
+
+        $filename = "";
+        if ($this->image) {
+            $filename = $this->image->store('posts', 'public');
+        } else {
+            $filename = Null;
         }
-    
-        $this->images = json_encode($this->images);
+        session()->flash('message', 'vous avez  modifié un poste avec succès.');
 
-        Image::create(['image' => $this->images]);
- 
-        session()->flash('success', 'Images has been successfully Uploaded.');
- 
-        return redirect()->back();
-    }
+        $images->images = $filename;
 
-    public function update()
-    {
-        $this->validate($this->rules());
+        // dd($filename);
 
-        $this->user->save();
+        $result = $images->save();
+        $users=User::where('email',$this->user->email)->update(['image_id'=>$images->id]);
+        session()->flash('message', 'vous avez  modifié votre photo profile avec succès.');
+        redirect()->intended('/profile-example');
+        if ($result) {
+            session()->flash('success', 'Add Successfully');
+            $this->resetField();
+            $this->showData = true;
 
-        
-
-        return redirect()->route('livewire.profile-example');
-    }
-
-       /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        
-        $imageName = time().'.'.$request->image->extension();  
-         
-        $request->image->move(public_path('images'), $imageName);
-      
-        Image::create(['name' => $imageName]);
-        
-        return response()->json('Image uploaded successfully');
+            $this->createData = false;
+        } else {
+            session()->flash('error', 'Not Add Successfully');
+        }
     }
 
     public function render()
     {
+        $this->users = User::all();
         return view('livewire.profile-example');
     }
 }

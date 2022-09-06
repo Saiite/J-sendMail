@@ -22,7 +22,6 @@ class CourrierUser extends Component
     {
         $this->courriers = courrier::where('user_id', auth()->user()->id)->get();
     }
-
     public function render()
     {
         // $courr = courrier::where('user_id', auth()->user()->id)->get();

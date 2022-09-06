@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-<div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
+{{-- <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
     <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
         <span class="fw-bold d-inline-flex align-items-center h6">
             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -41,12 +41,12 @@
             Settings
         </span>
     </div>
-</div>
+</div> --}}
 <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
     <div class="row">
         <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
             <p class="mb-0 text-center text-lg-start">© 2022-<span class="current-year"></span> <a
-                    class="text-primary fw-normal" href="https://themesberg.com" target="_blank">J_sendmail &
+                    class="text-primary fw-normal" href="https://themesberg.com" target="_blank">J_sendmail
                 </a></p>
         </div>
         <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">

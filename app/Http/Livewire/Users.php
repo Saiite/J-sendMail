@@ -2,119 +2,81 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\historiques;
 use App\Models\User;
+use App\Models\postes;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 
 class Users extends Component
 {
-    public $users,  $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
+    public  $name,$totoalPages, $mailSentAlert,$showDemoNotification;
     public $updateMode = false;
-    public $search = '';
-    use WithPagination;
-    protected $messages = [
-        'email.exists' => 'The Email Address must be in our database.',
-    ];
-    public function render()
+
+
+    public  $search='';
+
+
+    public $field;
+
+    public $status;
+
+
+
+
+// cette fonction permet de faire la jointure entre la table users , post et historiques
+
+    public function render (postes $postes)
     {
-        $this->users = User::all();
 
-        return view('livewire.users');
+        $users = User::find(1)->paginate(5);
+        $this->users= DB::table('historiques')
+        ->when($this->name,function($query,$name){
+
+            return $query->where('first_name','LIKE',"%$name%"); })
+
+        ->join('users', 'users.id', '=', 'historiques.user_id')
+        ->join('postes', 'postes.id', '=', 'historiques.poste_id')
+        ->select('postes.*','users.*' )
+
+        ->orderByRaw('user_id DESC')
+
+        ->get();
+
+        return view('livewire.users' );
 
     }
 
-    private function resetInputFields(){
-        $this->first_name = '';
-        $this->last_name = '';
-        $this->email = '';
-    }
+//cette fonction permet de faire le changement de status utilisateur
 
-    public function store()
+    public function changeStatut($id)
     {
-        $this->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
-            'password' => 'required|min:6',
-        ]);
+        if($id){
+            $users = User::find($id);
+            $this->state = [
+                'id' => $users->id,
+                'status'=> $users->status,
 
-        $user = User::create([
-            'first_name' =>$this->first_name,
-            'last_name' =>$this->last_name,
 
-            'email' =>$this->email,
-            'password' => Hash::make($this->password),
-            'remember_token' => Str::random(10),
+            ];
 
-        ]);
-        redirect()->intended('/users');
+            if( $users->status=='actif'){
+                User::where('id',$id)->update(['status'=>'inactif']);
+                redirect()->intended('/users')->with('message', 'utilisateur est inatif maintenat.');
+
+               }else{
+                User::where('id',$id)->update(['status'=>'actif']);
+                   redirect()->intended('/users');
+                   session()->flash('messag', 'utilisateur est maintenant actif.');
+                   }
+       // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
     }
-    public function routeNotificationForMail() {
-        return $this->email;
-    }
+}
 
-    public function edit($id)
-    {
-        $this->updateMode = true;
-        $users = User::where('id',$id);
-        $this->user_id = $id;
-        $this->first_name= $users->first_name;
-        $this->last_name= $users->last_name;
-        $this->email = $users->email;
-        $this->password = $users->password;
-
-
-        dd(" $this->updateMode = true");
-    }
-
-    public function sortBy($field)
-    {
-        if ($this->sortField === $field) {
-            $this->sortAsc = !$this->sortAsc;
-        } else {
-            $this->sortAsc = true;
-        }
-
-        $this->sortField = $field;
-    }
-
-
-    public function cancel()
-    {
-        $this->updateMode = false;
-        $this->resetInputFields();
-
-
-    }
-
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'first_name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required|email',
-            'password' => Hash::make($this->password),
-        ]);
-
-        if ($this->user_id) {
-            $user = Users::find($this->user_id);
-            $user->update([
-                'first_name' => $this->first_name,
-                'first_name' => $this->first_name,
-                'email' => $this->email,
-                'password' => Hash::make($this->password),
-                'remember_token' => Str::random(10),
-
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
-            $this->resetInputFields();
-
-        }
-    }
+  // la fonction permet de supprimer les utilisateur
 
     public function delete($id)
     {
@@ -123,4 +85,6 @@ class Users extends Component
             session()->flash('message', 'Users Deleted Successfully.');
         }
     }
+
+
 }

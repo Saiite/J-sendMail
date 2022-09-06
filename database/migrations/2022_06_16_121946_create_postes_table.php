@@ -14,11 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('postes', function (Blueprint $table) {
-            $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->string('mobile');            
+            $table->increments('id')->unique();
+           
+            $table->string('poste_libele');
             $table->timestamps();
         });
     }

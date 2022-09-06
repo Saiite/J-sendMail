@@ -19,7 +19,13 @@ class CourrierShow extends Component
     {
         $this->courriers = courrier::all();
     }
+    public function cancel()
+    {
+        $this->updateMode = false;
 
+        redirect()->intended('/courrier-index');
+
+    }
     public function render()
     {
 

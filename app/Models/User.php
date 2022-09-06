@@ -21,14 +21,12 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'image_id',
       'password',
     ];
     protected $guarded=[];
 
-    public function courriers()
-    {
-        return $this->hasMany(courrier::class, 'users_id');
-    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -37,6 +35,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'email_verified_at',
+        'created_at',
+        'poste_id',
+        'updated_at',
     ];
     protected $rules = [
         'user.first_name' => 'max:15',
@@ -48,6 +50,7 @@ class User extends Authenticatable
         'user.address' => 'max:20',
         'user.number' => 'numeric',
         'user.city' => 'max:20',
+        'postes.poste_libele'=>'max:15',
         'user.zip' => 'numeric',
     ];
     /**
@@ -60,16 +63,48 @@ class User extends Authenticatable
     ];
 
 
-    public static function search($query)
+    public function courriers()
     {
-        return empty($query) ? static::query()->where('user_type', 'user')
-            : static::where('user_type', 'user')
-                ->where(function($q) use ($query) {
-                    $q
-                        ->where(' first_name', 'LIKE', '%'. $query . '%')
-                        ->where(' last_name', 'LIKE', '%'. $query . '%')
-                        ->orWhere('email', 'LIKE', '%' . $query . '%')
-                        ->orWhere('address', 'LIKE ', '%' . $query . '%');
-                });
+        return $this->hasMany(courrier::class, 'users_id');
     }
+
+
+
+    public function permissions()
+    {
+        return $this->belongsToMany(permission::class,'user_permissions', 'user_id', 'permission_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(role::class,'userrole', 'user_id', 'role_id');
+    }
+
+
+    public function haspermission($permission)
+
+    {
+        return $this->permissions()->where('permission_libele',$permission)->first() !== null;
+    }
+    public function hasanypermission($permissions)
+    {
+        return $this->permissions()->whereIn('permission_libele',$permissions)->first() !== null;
+    }
+
+public function postes()
+{
+    return $this->belongsToMany(postes::class, 'historiques');
 }
+
+
+   public function Image(){
+    return $this->belongsTo(Image::class,'image_id');
+   }
+
+   public function scopeActive( $query)
+   {
+       return $query->where('status', 1);
+   }
+
+}
+

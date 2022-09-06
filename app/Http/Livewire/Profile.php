@@ -24,12 +24,14 @@ class Profile extends Component
     ];
     public function render()
     {
+
         $this->users = User::find(1);
-        
+
+
         return view('livewire.profile');
     }
 
-   
+
 
   //*  public function store()
   // {
@@ -44,11 +46,11 @@ class Profile extends Component
       //  $user = User::create([
           //  'first_name' =>$this->first_name,
            // 'last_name' =>$this->last_name,
-            
+
            // 'email' =>$this->email,
           //  'password' => Hash::make($this->password),
            // 'remember_token' => Str::random(10),
-            
+
       //  ]);
        // redirect()->intended('/users');
     //}
@@ -56,7 +58,7 @@ class Profile extends Component
       //  return $this->email;
     //}
 
-   
+
 
 
     public function edit($id)
@@ -75,7 +77,7 @@ class Profile extends Component
             'email' => $users->email,
             'password' =>  $users->password,
         ];
-    
+
     }
     private function resetInputFields(){
         $this->first_name = '';
@@ -85,7 +87,7 @@ class Profile extends Component
     public function mount($id)
     {
         $this->updateMode = true;
-        $users = User::find($id);     
+        $users = User::find($id);
        $this->state = [
             'id' =>$users->id,
              'first_name' => $users->first_name,
@@ -94,28 +96,28 @@ class Profile extends Component
             'password' =>  $users->password,
          ];
 
-      
-    } 
-    
+
+    }
+
 
     public function cancel()
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/users');
+        redirect()->intended('/profile-example');
 
     }
 
     public function update()
     {
         $validator = Validator::make($this->state,[
-            
+
             'first_name' => 'required',
             'first_name' => 'required',
             'email' => 'required|email',
             'password' =>'required',
         ])->validate();
-            
+
         if ($this->state['id']) {
             $users = User::find($this->state['id']);
             $users->update([
@@ -126,10 +128,10 @@ class Profile extends Component
                 'password' => $this->state['password' ],
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
-            $this->reset('state') ; 
+            session()->flash('message', 'utilisateur modifié avec succès');
+            $this->reset('state') ;
             $this->users=User::all();
-            redirect()->intended('/users');
+            redirect()->intended('/profile-example');
         }
     }
 
