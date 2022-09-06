@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-
 class Register extends Component
 {   public $first_name = '';
     public $last_name = '';
@@ -31,23 +30,24 @@ class Register extends Component
     {
         $this->validate(['email'=>'required|email:rfc,dns|unique:users']);
     }
-    
+
+    //l'enregistrement utilisateur avec une table étrange postes et historiques comme jointure
+
     public function register()
     {
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-           
+            'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required|same:passwordConfirmation|min:6',
         ]);
 
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-            
+
             'email' =>$this->email,
-           
+
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
         ]);
@@ -59,7 +59,7 @@ class Register extends Component
 
         ]);
 
-       
+
 
         $validator = Validator::make($this->state, [
             'poste_libele' => 'required|max:100',
@@ -74,6 +74,7 @@ class Register extends Component
 
         return redirect('/profile-example');
     }
+
 
     public function render()
     {

@@ -28,7 +28,9 @@ class CourrierIndex extends Component
         if($id){
             courrier::where('id',$id)->delete();
             $this->Courriers = courrier::all();
+
             redirect()->intended('/courrier-index')->with('message', 'le courrier a été supprimé avec succès.');
+
         }
     }
 
@@ -61,11 +63,11 @@ class CourrierIndex extends Component
             $users=user::all();
             if($courriers-> courrier_status=='enCours'){
           courrier::where('id',$id)->update(['courrier_status'=>'destoke']);
-          redirect()->intended('/courrier-index')->with('message', 'le courrier a ete destocké avec succès.');
+          redirect()->intended('/courrier-index')->with('message', 'le courrier a été  destocké avec succès.');
          //envoie du mail
           mail::to($courrier->email)->send(new Messagedestoké ($this->state));
         }else{
-            redirect()->intended('/courrier-index')->with('messag', 'le courrier na pas ete valider par le destinataire ou courrier destocké.');
+            redirect()->intended('/courrier-index')->with('messag', 'le courrier n,a pas été validé par le destinataire ou courrier destocké.');
             }
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
     }

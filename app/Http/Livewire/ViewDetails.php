@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+
+use App\Models\postes;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -20,6 +22,7 @@ class ViewDetails extends Component
 
     public $users;
     public $authorise= [];
+
     public  $showSavedAlert;
     public $state = [];
     public $password;
@@ -27,6 +30,7 @@ class ViewDetails extends Component
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
+
     public function inserpermission()
 {
 $user= $this->state['id'];
@@ -76,16 +80,20 @@ foreach($this->permiss as $per){
         ];
 
     }
+
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
     }
+    // la function mount permet  de récupérer id et affiche les informations
     public function mount($id)
     {
+        $this->postes= postes ::find($id);
+
         $this->updateMode = true;
         $users = User::find($id);
-        //  $this->permiss
+
        $this->state = [
             'id' =>$users->id,
              'first_name' => $users->first_name,
@@ -99,9 +107,13 @@ foreach($this->permiss as $per){
 
         }
 
-
-
     }
+
+
+
+
+
+// la function cancel de rentre dans l'interface users management
 
     public function cancel()
     {
@@ -110,7 +122,6 @@ foreach($this->permiss as $per){
         redirect()->intended('/users');
 
     }
-
 
 
 
@@ -133,6 +144,5 @@ foreach($this->permiss as $per){
 
 
 
+
 }
-
-

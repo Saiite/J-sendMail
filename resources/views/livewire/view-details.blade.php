@@ -14,7 +14,7 @@
             </div>
             @endif
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h5 mb-4">General information</h2>
+                <h2 class="h5 mb-4"> information générale</h2>
                 <br>
 
                 <br>
@@ -24,14 +24,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="first_name">First Name</label>
+                                <label for="first_name">Nom</label>
                                 <input wire:model="state.first_name" class="form-control" id="first_name" type="text"
                                     placeholder="Enter your first name" disabled>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="last_name">Last Name</label>
+                                <label for="last_name">Prénom</label>
                                 <input wire:model="state.last_name" class="form-control" id="last_name" type="text"
                                     placeholder="Also your last name" disabled>
                             </div>
@@ -40,7 +40,7 @@
 
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">E-mail</label>
                                 <input wire:model="state.email" class="form-control" id="email" type="email"
                                     placeholder="name@company.com" disabled>
                             </div>

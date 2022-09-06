@@ -22,8 +22,11 @@ class Profile extends Component
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
+
+
     public function render()
     {
+
 
         $this->users = User::find(1);
 
@@ -58,32 +61,13 @@ class Profile extends Component
       //  return $this->email;
     //}
 
-
-
-
-    public function edit($id)
-    {
-        dd($id);
-        $this->updateMode = true;
-
-        $users = User::find($id);
-        dd($id);
-
-        $this->state = [
-
-           'id' =>$users->id,
-            'first_name' => $users->first_name,
-            'last_name' => $users->last_name,
-            'email' => $users->email,
-            'password' =>  $users->password,
-        ];
-
-    }
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
     }
+
+    //la fonction mount permet de récupérer l'id de l'utilisateur
     public function mount($id)
     {
         $this->updateMode = true;
@@ -97,9 +81,9 @@ class Profile extends Component
          ];
 
 
+
     }
-
-
+      //la fonction cancel pour le retour a l'interface du profile utilisateurs sur profile-example
     public function cancel()
     {
         $this->updateMode = false;
@@ -107,6 +91,9 @@ class Profile extends Component
         redirect()->intended('/profile-example');
 
     }
+
+
+//la fonction update permet de modifier les informations  des utilisateurs
 
     public function update()
     {
@@ -129,17 +116,15 @@ class Profile extends Component
             ]);
             $this->updateMode = false;
             session()->flash('message', 'utilisateur modifié avec succès');
+
             $this->reset('state') ;
+
             $this->users=User::all();
             redirect()->intended('/profile-example');
         }
     }
 
-    public function delete($id)
-    {
-        if($id){
-            User::where('id',$id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
-        }
-    }
+
+
 }
+

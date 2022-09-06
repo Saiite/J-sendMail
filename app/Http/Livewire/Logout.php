@@ -8,6 +8,10 @@ use Livewire\Component;
 class Logout extends Component
 {
 
+//cette fonction permet utilisateur de déconnecter sur son profil
+
+
+
     public function logout() {
         auth()->logout();
         return redirect('/login');

@@ -1,5 +1,5 @@
 <div>
-    <title>Volt Laravel Dashboard - Buttons</title>
+    <title>j-sendMail vue du courrier</title>
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -18,7 +18,6 @@
 
             </div>
             <div>
-
             </div>
         </div>
     </div>
@@ -28,16 +27,12 @@
             <div class="card border-light shadow-sm components-section">
                 <div class="card-body">
                     <div class="mb-3 mt-5">
-
-                        <h5 class="h4">FICHE D'UN COURRIER</h5>
-                        <h5 class="mb-0"><strong>libele</strong> ={{$courrier->courrier_libele}}</h5>
-                        <h5 class="mb-0">date d'arrivée ={{$courrier->courrier_date_arrive }}</h5>
-                            <h5 class="mb-0">statut ={{$courrier->courrier_status}}</h5>
-                                <h5 class="mb-0">noms de l'emeteur ={{$courrier->emeteur->emeteur_noms}}</h5>
-                                    <h5 class="mb-0">noms du destinataire ={{$courrier->user->first_name}}</h5>
-                                        <h5 class="mb-0">noms de l'emplacement ={{$courrier->emplacement->emplacement_noms}}</h5>
-
-
+                        <h5 class="mb-0"><strong>libellé</strong> ={{$courrier->courrier_libele}}</h5><br>
+                        <h5 class="mb-0">date d'arrivée ={{$courrier->courrier_date_arrive }}</h5><br>
+                            <h5 class="mb-0">statut =  {{$courrier->courrier_status}}</h5><br>
+                                <h5 class="mb-0">noms de l'émeteeur ={{$courrier->emeteur->emeteur_noms}}</h5><br>
+                                    <h5 class="mb-0">noms du destinataire ={{$courrier->user->first_name}}</h5><br>
+                                        <h5 class="mb-0">noms de l'emplacement ={{$courrier->emplacement->emplacement_noms}}</h5><br>
                         </div>
 
                         <div>

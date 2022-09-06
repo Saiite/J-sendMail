@@ -1,3 +1,4 @@
+
 <div>
     <div>
         <div>
@@ -16,12 +17,10 @@
                         <li class="breadcrumb-item active" aria-current="page">posts</li>
                     </ol>
                 </nav>
-                <h2 class="h4">POSTS DES EMPLOYÉES</h2>
+                <h2 class="h4">POSTES DES EMPLOYÉES</h2>
 
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
-
-
             </div>
         </div>
         <div class="table-settings mb-4">
@@ -112,5 +111,5 @@
         </div>
 
     </div>
-
 </div>
+

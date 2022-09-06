@@ -114,7 +114,6 @@
             </tr>
             <!-- Item -->
 
-
         @endforeach
         </tbody>
     </table>

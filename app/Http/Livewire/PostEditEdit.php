@@ -27,13 +27,15 @@ class PostEditEdit extends Component
     public function render()
     {
 
+
         $this->postes = postes::find(1);
+
 
         return view('livewire.post-edit-edit');
     }
 
+    //la fonction édit permet de récupérer l'id de l'utilisateur
 
-    
     public function edit($id)
     {
         dd($id);
@@ -46,26 +48,31 @@ class PostEditEdit extends Component
 
            'id' =>$postes->id,
             'poste_libele' => $postes->poste_libele,
-            
+
         ];
-    
+
     }
     private function resetInputFields(){
         $this->poste_libele = '';
-        
+
     }
+    //la fonction mount permet de récupérer l'id post de l'utilisateur
+
     public function mount($id)
     {
         $this->updateMode = true;
-        $postes = postes::find($id);     
+        $postes = postes::find($id);
        $this->state = [
             'id' => $postes->id,
              'poste_libele' =>  $postes->poste_libele,
-             
+
          ];
 
-      
-    } 
+
+    }
+
+    //la fonction cancel pour le retour a l'interface des postes du management
+
     public function cancel()
     {
         $this->updateMode = false;
@@ -74,14 +81,16 @@ class PostEditEdit extends Component
 
     }
 
+//la fonction update permet de modifier les postes des utilisateurs
+
     public function update()
     {
         $validator = Validator::make($this->state,[
-            
+
             'poste_libele' => 'required',
-            
+
         ])->validate();
-            
+
         if ($this->state['id']) {
             $postes = postes::find($this->state['id']);
             $postes->update([
@@ -90,7 +99,7 @@ class PostEditEdit extends Component
             ]);
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
-            $this->reset('state') ; 
+            $this->reset('state') ;
             $this->postes=postes::all();
             redirect()->intended('/post-edit');
         }
@@ -105,15 +114,15 @@ class PostEditEdit extends Component
 
 
 
-   
 
 
-   
-  
-    
 
-    
 
- 
-            
-        
+
+
+
+
+
+
+
+

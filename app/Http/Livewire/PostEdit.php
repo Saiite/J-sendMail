@@ -16,7 +16,6 @@ class PostEdit extends Component
     public $updateMode = false;
     public $search = '';
 
-
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
@@ -26,12 +25,10 @@ class PostEdit extends Component
     public function render()
     {
 
-
         $postes=postes::when($this->name,function($query,$name){
 
             return $query->where('poste_libele','LIKE',"%$name%");
         })->orderByRaw('id DESC')->paginate(5);
-
 
         return view('livewire.post-edit', compact('postes'));
     }
@@ -39,4 +36,5 @@ class PostEdit extends Component
 
 
     }
+
 

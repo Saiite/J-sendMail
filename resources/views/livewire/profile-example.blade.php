@@ -19,8 +19,6 @@
                 <a class="dropdown-item" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Modifier le profil</a>
                 <br>
 
-
-
                 <form wire:submit.prevent="save" action="#" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -48,7 +46,6 @@
                             @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
 
-
                         <div class="col-md-6 mb-3">
 
                             <div class="form-group">
@@ -59,8 +56,6 @@
                             @error('poste_libele') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                     </div>
-
-
                 </form>
                 @if($showDemoNotification)
                 <div class="alert alert-info mt-2" role="alert">
@@ -74,6 +69,7 @@
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
                         <div wire:ignore.self class="profile-cover rounded-top"
+
                             data-background="../assets/img/profile-cover.jpg">
                             @if(empty(auth()->user()->Image->images ))
 
@@ -103,7 +99,6 @@
                                         </div>
                                         <div class="card-footer">
 
-
                                             <button type="submit" class="btn btn-primary">Enregistre</button>
 
                                         </div>
@@ -128,4 +123,5 @@
 </form>
 </div>
 <div>
+
 

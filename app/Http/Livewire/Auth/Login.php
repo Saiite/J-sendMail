@@ -16,6 +16,8 @@ class Login extends Component
         'email' => 'required|email',
         'password' => 'required',
     ];
+// la fonction qui permet utilisateur de se loguer
+
 
     public function login()
     {

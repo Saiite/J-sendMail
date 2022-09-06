@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class role extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'role_libele',
 
@@ -17,4 +18,5 @@ class role extends Model
     {
         return $this->BelonsToMany(user::class,'userrole','user_id','role_id');
     }
+
 }

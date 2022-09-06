@@ -27,7 +27,7 @@
                 <li class="breadcrumb-item active" aria-current="page">liste</li>
             </ol>
         </nav>
-        <h2 class="h4">liste des utilisateurs J_sendmail</h2>
+        <h2 class="h4">liste des utilisateurs </h2>
 
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
@@ -37,7 +37,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
                 </path>
             </svg>
-            Nouveau  Utilisateur
+            Nouvel  Utilisateur
         </a>
 
            </div>
@@ -54,10 +54,10 @@
                 <input type="text" class="form-control" placeholder="Search orders" wire:model="name">
             </div>
 
+
         <div class="col-3 col-lg-4 d-flex justify-content-end">
             <div class="btn-group">
                 <div class="dropdown me-1">
-
                     <div class="dropdown-menu dropdown-menu-end pb-0">
                         <span class="small ps-3 fw-bold text-dark">Show</span>
                         <a class="dropdown-item d-flex align-items-center fw-bold" href="#">10 <svg
@@ -71,7 +71,6 @@
                         <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
                     </div>
                 </div>
-
 
                 </div>
             </div>
@@ -95,10 +94,10 @@
                 <th class="border-bottom">prénom</th>
                 <th class="border-bottom">E-mail</th>
 
-                <th class="border-bottom">Status</th>
 
-                <th class="border-bottom">poste</th>
+                <th class="border-bottom">Statut</th>
 
+                <th class="border-bottom">Poste</th>
                 <th class="border-bottom">Action</th>
             </tr>
         </thead>
@@ -115,10 +114,11 @@
                 </td>
                 <td>
                     {{ $value->first_name}}
-
                 </td>
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
+
+
 
                 @if ($value->status=='actif')
 
@@ -127,8 +127,11 @@
                 </td>
                 @elseif($value->status=='inactif')
                 <td><span class="fw-bold text-danger">{{$value->status}}</span>
+
                 </td>
                 @endif
+
+
                 <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
                  <td>
                     <div class="btn-group">
@@ -147,7 +150,6 @@
                     </div>
                     </div>
                 </td>
-
 
             </tr>
             @endforeach

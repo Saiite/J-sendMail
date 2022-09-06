@@ -56,6 +56,8 @@ class Users extends Component
     {
         if($id){
             $users = User::find($id);
+
+
             $this->state = [
                 'id' => $users->id,
                 'status'=> $users->status,
@@ -73,6 +75,7 @@ class Users extends Component
                    session()->flash('messag', 'utilisateur est maintenant actif.');
                    }
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
+
     }
 }
 

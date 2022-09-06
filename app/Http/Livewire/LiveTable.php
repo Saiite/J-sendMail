@@ -12,10 +12,17 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Mail\Mailable;
+use App\Mail\envoiMail;
+use Mail;
+
 class LiveTable extends Component
 {
     public $users,  $poste_id,$poste_libele,$historiques, $first_name,$last_name,$email,$password,$mailSentAlert,$showDemoNotification, $user_id;
     public $updateMode = false;
+
     protected $messages = [
         'email.exists' => 'The Email Address must be in our database.',
     ];
@@ -26,7 +33,7 @@ class LiveTable extends Component
     {
         $this->users = User::all();
         $dest = postes::all();
-        
+
         return view('livewire.live-table', compact('dest'));
     }
 
@@ -36,38 +43,44 @@ class LiveTable extends Component
         $this->email = '';
 
     }
-
+//l'enregistrement utilisateur avec une table étrange postes et historiques comme jointure
     public function store()
     {
-        
+
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-          
-           
-           
+
+            'email' => 'required|email:rfc,dns|unique:users',
+
+
+
+
             'password' => 'required|min:6',
         ]);
 
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,
-          
+
             'email' =>$this->email,
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
-            
+
         ]);
-       
-       
+
+         $data=['email' =>$user->email,"nom" =>$user->first_name,"password" =>$this->password];
+
+
+        mail::to( $user->email)->send(new envoiMail($data));
+
         $historiques=historiques::create([
 
             'poste_id' => $user->id,
             'user_id' => $user->id,
 
         ]);
-        
+
         $validator = Validator::make($this->state, [
             'poste_libele' => 'required|max:100',
         ])->validate();
@@ -76,63 +89,27 @@ class LiveTable extends Component
         session()->flash('message','postes avec succès!');
         $this->reset('state');
         $this->postes = postes::all();
-        
+
         redirect()->intended('/users')->with('message', ' vous avez enregistré un utilisateur avec  succès.');
     }
     public function routeNotificationForMail() {
         return $this->email;
     }
 
-    public function edit($id)
-    {
-        $this->updateMode = true;
-        $users = User::where('id',$id);
-        $this->user_id = $id;
-        $this->first_name= $users->first_name;
-        $this->last_name= $users->last_name;
-        $this->email = $users->email;
-        dd(" $this->updateMode = true");
-    }
-    
+//la fonction de retour sur l'interface utilisateur management
+
 
     public function cancel()
     {
         $this->updateMode = false;
         $this->resetInputFields();
-
+        redirect()->intended('/users');
 
     }
 
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-        ]);
-
-        if ($this->user_id) {
-            $user = Users::find($this->user_id);
-            $user->update([
-                'first_name' => $this->first_name,
-                'email' => $this->email,
-            ]);
-            $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
-            $this->resetInputFields();
-
-        }
-    }
-
-    public function delete($id)
-    {
-        if($id){
-            User::where('id',$id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
-        }
-    }
 }
 
-  
+
 
 
 

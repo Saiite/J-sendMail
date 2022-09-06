@@ -31,6 +31,7 @@ class DemoMail extends Mailable
     public function build()
     {
 
+
         return $this->from("sendmail@jstockcash.com") // L'expéditeur
                     ->subject('courrier validé')    //SUJET
                     ->view('emails.demoMail');

@@ -10,8 +10,6 @@ use App\Models\historiques;
 use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
-
-
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +23,6 @@ class ProfileExample extends Component
     public $title;
     public $poste_libele;
     public $email;
-
     public $showSavedAlert = false;
     public $showDemoNotification = false;
     public $showData = true;
@@ -42,6 +39,7 @@ class ProfileExample extends Component
     use WithFileUploads;
 
     public $photo;
+
 
 // la fonction rules permet de récupérer les informations utilisateur de la base de données pour affiche ou niveau de son profil
 

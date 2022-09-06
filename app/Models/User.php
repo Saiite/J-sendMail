@@ -62,7 +62,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     public function courriers()
     {
         return $this->hasMany(courrier::class, 'users_id');
@@ -91,15 +90,16 @@ class User extends Authenticatable
         return $this->permissions()->whereIn('permission_libele',$permissions)->first() !== null;
     }
 
+
 public function postes()
 {
     return $this->belongsToMany(postes::class, 'historiques');
 }
 
-
    public function Image(){
     return $this->belongsTo(Image::class,'image_id');
    }
+
 
    public function scopeActive( $query)
    {

@@ -10,8 +10,8 @@ use Illuminate\Queue\SerializesModels;
 class Messagedestoké extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $state;
+
     /**
      * Create a new message instance.
      *

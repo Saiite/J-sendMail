@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->foreignId('image_id')->nullable()->constrained('images')->default();
             $table->string('password');
-            $table->enum('user_type', ['admin', 'user'])->default('user'); 
+            $table->enum('user_type', ['admin', 'user'])->default('user');
             $table->tinyInteger('age')->default();
             $table->string('address')->nullable();
             $table->string('utype')->default()->comment('ADM for Admin and USR for user or Customer');
@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('ZIP')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('role_id')->default()->constrained('roles');
-            $table->string('status' )->default()->comment('status', ['actif', 'inactif']);
+            $table->enum('status', ['actif', 'inactif']);
             $table->rememberToken()->unique();
             $table->timestamps();
         });
