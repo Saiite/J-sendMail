@@ -72,8 +72,6 @@
 
                             data-background="../assets/img/profile-cover.jpg">
                             @if(empty(auth()->user()->Image->images ))
-
-
                             <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" style="width: 200px; height:250px;">
 
                             @else
@@ -89,22 +87,29 @@
                                             <div class="custom-file mt-3">
                                                 <input type="file" wire:model='image' class="custom-file-input" id="customFile"  >
 
-
-
                                             </div>
 
                                             @if ($image)
-                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="" class="avatar rounded-circle">
+                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="Image placeholder" class="avatar rounded-circle">
                                             @endif
                                         </div>
-                                        <div class="card-footer">
+                                             <div class="card-footer">
 
-                                            <button type="submit" class="btn btn-primary">Enregistre</button>
+                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
 
                                         </div>
 
                                     </form>
 
+                                    {{-- <div data-v-233d445a>
+                                      <button class ="btn-primary btn-lg" data-v-233d445a type="file" wire:model='image'>
+                                        <i class="fas fa-upload"data-v-233d445a></i>
+                                      "telecharger une image"
+                                      </button>
+                                      @if ($image)
+                                      <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="" class="avatar rounded-circle">
+                                      @endif
+                                    </div> --}}
 
 
                                 </div>

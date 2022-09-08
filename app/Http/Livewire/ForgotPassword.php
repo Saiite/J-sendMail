@@ -43,7 +43,7 @@ class ForgotPassword extends Component
         $this->notify(new ResetPassword($user->id));
         $this->mailSentAlert = true;
         }
-    
+
 
     public function render()
     {

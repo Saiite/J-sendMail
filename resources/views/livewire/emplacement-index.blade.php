@@ -1,7 +1,7 @@
 <div>
     <div>
         {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-        <title>j-SENDMAIL - TOUS LES COURRIERS</title>
+        <title>j-SENDMAIL - Tous les emplacements</title>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item active" aria-current="page">emplacements</li>
                 </ol>
             </nav>
-            <h2 class="h4">TOUS LES EMPLACEMENT </h2>
+            <h2 class="h4">TOUS LES EMPLACEMENTS </h2>
             <p class="mb-0"></p>
         </div>
         <div class="btn-toolbar mb-2 mb-md-0">

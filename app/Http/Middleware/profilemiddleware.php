@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-class courrierusermiddleware
+class profilemiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class courrierusermiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Gate::allows("valider la réception des courriers")){
+        if(Gate::allows("voir son profil")){
             return $next($request);
         }
 

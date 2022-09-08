@@ -57,7 +57,11 @@ foreach($this->permiss as $per){
         'user_id' =>$user,
         'permission_id' => $per,
     ];
- userPermission::where($this->authorise)->delete();
+    if($user==1){
+        redirect()->intended('/dashboard')->with('messag', 'vous ne pouvez pas suprimer les droits du super admin');
+    }else{
+        userPermission::where($this->authorise)->delete();
+    }
 }
 }
 

@@ -1,3 +1,4 @@
+
 <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
   <div class="sidebar-inner px-2 pt-3">
     <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
@@ -55,6 +56,7 @@
         </div>
       </li>
         </a>
+        @can('voir son profil')
         <li class="nav-item">
           <a class="nav-link" href="{{ route('profile-example') }}">
             <a href="{{ route('profile-example') }}" class="nav-link"href="{{ route('profile-example') }}">
@@ -65,7 +67,7 @@
               </a>
             </li>
         </li>
-
+@endcan
         @can('consulter la liste des utilisateurs')
         <li class="nav-item">
           <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">

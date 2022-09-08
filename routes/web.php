@@ -69,7 +69,7 @@ use App\Http\Livewire\ResetPasswordExample;
     Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
     Route::middleware('auth')->group(function () {
     Route::get('users/{id}/edit', Profile::class)->name('profile')->middleware('auth.modifier le profil des utilisateurs');
-    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
+    Route::get('/profile-example', ProfileExample::class)->name('profile-example')->middleware('auth.voir son profil');
     Route::get('users/{id}/view-details',  ViewDetails::class)->name('view-details')->middleware('auth.afficher les utilisateurs');
     Route::get('/users', Users::class)->name('users')->middleware('auth.consulter la liste des utilisateurs');
     Route::get('/login-example', LoginExample::class)->name('login-example');

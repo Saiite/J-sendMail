@@ -25,16 +25,16 @@ class Post extends Component
         ])->validate();
 
         postes::create($this->state);
-        session()->flash('message','postes avec succès!');
+        session()->flash('message','crée avec succès!');
         $this->reset('state');
         $this->postes = postes::all();
         redirect()->intended('/post-edit');
-        
+
     }
 
     public function cancel()
     {
-        
+
         redirect()->intended('/post-edit');
 
     }

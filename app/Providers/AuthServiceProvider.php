@@ -26,6 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+
+        // Gate::before(function (User $user) {
+        //     return $user->hasroles('admin');
+        // });
+
         Gate::define('ajouter les émetteurs', function (User $user) {
             return $user->haspermission('ajouter les émetteurs');
         });
@@ -40,6 +45,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('supprimer les courriers', function (User $user) {
             return $user->haspermission('supprimer les courriers');
         });
+
 
         Gate::define('déstocker les courriers', function (User $user) {
             return $user->haspermission('déstocker les courriers');
@@ -90,9 +96,14 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('modifier un poste', function (User $user) {
             return $user->haspermission('modifier un poste');
         });
+        Gate::define('voir son profil', function (User $user) {
+            return $user->haspermission('voir son profil');
+        });
+        Gate::after(function (User $user) {
+            return $user->hasroles('admin');
+        });
 
-// Gate::after(function (User $user,) {
-//     return $user->hasroles("admin");
-// });
-}
+    }
+
+
 }

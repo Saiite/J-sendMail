@@ -20,7 +20,7 @@ class emplacementindexmiddleware
             return $next($request);
         }
 
-        return redirect()->route("profile-example");
+        return redirect()->route("dashboard");
     }
 
 }

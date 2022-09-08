@@ -11,7 +11,7 @@
                     <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
                             <h1 class="mb-3 h3">Content de te revoir</h1>
-                            <p class="mb-0"> 
+                            <p class="mb-0">
                                 <p class="mb-0">Connectez-vous avec ces identifiants :</p>
                                 <p class="mb-0"> E-mail: <strong></strong> Mot de passe:
                                     <strong></strong></p>
@@ -63,23 +63,23 @@
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>
-                                        
+
                                     </div>
-                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">Mot de passe perdu?</a>
+                                    <div><a href="{{ route('forgot-password') }}" class="small text-right">Mot de passe oublié?</a>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <div class="d-grid">
-                                
+
                                 <button type="submit" class="btn btn-gray-800">Sign in</button>
                             </div>
                         </form>
                         <div class="mt-3 mb-4 text-center">
                             <span class="fw-normal">or login with</span>
                         </div>
-                        
-                       
+
+
                         <div class="d-flex justify-content-center my-4">
                             <a href="#" class="btn btn-icon-only btn-pill btn-outline-gray-500 me-2"
                                 aria-label="facebook button" title="facebook button">

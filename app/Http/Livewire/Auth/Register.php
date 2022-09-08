@@ -66,7 +66,7 @@ class Register extends Component
         ])->validate();
 
         postes::create($this->state);
-        session()->flash('message','postes avec succès!');
+        session()->flash('message','ajouté avec succès!');
         $this->reset('state');
         $this->postes = postes::all();
 

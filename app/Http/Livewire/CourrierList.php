@@ -43,9 +43,11 @@ class CourrierList extends Component
         foreach ($users as $user) {
        $user->notify(new courriernotification($this->state));
         }
+
+        session()->flash('messag', 'le courrier a été ajouté avec succès.');
         $this->reset('state');
         $this->Courrier = courrier::all();
-        redirect()->intended('/courrier-index')->with('message', 'le courrier a ete ajouter avec succès.');
+
     }
 
     public function cancel()

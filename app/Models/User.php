@@ -90,6 +90,16 @@ class User extends Authenticatable
         return $this->permissions()->whereIn('permission_libele',$permissions)->first() !== null;
     }
 
+    public function hasanyroles($roles)
+    {
+        return $this->roles()->whereIn('role_libele',$roles)->first() !== null;
+    }
+
+    public function hasroles($role)
+
+    {
+        return $this->roles()->where('role_libele',$role)->first() !== null;
+    }
 
 public function postes()
 {

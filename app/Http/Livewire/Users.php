@@ -55,24 +55,23 @@ class Users extends Component
     public function changeStatut($id)
     {
         if($id){
-            $users = User::find($id);
 
+            $users = User::find($id);
 
             $this->state = [
                 'id' => $users->id,
                 'status'=> $users->status,
 
-
             ];
 
             if( $users->status=='actif'){
                 User::where('id',$id)->update(['status'=>'inactif']);
-                redirect()->intended('/users')->with('message', 'utilisateur est inatif maintenat.');
+                redirect()->intended('/users')->with('messag', 'utilisateur est inatif .');
 
                }else{
                 User::where('id',$id)->update(['status'=>'actif']);
                    redirect()->intended('/users');
-                   session()->flash('messag', 'utilisateur est maintenant actif.');
+                   session()->flash('message', 'utilisateur est maintenant actif.');
                    }
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
 
@@ -84,8 +83,15 @@ class Users extends Component
     public function delete($id)
     {
         if($id){
-            User::where('id',$id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
+            if($id==1){
+                redirect()->intended('/users');
+                session()->flash('messag', 'vous ne pouvez pas suprimer un admin');
+            }else{
+                User::where('id',$id)->delete();
+                redirect()->intended('/users');
+            session()->flash('message', 'utilisateur supprimé avec succès .');
+            }
+
         }
     }
 

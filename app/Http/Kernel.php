@@ -76,6 +76,7 @@ class Kernel extends HttpKernel
         'auth.voir les emplacements' => \App\Http\Middleware\emplacementshowmiddleware::class,
         'auth.modifier un poste' => \App\Http\Middleware\posteeditmiddleware::class,
         'auth.consulter la liste des postes' => \App\Http\Middleware\posteindexmiddleware::class,
+        'auth.voir son profil' => \App\Http\Middleware\profilemiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
