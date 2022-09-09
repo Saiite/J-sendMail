@@ -62,9 +62,8 @@
               @if(empty(auth()->user()->Image->images ))
 
               <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg">
-
               @else
-              <img alt="Image placeholder" src="/storage/{{auth()->user()->Image->images  }}" class="avatar rounded-circle">
+              <img class="avatar rounded-circle" alt="Image placeholder" src="/storage/{{auth()->user()->Image->images}}" >
 
               @endif
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">

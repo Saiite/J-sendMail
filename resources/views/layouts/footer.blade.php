@@ -8,7 +8,7 @@
                 data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star"
                 data-size="large" data-show-count="true"
                 aria-label="Star themesberg/volt-bootstrap-5-dashboard on GitHub">Star</a>
-        </div>
+        {{-- </div>
         <a href="https://themesberg.com/product/laravel/volt-admin-dashboard-template" target="_blank"
             class="btn btn-secondary d-inline-flex align-items-center justify-content-center mb-3 w-100">
             Download
@@ -29,7 +29,7 @@
             </a>
         </div>
     </div>
-</div>
+</div> --}}
 {{-- <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
     <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
         <span class="fw-bold d-inline-flex align-items-center h6">

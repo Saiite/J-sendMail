@@ -100,7 +100,8 @@
                             </div>
                             <!-- Checkboxes -->
                         </form>
-                                           <div class="mb-3"style="float:rigth"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
+
+                        <div class="col-md-6 mb-3"><button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent="store">envoyer</button>
 
                         <!-- End of Form -->
                         </div>

@@ -38,7 +38,6 @@ class CourrierUser extends Component
     {
         if($id){
             $courriers = courrier::find($id);
-
             $this->state = [
                 'id' => $courriers->id,
                 'courrier_libele' => $courriers->courrier_libele,
@@ -51,7 +50,6 @@ class CourrierUser extends Component
             if($courriers-> courrier_status=='enStok'){
          courrier::where('id',$id)->update(['courrier_status'=>'enCours']);
          redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
-
          mail::to('dubelnguemle@gmail.com')->send(new DemoMail ($this->state));
         }else{
             redirect()->intended('/courrier-user')->with('messag', 'vous avez deja validé ou courrier destocké.');

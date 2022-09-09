@@ -106,7 +106,7 @@
                         <div class="dropdown-menu py-0">
                             <a class="dropdown-item rounded-top" href="{{ route('courrier-show', $courrier->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>supprimer</a>
                             <a class="dropdown-item text rounded-bottom" href="#"  wire:click.prevent="changeStatut({{  $courrier->id }})"></span class="fas fa-trash-alt me-2"></span>Destocker</a>
                         </a>
                     </div>

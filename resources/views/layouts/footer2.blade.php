@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-<div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
+{{-- <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
     <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
         <span class="fw-bold d-inline-flex align-items-center h6">
             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
             </svg>
             Settings
         </span>
-    </div>
+    </div> --}}
 </div>
 <footer class="p-5 mb-4">
     <div class="container">
@@ -61,9 +61,9 @@
                         <a href="https://themesberg.com/contact">Contact</a>
                     </li> --}}
                 </ul>
-                <p class="mb-0 text-center">© 2019-<span class="current-year"></span> <a
+                {{-- <p class="mb-0 text-center">© 2019-<span class="current-year"></span> <a
                         class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg &
-                    </a><a href="https://updivision.com/" target="_blank">Updivision</a></p>
+                    </a><a href="https://updivision.com/" target="_blank">Updivision</a></p> --}}
             </div>
         </div>
     </div>
