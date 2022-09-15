@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Auth;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\postes;
-use App\Models\historiques;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,13 +49,6 @@ class Register extends Component
 
             'password' => Hash::make($this->password),
             'remember_token' => Str::random(10),
-        ]);
-
-        $historiques=historiques::create([
-
-            'poste_id' => $user->id,
-            'user_id' => $user->id,
-
         ]);
 
 

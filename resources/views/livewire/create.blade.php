@@ -45,6 +45,24 @@
                                     @error('email') <div class="invalid-feedback"> {{ $message }} </div> @enderror
                                 </div>
                                 <!-- End of Form -->
+                                <div class="form-group mt-4 mb-4">
+                                    {{-- <label for="last_name">post</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                                            <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                            <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+                                          </svg>
+                                        <input wire:model="state.poste_libele" id="poste_libele" type="last_name" class="form-control" placeholder="example pdg ou client" autofocus required>
+                                    </div> --}}
+                                </a> <label class="my-1 me-2" for="poste_id">poste occupé</label>
+                                <select class="form-select" wire:model="poste_id" id="poste_id" aria-label="Default select example">
+                                    <option selected>selectionez ici</option>
+                                    @foreach ($post as $value)
+                                    <option value="{{$value->id}}">{{$value->poste_libele}}</option>
+                                    @endforeach
+                                </select>
+
+
                                 <div class="form-group">
                                     <!-- Form -->
                                     <div class="form-group mb-4">
@@ -57,26 +75,13 @@
                                     </div>
                                     <!-- End of Form -->
                                     <!-- Form -->
-                                    {{-- <div class="form-group mb-4">
+                                    <div class="form-group mb-4">
                                         <label for="confirm_password">Confirmez le mot de passe</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon5"><svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg></span>
                                             <input wire:model.lazy="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" required>
                                         </div>
-                                    </div> --}}
-
-                                    <div class="form-group mt-4 mb-4">
-                                        <label for="last_name">post</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
-                                                <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                                <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
-                                              </svg>
-                                            <input wire:model="state.poste_libele" id="poste_libele" type="last_name" class="form-control" placeholder="example pdg ou client" autofocus required>
-                                        </div>
-
-
-
+                                    </div>
                                     <!-- End of Form -->
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" value="" id="terms" required>
@@ -85,12 +90,11 @@
                                         </label>
                                     </div>
                                 </div>
+                            </form>
                                 <div class="col-md-6 mb-3">
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
+                                    <button type="submit"wire:click.prevent="store"class="btn btn-primary">Sign in</button>
                                     <button style="float: right" wire:click.prevent="cancel()" class="btn btn-danger">Retour</button>
                                 </div>
-                            </form>
-
 
                             <div class="d-flex justify-content-center align-items-center mt-4">
                                 <span class="fw-normal">

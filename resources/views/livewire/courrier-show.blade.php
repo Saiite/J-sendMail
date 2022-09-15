@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="#"></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Buttons</li>
+                <li class="breadcrumb-item active" aria-current="page"></li>
             </ol>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
@@ -30,7 +30,7 @@
                         <h5 class="mb-0"><strong>libellé</strong> ={{$courrier->courrier_libele}}</h5><br>
                         <h5 class="mb-0">date d'arrivée ={{$courrier->courrier_date_arrive }}</h5><br>
                             <h5 class="mb-0">statut =  {{$courrier->courrier_status}}</h5><br>
-                                <h5 class="mb-0">noms de l'émeteeur ={{$courrier->emeteur->emeteur_noms}}</h5><br>
+                                <h5 class="mb-0">noms de l'émetteur ={{$courrier->emeteur->emeteur_noms}}</h5><br>
                                     <h5 class="mb-0">noms du destinataire ={{$courrier->user->first_name}}</h5><br>
                                         <h5 class="mb-0">noms de l'emplacement ={{$courrier->emplacement->emplacement_noms}}</h5><br>
                         </div>

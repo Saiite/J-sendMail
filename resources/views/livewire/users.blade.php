@@ -24,14 +24,14 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">J-SENDMAIL</a></li>
-                <li class="breadcrumb-item active" aria-current="page">liste</li>
+                <li class="breadcrumb-item active" aria-current="page">users-index</li>
             </ol>
         </nav>
         <h2 class="h4">liste des utilisateurs </h2>
 
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="live-table" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+        <a href="register-users" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
@@ -53,8 +53,6 @@
                 </span>
                 <input type="text" class="form-control" placeholder="Search orders" wire:model="name">
             </div>
-
-
         <div class="col-3 col-lg-4 d-flex justify-content-end">
             <div class="btn-group">
                 <div class="dropdown me-1">
@@ -93,10 +91,7 @@
                 <th class="border-bottom">Nom</th>
                 <th class="border-bottom">prénom</th>
                 <th class="border-bottom">E-mail</th>
-
-
                 <th class="border-bottom">Statut</th>
-
                 <th class="border-bottom">Poste</th>
                 <th class="border-bottom">Action</th>
             </tr>
@@ -118,21 +113,15 @@
                 <td><span class="fw-normal"></span>{{ $value->last_name}}</td>
                 <td><span class="fw-normal d-flex align-items-center">{{ $value->email }}</span></td>
 
-
-
                 @if ($value->status=='actif')
-
                 <td><span class="fw-bold text-success">{{$value->status}}</span>
-
                 </td>
                 @elseif($value->status=='inactif')
                 <td><span class="fw-bold text-danger">{{$value->status}}</span>
 
                 </td>
                 @endif
-
-
-                <td><span class="fw-normal"></span>{{ $value->poste_libele }}</td>
+                <td><span class="fw-normal"></span>{{ $value->poste->poste_libele }}</td>
                  <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,8 +133,7 @@
                         <div class="dropdown-menu py-0">
                             <a class="dropdown-item rounded-top" href="{{ route('view-details', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $value->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
-                            <a class="dropdown-item text rounded-bottom" href="#"    wire:click.prevent="changeStatut({{ $value->id }})"></span  class="fw-bold text-success"></span>status</a>
+                            <a class="dropdown-item text rounded-bottom" href="#"    wire:click.prevent="changeStatut({{ $value->id }})"></span  class="fw-bold text-success"></span>modifié le statut</a>
                         </div>
                     </div>
                     </div>

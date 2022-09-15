@@ -21,6 +21,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'poste_id',
         'image_id',
       'password',
     ];
@@ -37,7 +38,6 @@ class User extends Authenticatable
         'remember_token',
         'email_verified_at',
         'created_at',
-        'poste_id',
         'updated_at',
     ];
     protected $rules = [
@@ -45,11 +45,7 @@ class User extends Authenticatable
         'user.last_name' => 'max:20',
         'user.birthday' => 'date_format:Y-m-d',
         'user.email' => 'email',
-        'user.phone' => 'numeric',
-        'user.gender' => '',
-        'user.address' => 'max:20',
-        'user.number' => 'numeric',
-        'user.city' => 'max:20',
+        'poste_id'=>'max:15',
         'postes.poste_libele'=>'max:15',
         'user.zip' => 'numeric',
     ];
@@ -66,7 +62,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(courrier::class, 'users_id');
     }
-
 
 
     public function permissions()
@@ -101,9 +96,9 @@ class User extends Authenticatable
         return $this->roles()->where('role_libele',$role)->first() !== null;
     }
 
-public function postes()
+public function poste()
 {
-    return $this->belongsToMany(postes::class, 'historiques');
+    return $this->belongsTo(poste::class, 'poste_id');
 }
 
    public function Image(){

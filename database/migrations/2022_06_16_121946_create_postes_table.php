@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('postes', function (Blueprint $table) {
             $table->increments('id')->unique();
-           
             $table->string('poste_libele');
             $table->timestamps();
         });

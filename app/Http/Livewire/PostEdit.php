@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models\postes;
+use App\Models\poste;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -25,7 +25,7 @@ class PostEdit extends Component
     public function render()
     {
 
-        $postes=postes::when($this->name,function($query,$name){
+        $postes=poste::when($this->name,function($query,$name){
 
             return $query->where('poste_libele','LIKE',"%$name%");
         })->orderByRaw('id DESC')->paginate(5);

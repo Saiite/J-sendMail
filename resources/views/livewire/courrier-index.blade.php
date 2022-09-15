@@ -10,8 +10,8 @@
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">jsendmail</a></li>
-                <li class="breadcrumb-item active" aria-current="page">courriers</li>
+                <li class="breadcrumb-item"><a href="#">j-sendmail</a></li>
+                <li class="breadcrumb-item active" aria-current="page">courrier-index</li>
             </ol>
         </nav>
         <h2 class="h4">TOUS LES COURRIERS </h2>
@@ -63,9 +63,9 @@
                 <th class="border-gray-200">n°</th>
                 <th class="border-gray-200">libele</th>
                 <th class="border-gray-200">Date D'arrivee</th>
-                <th class="border-gray-200">Status</th>
-                <th class="border-gray-200"> Emeteur</th>
-                <th class="border-gray-200"> Destinataire</th>
+                <th class="border-gray-200">Statut</th>
+                <th class="border-gray-200"> Emetteur</th>
+                <th class="border-gray-200"> employé</th>
                 <th class="border-gray-200"> Emplacement</th>
                 <th class="border-gray-200">action</th>
             </tr>
@@ -108,12 +108,12 @@
                             <a class="dropdown-item" href="{{ route('courrier-edit', $courrier->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
                             <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{  $courrier->id }})"> </span class="fas fa-trash-alt me-2"></span>supprimer</a>
                             <a class="dropdown-item text rounded-bottom" href="#"  wire:click.prevent="changeStatut({{  $courrier->id }})"></span class="fas fa-trash-alt me-2"></span>Destocker</a>
-                        </a>
+
                     </div>
                 </td>
             </tr>
             <!-- Item -->
-
+        </div>
         @endforeach
         </tbody>
     </table>

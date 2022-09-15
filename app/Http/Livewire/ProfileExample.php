@@ -4,9 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use App\Models\Image;
-use App\Models\postes;
+use App\Models\poste;
 use Livewire\Component;
-use App\Models\historiques;
 use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
@@ -17,7 +16,7 @@ class ProfileExample extends Component
 {
     use WithFileUploads;
 
-    public $images = [];
+    public $images ;
     public $users;
     public  $postes;
     public $title;
@@ -65,9 +64,11 @@ class ProfileExample extends Component
 
     {
         $this->user = auth()->user();
-        $historiques = historiques::where('user_id',$this->user->id)->first();
-        $this->postes= postes::find($historiques->poste_id);
+         $Poste = poste::where('id',$this->user->id)->first();
+         $this->postes= poste::all();
+         $this->images=Image::all();
     }
+
 
 
     public function resetField()
@@ -87,30 +88,26 @@ class ProfileExample extends Component
     public function create()
     {
 
-
         $images = new Image();
         $this->validate([
 
             'image' => 'image|max:4024',
         ]);
 
-
         $filename = "";
         if ($this->image) {
             $filename = $this->image->store('posts', 'public');
-        } else {
+        } else{
             $filename = Null;
         }
-        session()->flash('message', 'vous avez  modifié un poste avec succès.');
+        session()->flash('message', 'vous avez  modifié avec succès.');
 
         $images->images = $filename;
-
-        // dd($filename);
 
         $result = $images->save();
         $users=User::where('email',$this->user->email)->update(['image_id'=>$images->id]);
         session()->flash('message', 'vous avez  modifié votre photo profile avec succès.');
-        redirect()->intended('/profile-example');
+        redirect()->intended('/profile');
         if ($result) {
             session()->flash('success', 'Add Successfully');
             $this->resetField();
@@ -124,6 +121,8 @@ class ProfileExample extends Component
 
     public function render()
     {
+        $this->images=Image::all();
+        $this->postes= poste::all();
         $this->users = User::all();
         return view('livewire.profile-example');
     }

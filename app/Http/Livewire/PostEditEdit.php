@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\postes;
+use App\Models\poste;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -28,7 +28,7 @@ class PostEditEdit extends Component
     {
 
 
-        $this->postes = postes::find(1);
+        $this->postes = poste::find(1);
 
 
         return view('livewire.post-edit-edit');
@@ -61,7 +61,7 @@ class PostEditEdit extends Component
     public function mount($id)
     {
         $this->updateMode = true;
-        $postes = postes::find($id);
+        $postes = poste::find($id);
        $this->state = [
             'id' => $postes->id,
              'poste_libele' =>  $postes->poste_libele,

@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 
-use App\Models\postes;
+use App\Models\poste;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -22,7 +22,6 @@ class ViewDetails extends Component
 
     public $users;
     public $authorise= [];
-
     public  $showSavedAlert;
     public $state = [];
     public $password;
@@ -43,7 +42,7 @@ foreach($this->permiss as $per){
     ];
 
 userPermission::create($this->authorise);
-
+redirect()->intended('/dashboard')->with('message', 'vous avez attribué des permissions à cet utlisateur');
 }
 //redirect()->intended('/view-details')->with('message', 'permission ajouter avec succès.');
 }
@@ -61,6 +60,7 @@ foreach($this->permiss as $per){
         redirect()->intended('/dashboard')->with('messag', 'vous ne pouvez pas suprimer les droits du super admin');
     }else{
         userPermission::where($this->authorise)->delete();
+        redirect()->intended('/dashboard')->with('message', 'vous avez oté une permission à cet utlisateur');
     }
 }
 }
@@ -73,13 +73,13 @@ foreach($this->permiss as $per){
 
         $users = User::find($id);
         dd($id);
-
         $this->state = [
 
            'id' =>$users->id,
             'first_name' => $users->first_name,
             'last_name' => $users->last_name,
             'email' => $users->email,
+            'poste_id' => $users->poste_id,
             'password' =>  $users->password,
         ];
 
@@ -93,8 +93,7 @@ foreach($this->permiss as $per){
     // la function mount permet  de récupérer id et affiche les informations
     public function mount($id)
     {
-        $this->postes= postes ::find($id);
-
+        $poste=poste::all();
         $this->updateMode = true;
         $users = User::find($id);
 
@@ -103,6 +102,7 @@ foreach($this->permiss as $per){
              'first_name' => $users->first_name,
              'last_name' => $users->last_name,
              'email' => $users->email,
+             'poste_id' => $users->poste_id,
             'password' =>  $users->password,
          ];
          $var=userPermission::where('user_id',$id)->select('permission_id')->get();
@@ -112,10 +112,6 @@ foreach($this->permiss as $per){
         }
 
     }
-
-
-
-
 
 // la function cancel de rentre dans l'interface users management
 
@@ -127,15 +123,8 @@ foreach($this->permiss as $per){
 
     }
 
-
-
     public function render()
     {
-        // $per= DB::table('user_permissions')
-        // ->join('users', 'users.id', '=', 'user_permissions.user_id')
-        // ->join('permissions', 'permissions.id', '=', 'user_permissions.permission_id')
-        // ->select('permissions.*','users.*' )
-        // ->get();
         $per=permission::all();
          $user= $this->state['id'];
 

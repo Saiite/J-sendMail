@@ -49,9 +49,9 @@
                         <div class="col-md-6 mb-3">
 
                             <div class="form-group">
-                                <label for="email">Poste</label>
-                                <input wire:model="postes.poste_libele" class="form-control" id="postes.poste_libele" type="postes.poste_libele"
-                                    placeholder="" disabled>
+                                <label for="email">Poste </label>
+                                <input wire:model="user.poste_libele" class="form-control" id="poste.poste_libele" type="poste.poste_libele"
+                                    placeholder="{{$user->poste->poste_libele}}" disabled>
                             </div>
                             @error('poste_libele') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
@@ -69,56 +69,42 @@
                 <div class="col-12 mb-4">
                     <div class="card shadow border-0 text-center p-0">
                         <div wire:ignore.self class="profile-cover rounded-top"
-
                             data-background="../assets/img/profile-cover.jpg">
                             @if(empty(auth()->user()->Image->images ))
+
+
                             <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" style="width: 200px; height:250px;">
 
                             @else
-                            <img alt="Image placeholder" src="/storage/{{auth()->user()->Image->images}}" style="width: 200px; height:250px;" class="avatar rounded-circle">
+                            <img alt="Image placeholder" src="/storage/{{auth()->user()->Image->images}}" style="width: 240px; height:250px;" class="avatar rounded-circle">
 
                             @endif</div>
+                    <br>
+                    <br>
+                            <h4 class="h3">
+                                {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}
+                           </h4>
                         <div class="card-body pb-5">
                             <div class="card">
                                 <div class="card-body">
                                     <form action="" wire:submit.prevent='create'>
                                         <div class="card-body">
-
                                             <div class="custom-file mt-3">
-                                                <input type="file" wire:model='image' class="custom-file-input" id="customFile"  >
-
+                                                <input type="file" wire:model='image' class="custom-file-input" id="customFile">
                                             </div>
-
                                             @if ($image)
-                                            <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="Image placeholder" class="avatar rounded-circle">
+                                            <img src="{{$image->temporaryUrl()}}" alt="Image placeholder" class="avatar rounded-circle">
                                             @endif
                                         </div>
-                                             <div class="card-footer">
-
                                             <button type="submit" class="btn btn-primary">Enregistrer</button>
 
                                         </div>
 
                                     </form>
-
-                                    {{-- <div data-v-233d445a>
-                                      <button class ="btn-primary btn-lg" data-v-233d445a type="file" wire:model='image'>
-                                        <i class="fas fa-upload"data-v-233d445a></i>
-                                      "telecharger une image"
-                                      </button>
-                                      @if ($image)
-                                      <img src="{{$image->temporaryUrl()}}" style="width: 200px;height:200px;" alt="" class="avatar rounded-circle">
-                                      @endif
-                                    </div> --}}
-
-
                                 </div>
                             </div>
 
 
-                            <h4 class="h3">
-                                {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}
-                           </h4>
                         </div>
                     </div>
                 </div>

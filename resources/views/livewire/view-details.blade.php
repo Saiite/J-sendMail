@@ -73,7 +73,6 @@
                                     <!-- Avatar -->
                                 </div>
 
-
                                 <div class="file-field">
                                     <div class="d-flex justify-content-xl-center ms-xl-3">
                                         <div class="d-flex">

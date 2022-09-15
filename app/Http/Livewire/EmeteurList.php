@@ -22,7 +22,7 @@ class EmeteurList extends Component
         emeteur::create($this->state);
         $this->reset('state');
         $this->Emeteur = emeteur::all();
-        redirect()->intended('/courrier-list')->with('message', 'emeteur crée avec succès.');
+        redirect()->intended('/courrier-add')->with('message', 'emeteur crée avec succès.');
     }
 
       public function render()
