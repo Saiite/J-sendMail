@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\poste;
 use function Ramsey\Uuid\v1;
 
 class Profile extends Component
@@ -29,42 +29,15 @@ class Profile extends Component
 
 
         $this->users = User::find(1);
+        $post = poste::all();
 
-
-        return view('livewire.profile');
+        return view('livewire.profile',compact('post'));
     }
-
-
-
-  //*  public function store()
-  // {
-        //$this->validate(
-
-           // 'first_name' => 'required',
-           // 'last_name' => 'required',
-            //'email' => 'required',
-           // 'password' => 'required|min:6',
-     //   ]);
-
-      //  $user = User::create([
-          //  'first_name' =>$this->first_name,
-           // 'last_name' =>$this->last_name,
-
-           // 'email' =>$this->email,
-          //  'password' => Hash::make($this->password),
-           // 'remember_token' => Str::random(10),
-
-      //  ]);
-       // redirect()->intended('/users');
-    //}
-   // public function routeNotificationForMail() {
-      //  return $this->email;
-    //}
-
     private function resetInputFields(){
         $this->first_name = '';
         $this->last_name = '';
         $this->email = '';
+        $this->poste_id = '';
     }
 
     //la fonction mount permet de récupérer l'id de l'utilisateur
@@ -77,6 +50,7 @@ class Profile extends Component
              'first_name' => $users->first_name,
              'last_name' => $users->last_name,
              'email' => $users->email,
+             'poste_id' => $users->poste_id,
             'password' =>  $users->password,
          ];
 
@@ -88,7 +62,7 @@ class Profile extends Component
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/profile-example');
+        redirect()->intended('/profile');
 
     }
 
@@ -102,6 +76,7 @@ class Profile extends Component
             'first_name' => 'required',
             'first_name' => 'required',
             'email' => 'required|email',
+            'poste_id' => 'required',
             'password' =>'required',
         ])->validate();
 
@@ -112,6 +87,7 @@ class Profile extends Component
                 'first_name' => $this->state['first_name'],
                 'last_name' => $this->state[ 'last_name'],
                 'email' => $this->state['email'],
+                'poste_id' => $this->state['poste_id'],
                 'password' => $this->state['password' ],
             ]);
             $this->updateMode = false;
@@ -120,7 +96,7 @@ class Profile extends Component
             $this->reset('state') ;
 
             $this->users=User::all();
-            redirect()->intended('/profile-example');
+            redirect()->intended('/users-index');
         }
     }
 

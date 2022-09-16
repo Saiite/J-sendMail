@@ -48,6 +48,13 @@ class LiveTable extends Component
 //l'enregistrement utilisateur
     public function store()
     {
+        $this->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users',
+            'poste_id'=>'required',
+            'password' => 'required|same:passwordConfirmation|min:6',
+        ]);
         $user = User::create([
             'first_name' =>$this->first_name,
             'last_name' =>$this->last_name,

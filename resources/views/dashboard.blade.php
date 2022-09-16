@@ -31,7 +31,7 @@
                 <div class="card-body">
 
 
-      <H1>bienvenue sur j-sendMail!</H1>
+      <H1  data-mdb-animation-start="onHover">bienvenue sur j-sendMail!</H1>
       <img class="col-12 mb-4" alt="Image placeholder" src="/assets/img/acceuil.jpg">
 
       <h5>desormais vous aurez la possibilité de recevoir vos courriers en temps réel grace à J-sendmail.</h5>

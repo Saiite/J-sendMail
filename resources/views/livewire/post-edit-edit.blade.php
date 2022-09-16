@@ -2,7 +2,7 @@
 
 <div><div>
 
-    <title>post</title>
+    <title>poste</title>
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -17,12 +17,10 @@
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">update post</h1>
+                <h1 class="h4">modifier un poste</h1>
                 <p class="mb-0"></p>
             </div>
-            <div>
-                <a href="/documentation/components/forms/index.html" class="btn btn-outline-gray" target="_blank"><i class="far fa-question-circle me-1"></i> Forms Docs</a>
-            </div>
+
         </div>
     </div>
 
@@ -35,7 +33,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <form wire:submit.prevent="mount" action="#" method="POST">
                                   <div class="mb-4">
-                                        <label for="poste_libele">postes</label>
+                                        <label for="poste_libele">poste</label>
                                            <input type="text" class="form-control"  wire:model="state.poste_libele" id="poste_libele" aria-describedby="poste_libele">
                                              <small id="poste_libele" class="form-text text-muted"></small>
 

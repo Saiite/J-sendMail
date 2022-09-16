@@ -37,22 +37,21 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
                 </path>
             </svg>
-            Nouvel  Utilisateur
+            Nouvel Utilisateur
         </a>
 
            </div>
 </div>
 <div class="table-settings mb-4">
-    <div class="row justify-content-between align-items-center">
-        <div class="col-9 col-lg-8 d-md-flex">
-            <div class="input-group me-2 me-lg-3 fmxw-400">
-                <span class="input-group-text">
-                    <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                    </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Search orders" wire:model="name">
-            </div>
+    <div class="input-group me-2 me-lg-3 fmxw-400">
+        <span class="input-group-text">
+            <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+            </svg>
+        </span>
+        <input type="text" wire:model="name" class="form-control" placeholder="Search orders">
+    </div>
+
         <div class="col-3 col-lg-4 d-flex justify-content-end">
             <div class="btn-group">
                 <div class="dropdown me-1">
@@ -97,7 +96,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $value)
+            @foreach($this->users as $value)
             <tr>
                 <td>
                     {{ $value->id }}
@@ -133,20 +132,21 @@
                         <div class="dropdown-menu py-0">
                             <a class="dropdown-item rounded-top" href="{{ route('view-details', $value->id) }}"><span class="fas fa-eye me-2"></span>View Details</a>
                             <a class="dropdown-item" href="{{ route('profile', $value->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text rounded-bottom" href="#"    wire:click.prevent="changeStatut({{ $value->id }})"></span  class="fw-bold text-success"></span>modifié le statut</a>
+                            <a class="dropdown-item text rounded-bottom" href="#"wire:click.prevent="changeStatut({{ $value->id }})"></span  class="fw-bold text-success"></span>status</a>
                         </div>
                     </div>
                     </div>
                 </td>
-
             </tr>
             @endforeach
         </tbody>
     </table>
     <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
         <nav aria-label="Page navigation example">
-
+            <ul class="pagination mb-0">
+                  <div> {{$this->users->onEachside(1)->links()}}</div>
+            </ul>
         </nav>
-</div>
+
 </div>
 </div>

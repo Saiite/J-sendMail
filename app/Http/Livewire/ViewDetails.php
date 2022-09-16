@@ -119,7 +119,7 @@ foreach($this->permiss as $per){
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/users');
+        redirect()->intended('/users-index');
 
     }
 

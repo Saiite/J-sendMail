@@ -13,10 +13,10 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item"><a href="#">j-sendmail</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">emeteur-index</li>
+                        <li class="breadcrumb-item active" aria-current="page">emetteur-index</li>
                     </ol>
                 </nav>
-                <h2 class="h4">TOUS LES EMETEURS </h2>
+                <h2 class="h4">tout les emetteurs</h2>
                 <p class="mb-0"></p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">

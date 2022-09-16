@@ -41,7 +41,7 @@ class PostEditEdit extends Component
         dd($id);
         $this->updateMode = true;
 
-        $postes = postes::find($id);
+        $postes = poste::find($id);
         dd($id);
 
         $this->state = [
@@ -77,7 +77,7 @@ class PostEditEdit extends Component
     {
         $this->updateMode = false;
         $this->resetInputFields();
-        redirect()->intended('/post-edit');
+        redirect()->intended('/post-index');
 
     }
 
@@ -92,7 +92,7 @@ class PostEditEdit extends Component
         ])->validate();
 
         if ($this->state['id']) {
-            $postes = postes::find($this->state['id']);
+            $postes = poste::find($this->state['id']);
             $postes->update([
                 'id' => $this->state['id'],
                 'poste_libele' => $this->state['poste_libele'],
@@ -100,8 +100,8 @@ class PostEditEdit extends Component
             $this->updateMode = false;
             session()->flash('message', 'utilisateur modifié avec succcès.');
             $this->reset('state') ;
-            $this->postes=postes::all();
-            redirect()->intended('/post-edit');
+            $this->postes=poste::all();
+            redirect()->intended('/post-index');
         }
     }
 
