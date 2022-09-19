@@ -30,7 +30,7 @@ class Users extends Component
 
 public function changeStatut($id)
 {
-    dd('je sus la');
+
     if($id){
         $users = User::find($id);
 
@@ -44,12 +44,12 @@ public function changeStatut($id)
 
         if( $users->status=='actif'){
             User::where('id',$id)->update(['status'=>'inactif']);
-            redirect()->intended('/users')->with('message', 'utilisateur est inatif maintenat.');
+            redirect()->intended('/users-index')->with('messag', 'utilisateur  inatif.');
 
            }else{
             User::where('id',$id)->update(['status'=>'actif']);
-               redirect()->intended('/users');
-               session()->flash('messag', 'utilisateur est maintenant actif.');
+               redirect()->intended('/users-index');
+               session()->flash('message', 'utilisateur  actif.');
                }
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
 
@@ -62,11 +62,11 @@ public function changeStatut($id)
     {
         if($id){
             if($id==1){
-                redirect()->intended('/users');
+                redirect()->intended('/users-index');
                 session()->flash('messag', 'vous ne pouvez pas suprimer un admin');
             }else{
                 User::where('id',$id)->delete();
-                redirect()->intended('/users');
+                redirect()->intended('/users-index');
             session()->flash('message', 'utilisateur supprimé avec succès .');
             }
 
