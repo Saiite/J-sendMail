@@ -49,8 +49,9 @@ class CourrierUser extends Component
             ];
             if($courriers-> courrier_status=='enStok'){
          courrier::where('id',$id)->update(['courrier_status'=>'enCours']);
-         redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
          mail::to('dubelnguemle@gmail.com')->send(new DemoMail ($this->state));
+         redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
+
         }else{
             redirect()->intended('/courrier-user')->with('messag', 'vous avez deja validé ou courrier destocké.');
             }

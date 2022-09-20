@@ -36,6 +36,7 @@ class CourrierList extends Component
             'emplacement_id' => 'required|max:100',
         ])->validate();
         $var=courrier::create($this->state);
+        redirect()->intended('/courrier-user')->with('message', 'le courrier a été ajouté avec succès.');
         $var->user_id;
         $var=user::find($var->user_id);
         $users=user::all();
