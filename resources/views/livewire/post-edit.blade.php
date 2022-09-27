@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active" aria-current="page">post-index</li>
                     </ol>
                 </nav>
-                <h2 class="h4">POSTES DES EMPLOYÉES</h2>
+                <h2 class="h4">Liste des postes</h2>
                 <p class="mb-0"></p>
             </div>
                 <div class="btn-toolbar mb-2 mb-md-0">
@@ -64,7 +64,7 @@
                 <thead>
                     <tr>
                         <th class="border-gray-200">n°</th>
-                        <th class="border-gray-200">post</th>
+                        <th class="border-gray-200">poste</th>
                         <th class="border-gray-200">action</th>
                     </tr>
                 </thead>

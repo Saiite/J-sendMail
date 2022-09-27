@@ -28,7 +28,7 @@ class Profile extends Component
     {
 
 
-        $this->users = User::find(1);
+        $this->users = User::all();
         $post = poste::all();
 
         return view('livewire.profile',compact('post'));
@@ -38,6 +38,7 @@ class Profile extends Component
         $this->last_name = '';
         $this->email = '';
         $this->poste_id = '';
+        $this->password = '';
     }
 
     //la fonction mount permet de récupérer l'id de l'utilisateur
@@ -45,7 +46,7 @@ class Profile extends Component
     {
         $this->updateMode = true;
         $users = User::find($id);
-       $this->state = [
+        $this->state = [
             'id' =>$users->id,
              'first_name' => $users->first_name,
              'last_name' => $users->last_name,
@@ -83,18 +84,15 @@ class Profile extends Component
         if ($this->state['id']) {
             $users = User::find($this->state['id']);
             $users->update([
-                'id' => $this->state['id'],
                 'first_name' => $this->state['first_name'],
                 'last_name' => $this->state[ 'last_name'],
                 'email' => $this->state['email'],
                 'poste_id' => $this->state['poste_id'],
-                'password' => $this->state['password' ],
+                'password' => $this->state['password'],
             ]);
             $this->updateMode = false;
             session()->flash('message', 'utilisateur modifié avec succès');
-
             $this->reset('state') ;
-
             $this->users=User::all();
             redirect()->intended('/users-index');
         }

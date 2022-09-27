@@ -14,6 +14,7 @@
                 <li class="breadcrumb-item active" aria-current="page">dashboard</li>
                <div class="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></div>
             </ol>
+          <div class="breadcrumb-item active" style="float: right"><H2>BIENVENUE SUR J-SENDMAIL!</H2></div>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
@@ -31,10 +32,10 @@
                 <div class="card-body">
 
 
-      <H1  data-mdb-animation-start="onHover">bienvenue sur j-sendMail!</H1>
-      <img class="col-12 mb-4" alt="Image placeholder" src="/assets/img/acceuil.jpg">
 
-      <h5>desormais vous aurez la possibilité de recevoir vos courriers en temps réel grace à J-sendmail.</h5>
+      <img class="col-12 mb-4"  alt="Responsive image" src="/assets/img/acceuil.jpg" height="350" width="250">
+
+      <h5>Desormais la possibilité vous est offert de recevoir vos courriers en temps réel.</h5>
 
                         </div>
 

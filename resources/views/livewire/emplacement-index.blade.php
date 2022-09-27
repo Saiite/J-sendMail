@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item active" aria-current="page">emplacement-index</li>
                 </ol>
             </nav>
-            <h2 class="h4">TOUS LES EMPLACEMENTS </h2>
+            <h2 class="h4">Tout les emplacements </h2>
             <p class="mb-0"></p>
         </div>
         <div class="btn-toolbar mb-2 mb-md-0">

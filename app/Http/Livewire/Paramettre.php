@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 
-class Users extends Component
+class Paramettre extends Component
 {
+
     public $totoalPages, $mailSentAlert,$showDemoNotification;
     public $updateMode = false;
     protected $users;
@@ -23,13 +24,19 @@ class Users extends Component
     public function mount()
     {
         $this->users = User::all();
+    }
 
-}
 
+    public function render ()
+    {
+        $this->users=User::when($this->name,function($query,$name){
+            return $query->where ('first_name','LIKE',"%$name%");
+        }) ->where( 'id',1)
+        ->orderByRaw('id DESC')->paginate(5);
+        return view('livewire.paramettre');
+    }
 
-//cette fonction permet de faire le changement de status utilisateur
-
-public function changeStatut($id)
+    public function changeStatut($id)
 {
 
     if($id){
@@ -51,36 +58,7 @@ public function changeStatut($id)
                session()->flash('message', 'utilisateur  actif.');
                }
        // $courriers =DB::table('courriers')->where('courrier_status','enStok')->update(['courrier_status'=>'enCours']);
-
     }
-}
-
-  // la fonction permet de supprimer les utilisateur
-
-    public function delete($id)
-    {
-        if($id){
-            if($id==1){
-                redirect()->intended('/users-index');
-                session()->flash('messag', 'vous ne pouvez pas suprimer un admin');
-            }else{
-                User::where('id',$id)->delete();
-                redirect()->intended('/users-index');
-            session()->flash('message', 'utilisateur supprimé avec succès .');
-            }
-
-        }
-    }
-// cette fonction permet de faire la jointure entre la table users , post et historiques
-public function render ()
-{
-    $this->users=User::when($this->name,function($query,$name){
-        return $query->where ('first_name','LIKE',"%$name%");
-    }) ->where( 'id','<>',1)
-    ->orderByRaw('id DESC')->paginate(5);
-
-    return view('livewire.users');
-
 }
 
 }

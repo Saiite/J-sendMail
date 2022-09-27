@@ -99,6 +99,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('voir son profil', function (User $user) {
             return $user->haspermission('voir son profil');
         });
+        Gate::define('ajouter les postes', function (User $user) {
+            return $user->haspermission('ajouter les postes');
+        });
+        Gate::define('modifier les paramètres', function (User $user) {
+            return $user->haspermission('modifier les paramètres');
+        });
         Gate::after(function (User $user) {
             return $user->hasroles('admin');
         });

@@ -14,13 +14,14 @@ use Mail;
 use Notification;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\courriernotification;
-class CourrierList extends Component
-{
 
+class CourrierCreate extends Component
+{
     public $Courrier;
     public $state = [];
     public $updateMode = false;
     public $users;
+    public $recep;
 
     private function resetInputFields(){
         $this->reset('state');
@@ -31,12 +32,13 @@ class CourrierList extends Component
         $validator = Validator::make($this->state, [
             'courrier_libele' => 'required|max:100',
             'courrier_date_arrive' => 'required|max:100',
+            'receptioniste'=> 'required|max:100',
             'emeteur_id' => 'required|max:100',
             'user_id' => 'required|max:100',
             'emplacement_id' => 'required|max:100',
         ])->validate();
         $var=courrier::create($this->state);
-        redirect()->intended('/courrier-user')->with('message', 'le courrier a été ajouté avec succès.');
+        redirect()->intended('/courrier-index')->with('message', 'le courrier a été ajouté avec succès.');
         $var->user_id;
         $var=user::find($var->user_id);
         $users=user::all();
@@ -44,13 +46,9 @@ class CourrierList extends Component
         foreach ($users as $user) {
        $user->notify(new courriernotification($this->state));
         }
-
-        session()->flash('messag', 'le courrier a été ajouté avec succès.');
         $this->reset('state');
         $this->Courrier = courrier::all();
-
     }
-
     public function cancel()
     {
         $this->updateMode = false;
@@ -64,11 +62,14 @@ class CourrierList extends Component
             $this->Courrier = courrier::all();
         }
     }
+
+
+
     public function render()
     {
         $emet = emeteur::all();
         $dest = user::all();
         $empla = emplacement::all();
-        return view('livewire.courrier-list', compact('emet','dest','empla'));
+        return view('livewire.courrier-create', compact('emet','dest','empla'));
     }
 }

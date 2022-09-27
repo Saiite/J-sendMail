@@ -32,7 +32,7 @@ class DemoMail extends Mailable
     {
 
 
-        return $this->from("sendmail@jstockcash.com") // L'expéditeur
+        return $this->from("mailsend@jstockcash.com") // L'expéditeur
                     ->subject('courrier validé')    //SUJET
                     ->view('emails.demoMail');
     }

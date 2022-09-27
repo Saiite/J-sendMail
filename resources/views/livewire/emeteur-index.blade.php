@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item active" aria-current="page">emetteur-index</li>
                     </ol>
                 </nav>
-                <h2 class="h4">tout les emetteurs</h2>
+                <h2 class="h4">Tout les emetteurs</h2>
                 <p class="mb-0"></p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">

@@ -17,6 +17,7 @@ class CourrierUser extends Component
 {
     public $courriers;
     public $name;
+    public $email;
 
     public function mount()
     {
@@ -31,7 +32,6 @@ class CourrierUser extends Component
             })->where('user_id', auth()->user()->id)->orderByRaw('id DESC')->paginate(5);
 
             return view('livewire.courrier-user',compact('courr'));
-
     }
     //cette fonction permet de changer le statut du courrier l'ors de la validation de celui -ci.
     public function changeStatut($id)
@@ -39,19 +39,18 @@ class CourrierUser extends Component
         if($id){
             $courriers = courrier::find($id);
             $this->state = [
-                'id' => $courriers->id,
+                'courrier_id' => $courriers->courrier_id,
                 'courrier_libele' => $courriers->courrier_libele,
                 'courrier_date_arrive'=>$courriers-> courrier_date_arrive,
-                'courrier_status'=>$courriers-> courrier_status,
+                'receptioniste'=>$courriers->receptioniste,
                 'emeteur_id' => $courriers->emeteur_id,
                 'user_id' => $courriers->user_id,
                 'emplacement_id' => $courriers->emplacement_id,
             ];
             if($courriers-> courrier_status=='enStok'){
          courrier::where('id',$id)->update(['courrier_status'=>'enCours']);
-         mail::to('dubelnguemle@gmail.com')->send(new DemoMail ($this->state));
+         mail::to($courriers->receptioniste)->send(new DemoMail ($this->state));
          redirect()->intended('/courrier-user')->with('message', 'vous avez validé votre courrier avec succès.');
-
         }else{
             redirect()->intended('/courrier-user')->with('messag', 'vous avez deja validé ou courrier destocké.');
             }

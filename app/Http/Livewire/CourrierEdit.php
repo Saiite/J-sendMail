@@ -64,7 +64,6 @@ class CourrierEdit extends Component
 
         $this->updateMode = true;
         $courriers = courrier::find($id);
-
         $this->state = [
             'id' => $courriers->id,
             'courrier_libele' => $courriers->courrier_libele,

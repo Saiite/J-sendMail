@@ -1,5 +1,5 @@
 <div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
-    <div class="card-body bg-gray-800 text-white pt-4">
+    {{-- <div class="card-body bg-gray-800 text-white pt-4">
         <button type="button" class="btn-close theme-settings-close" aria-label="Close" data-bs-toggle="collapse"
             href="#theme-settings" role="button" aria-expanded="false" aria-controls="theme-settings"></button>
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -8,8 +8,8 @@
                 data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star"
                 data-size="large" data-show-count="true"
                 aria-label="Star themesberg/volt-bootstrap-5-dashboard on GitHub">Star</a>
-        </div>
-        <a href="#" target="_blank"
+        </div> --}}
+        {{-- <a href="#" target="_blank"
             class="btn btn-secondary d-inline-flex align-items-center justify-content-center mb-3 w-100">
 
             <svg class="icon icon-xs ms-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@
             </a>
             <a href="#" target="_blank">
                 <img src="/assets/img/technologies/react-logo.svg" class="image image-xs">
-            </a>
+            </a> --}}
         </div>
     </div>
 </div>
@@ -45,9 +45,9 @@
 <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
     <div class="row">
         <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
-            <p class="mb-0 text-center text-lg-start">© 2022-<span class="current-year"></span> <a
+            <p class="mb-0 text-center text-lg-start">2022-<span class="current-year"></span> <a
 
-                    class="text-primary fw-normal" href="#" target="_blank">J_sendmail
+                    class="text-primary fw-normal" href="#" target="_blank">JAINLI consulting
       </a></p>
         </div>
         <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">

@@ -102,7 +102,7 @@ foreach($this->permiss as $per){
              'first_name' => $users->first_name,
              'last_name' => $users->last_name,
              'email' => $users->email,
-             'poste_id' => $users->poste_id,
+             'poste_id' => $users->poste->poste_libele,
             'password' =>  $users->password,
          ];
          $var=userPermission::where('user_id',$id)->select('permission_id')->get();
@@ -125,10 +125,10 @@ foreach($this->permiss as $per){
 
     public function render()
     {
-        $per=permission::all();
+        $per=permission::where( 'id','<>',23)->get();
          $user= $this->state['id'];
 
-        return view('livewire.view-details',compact('per'))->with('permissions',$per)->with('user',$user);;
+        return view('livewire.view-details',compact('per'))->with('permissions',$per)->with('user',$user);
     }
 
 

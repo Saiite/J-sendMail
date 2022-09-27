@@ -30,11 +30,11 @@
             </div>
             @endif
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h5 mb-4">General information</h2>
+                <h2 class="h5 mb-4"> Informations Générales</h2>
                 <br>
-                <a class="dropdown-item" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Modifier le profil</a>
+                <a class="dropdown-item"style="float:rigth" href="{{ route('profile',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Modifier le profil</a>
+                <a class="dropdown-item"style="float:rigth" href="{{ route('modiffier-pwd',$this->user->id) }}"> <span class="fas fa-edit me-1"></span>Modifier password</a>
                 <br>
-
                 <form wire:submit.prevent="save" action="#" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -117,6 +117,8 @@
                                         </div>
 
                                     </form>
+                                </div>
+
                                 </div>
                             </div>
 

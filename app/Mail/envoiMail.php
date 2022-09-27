@@ -30,9 +30,9 @@ class envoiMail extends Mailable
      */
     public function build()
     {
-        
 
-        return $this->from("sendmail@jstockcash.com") // L'expéditeur
+
+        return $this->from("mailsend@jstockcash.com") // L'expéditeur
                     ->subject('login')    //SUJET
                     ->view('emails.envoiMail');
     }

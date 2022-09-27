@@ -52,6 +52,15 @@
                                 </div>
                             </div>
                             <div class="mb-4">
+                                 <label class="my-1 me-2" for="receptioniste">receptioniste</label>
+                                <select class="form-select" wire:model="state.receptioniste" id="receptioniste" aria-label="Default select example">
+                                    <option selected>selectionez ici</option>
+                                    <option> {{auth()->user()->email }} </option>
+
+                                </select>
+                                @error('receptioniste') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="mb-4">
                                 <a href="{{ route('emeteur-list') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
                                     <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                     Ajouter
@@ -114,4 +123,3 @@
         </div>
     </div>
     </div>
-

@@ -25,7 +25,6 @@ class CourrierShow extends Component
         $this->updateMode = false;
 
         redirect()->intended('/courrier-index');
-
     }
 
     public function render()

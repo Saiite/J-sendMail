@@ -14,11 +14,11 @@
                 <li class="breadcrumb-item active" aria-current="page">courrier-index</li>
             </ol>
         </nav>
-        <h2 class="h4">TOUS LES COURRIERS </h2>
+        <h2 class="h4">Tout les courriers </h2>
         <p class="mb-0"></p>
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="{{ route('courrier-list') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+        <a href="{{ route('courrier-create') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
             Nouveau courrier
         </a>
@@ -72,7 +72,6 @@
         </thead>
         <tbody>
             @foreach ($courr as $courrier)
-
             <!-- Item -->
             <tr>
                 <td>
@@ -83,7 +82,6 @@
                     <span class="fw-normal">{{$courrier->courrier_libele}}</span>
                 </td>
                 <td><span class="fw-normal">{{$courrier->courrier_date_arrive}}</span></td>
-
                 @if ($courrier->courrier_status=='enStok')
                 <td><span class="fw-bold text-danger">{{$courrier->courrier_status}}</span></td>
                 @elseif($courrier->courrier_status=='enCours')
@@ -94,7 +92,6 @@
                 <td><span class="fw-bold">{{$courrier->emeteur->emeteur_noms}}</span></td>
                 <td><span class="fw-bold">{{$courrier->user->first_name}}</span></td>
                 <td><span class="fw-normal">{{$courrier->emplacement->emplacement_noms}}</span></td>
-
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

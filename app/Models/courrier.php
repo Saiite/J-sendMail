@@ -12,6 +12,7 @@ class courrier extends Model
     protected $fillable = [
         'courrier_libele',
         'courrier_date_arrive',
+        'receptioniste',
         'emeteur_id',
         'user_id',
         'emplacement_id',

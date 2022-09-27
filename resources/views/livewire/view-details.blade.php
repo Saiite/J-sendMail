@@ -30,7 +30,7 @@
             </div>
             @endif
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h5 mb-4"> information générale</h2>
+                <h2 class="h5 mb-4"> Information générale</h2>
                 <br>
 
                 <br>
@@ -52,7 +52,6 @@
                                     placeholder="Also your last name" disabled>
                             </div>
                         </div>
-                    </div>
 
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
@@ -63,11 +62,21 @@
                             @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
 
+                        <div class="col-md-6 mb-3">
+
+                            <div class="form-group">
+                                <label for="poste">Poste </label>
+                                <input wire:model="state.poste_id" class="form-control" id="poste_id" type="poste_id" placeholder="hello" disabled>
+
+                            </div>
+                            @error('poste_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                        </div>
+
                         <div>
 
                            <button wire:click.prevent="cancel()" class="btn btn-danger">Cancel</button>
                        </div>
-
+                    </div>
             </div>
 </form>
              <div class="col-12 col-xl-4">

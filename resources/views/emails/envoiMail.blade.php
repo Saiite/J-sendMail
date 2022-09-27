@@ -21,9 +21,9 @@
                       <h4 class="h4">vous coordonnez de connexion pour le login sont les suivants:</h4>
                       <h4 class="h4"><strong>email</strong>:  {{$data['email']}}</h4>
                       <h4 class="h4"> <strong>password</strong>:  {{$data['password']}}</h4>
-            
-     
-                        
+
+
+
                       </div>
                       </div>
                   </div>

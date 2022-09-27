@@ -13,7 +13,7 @@ class poste extends Model
     ];
     public function users()
     {
-        return $this->hasMany(User::class, 'poste_id');
+        return $this->hasMany(User::class,'poste_id');
     }
 
 

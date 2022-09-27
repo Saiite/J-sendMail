@@ -6,6 +6,7 @@
         <span class="sidebar-icon me-3">
         </span>
         <span class="mt-1 ms-1 sidebar-text">
+
          J-SENDMAIL
         </span>
       </a>

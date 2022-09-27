@@ -1,5 +1,5 @@
 <div>
-    <title>J-SENDMAIL- modification d'un courrier</title>
+    <title> Modification d'un courrier</title>
     <div class="py-4">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -8,18 +8,16 @@
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Volt</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Forms</li>
+                <li class="breadcrumb-item"><a href="#">J-sendmail</a></li>
+                <li class="breadcrumb-item active" aria-current="page">courrier/id/edit</li>
             </ol>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">courrier</h1>
-                <p class="mb-0">Dozens of reusable components built to provide buttons, alerts, popovers, and more.</p>
+                <h1 class="h4">Modifier un courrier</h1>
+
             </div>
-            <div>
-                <a href="/documentation/components/forms/index.html" class="btn btn-outline-gray" target="_blank"><i class="far fa-question-circle me-1"></i> Forms Docs</a>
-            </div>
+
         </div>
     </div>
     <div class="row">
@@ -31,7 +29,7 @@
                             <!-- Form -->
                <form wire:submit.prevent="mount" action="#" method="POST">
                             <div class="mb-4">
-                                <label for="courrier_libele">libele du courrier</label>
+                                <label for="courrier_libele">libelle du courrier</label>
                                 <input type="text" class="form-control"  wire:model="state.courrier_libele" id="courrier_libele" aria-describedby="courrier_libele"  value="{{old('courrier_libele')}}"placeholder="libele" required >
                                 <small id="courrier_libele" class="form-text text-muted">donnez un noms explicite.</small>
                               </div>
@@ -65,7 +63,7 @@
                                 <select class="form-select" wire:model="state.user_id" id="user_id" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
                                  @foreach ($dest as $value)
-                                    <option value="{{$value->id}}">{{$value->email}}</option>
+                                    <option value="{{$value->id}}">{{$value->first_name}}</option>
                                   @endforeach
                                 </select>
                             </div>

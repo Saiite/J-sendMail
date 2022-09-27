@@ -30,7 +30,7 @@ class Messagedestoké extends Mailable
     public function build()
     {
 
-        return $this->from("sendmail@jstockcash.com") // L'expéditeur
+        return $this->from("mailsend@jstockcash.com") // L'expéditeur
                     ->subject('courrier destocké')    //SUJET
                     ->view('emails.Messagedestoké')
 ; // La vue
