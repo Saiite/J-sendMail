@@ -25,7 +25,7 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="../../assets/img/brand/light2.PNG" sizes="280x280">
-    <link rel="icon" href="../../assets/img/brand/light2.PNG" sizes="50x50" type="image/PNG">
+    <link rel="icon" href="../../assets/img/brand/light2.PNG" height="500" width="500"  sizes="50x50" type="image/PNG">
     <link rel="icon" href="../../assets/img/brand/light2.PNG" sizes="30x30" type="image/PNG">
 
     <link rel="mask-icon" href="../../assets/img/brand/light2.PNG" color="#563d7c">

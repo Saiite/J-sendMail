@@ -82,7 +82,7 @@
                             <!-- Form -->
                         </div>
                     </div>
-                    <div class="row mb-5 mb-lg-5">
+                    <div class="row mb-5 mb-lg-5"style="float:rigth">
                         <div class="col-lg-3 col-md-6">
                             <button class="btn btn-primary" type="submit"value="Ok"  wire:click.prevent= "update">envoyer</button>
                             <!-- Checkboxes -->
