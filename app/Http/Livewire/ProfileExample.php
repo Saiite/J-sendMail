@@ -66,7 +66,9 @@ class ProfileExample extends Component
         $this->user = auth()->user();
          $Poste = poste::where('id',$this->user->id)->first();
          $this->postes= poste::all();
-         $this->images=Image::all();
+         $img = $this->images=Image::all();
+
+        //  dd( $img );
     }
 
 
@@ -121,7 +123,9 @@ class ProfileExample extends Component
 
     public function render()
     {
-        $this->images=Image::all();
+       $img = $this->images=Image::all();
+
+    //    dd( $img );
         $this->postes= poste::all();
         $this->users = User::all();
         return view('livewire.profile-example');

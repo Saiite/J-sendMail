@@ -5,6 +5,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Route;
 use App\Models\emeteur;
+use App\Models\courrier;
 
 class EmeteurEdit extends Component
 {
@@ -44,7 +45,7 @@ class EmeteurEdit extends Component
            $this->updateMode = false;
            $this->reset('state');
            $this->Emeteur = emeteur::all();
-           redirect()->intended('/emeteur-index')->with('message', 'emeteur modifié avec succès.');
+           redirect()->intended('/emetteur-index')->with('message', 'emeteur modifié avec succès.');
        }
    }
    public function mount($id)
