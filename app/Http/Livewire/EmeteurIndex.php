@@ -20,4 +20,20 @@ class EmeteurIndex extends Component
         })->orderByRaw('id DESC')->paginate(5);
         return view('livewire.emeteur-index',compact('emet'));
     }
+
+    
+    public function delete($id)
+{
+    if($id){
+        if($id==1){
+            redirect()->intended('/emetteur-index');
+            // session()->flash('messag', 'vous ne pouvez pas suprimer un cette emplacement');
+        }else{
+            emeteur::where('id',$id)->delete();
+            redirect()->intended('/emetteur-index');
+        session()->flash('message', 'emetteur supprimé avec succès .');
+        }
+
+    }
+}
 }

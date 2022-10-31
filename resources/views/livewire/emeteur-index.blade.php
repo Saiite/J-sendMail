@@ -91,6 +91,8 @@
                                 </button>
                                 <div class="dropdown-menu py-0">
                                     <a class="dropdown-item" href="{{ route('emeteur-edit', $emeteur->id) }}"> <span class="fas fa-edit me-2"></span>Edit</a>
+                                    <a class="dropdown-item text-danger rounded-bottom" href="#" wire:click.prevent="delete({{ $emeteur->id }})"> </span class="fas fa-trash-alt me-2"></span>Remove</a>
+
 
                                 </div>
                             </div>
